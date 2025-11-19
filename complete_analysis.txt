@@ -1,0 +1,1083 @@
+===== STATISTICS ===== 
+===============STATISTICS=======================
+Number of original packets transmitted by A:1000
+Number of retransmissions by A:571
+Number of data packets delivered to layer 5 at B:1000
+Number of ACK packets sent by B:1276
+Number of corrupted packets:246
+Ratio of lost packets:0.1141552511415525
+Ratio of corrupted packets:0.09754163362410785
+Average RTT:11.197510382581934
+Average communication time:27.23052067628992
+Throughput is:805.7820319385548
+Goodput is:463.77685079419336
+ 
+===== TIMEOUT EVENTS ===== 
+54:aTimerInterrupt(): called
+71:aTimerInterrupt(): called
+77:aTimerInterrupt(): called
+131:aTimerInterrupt(): called
+143:aTimerInterrupt(): called
+324:aTimerInterrupt(): called
+341:aTimerInterrupt(): called
+414:aTimerInterrupt(): called
+684:aTimerInterrupt(): called
+696:aTimerInterrupt(): called
+702:aTimerInterrupt(): called
+713:aTimerInterrupt(): called
+740:aTimerInterrupt(): called
+752:aTimerInterrupt(): called
+775:aTimerInterrupt(): called
+800:aTimerInterrupt(): called
+817:aTimerInterrupt(): called
+827:aTimerInterrupt(): called
+844:aTimerInterrupt(): called
+899:aTimerInterrupt(): called
+952:aTimerInterrupt(): called
+1008:aTimerInterrupt(): called
+1068:aTimerInterrupt(): called
+1106:aTimerInterrupt(): called
+1137:aTimerInterrupt(): called
+1209:aTimerInterrupt(): called
+1241:aTimerInterrupt(): called
+1269:aTimerInterrupt(): called
+1275:aTimerInterrupt(): called
+1314:aTimerInterrupt(): called
+1325:aTimerInterrupt(): called
+1402:aTimerInterrupt(): called
+1466:aTimerInterrupt(): called
+1512:aTimerInterrupt(): called
+1523:aTimerInterrupt(): called
+1545:aTimerInterrupt(): called
+1573:aTimerInterrupt(): called
+1616:aTimerInterrupt(): called
+1714:aTimerInterrupt(): called
+1726:aTimerInterrupt(): called
+1781:aTimerInterrupt(): called
+1836:aTimerInterrupt(): called
+1846:aTimerInterrupt(): called
+1852:aTimerInterrupt(): called
+1945:aTimerInterrupt(): called
+1951:aTimerInterrupt(): called
+1978:aTimerInterrupt(): called
+2030:aTimerInterrupt(): called
+2052:aTimerInterrupt(): called
+2279:aTimerInterrupt(): called
+2335:aTimerInterrupt(): called
+2366:aTimerInterrupt(): called
+2508:aTimerInterrupt(): called
+2525:aTimerInterrupt(): called
+2624:aTimerInterrupt(): called
+2661:aTimerInterrupt(): called
+2695:aTimerInterrupt(): called
+2701:aTimerInterrupt(): called
+2783:aTimerInterrupt(): called
+2880:aTimerInterrupt(): called
+2897:aTimerInterrupt(): called
+3012:aTimerInterrupt(): called
+3128:aTimerInterrupt(): called
+3154:aTimerInterrupt(): called
+3182:aTimerInterrupt(): called
+3346:aTimerInterrupt(): called
+3444:aTimerInterrupt(): called
+3454:aTimerInterrupt(): called
+3527:aTimerInterrupt(): called
+3566:aTimerInterrupt(): called
+3707:aTimerInterrupt(): called
+3719:aTimerInterrupt(): called
+3794:aTimerInterrupt(): called
+3811:aTimerInterrupt(): called
+3842:aTimerInterrupt(): called
+3881:aTimerInterrupt(): called
+3910:aTimerInterrupt(): called
+3960:aTimerInterrupt(): called
+4013:aTimerInterrupt(): called
+4069:aTimerInterrupt(): called
+4146:aTimerInterrupt(): called
+4162:aTimerInterrupt(): called
+4168:aTimerInterrupt(): called
+4174:aTimerInterrupt(): called
+4223:aTimerInterrupt(): called
+4255:aTimerInterrupt(): called
+4261:aTimerInterrupt(): called
+4267:aTimerInterrupt(): called
+4426:aTimerInterrupt(): called
+4459:aTimerInterrupt(): called
+4475:aTimerInterrupt(): called
+4485:aTimerInterrupt(): called
+4523:aTimerInterrupt(): called
+4556:aTimerInterrupt(): called
+4761:aTimerInterrupt(): called
+4858:aTimerInterrupt(): called
+4963:aTimerInterrupt(): called
+4988:aTimerInterrupt(): called
+5004:aTimerInterrupt(): called
+5016:aTimerInterrupt(): called
+5091:aTimerInterrupt(): called
+5097:aTimerInterrupt(): called
+5151:aTimerInterrupt(): called
+5251:aTimerInterrupt(): called
+5257:aTimerInterrupt(): called
+5284:aTimerInterrupt(): called
+5290:aTimerInterrupt(): called
+5340:aTimerInterrupt(): called
+5357:aTimerInterrupt(): called
+5417:aTimerInterrupt(): called
+5640:aTimerInterrupt(): called
+5736:aTimerInterrupt(): called
+5808:aTimerInterrupt(): called
+5905:aTimerInterrupt(): called
+5922:aTimerInterrupt(): called
+5955:aTimerInterrupt(): called
+5961:aTimerInterrupt(): called
+6065:aTimerInterrupt(): called
+6086:aTimerInterrupt(): called
+6105:aTimerInterrupt(): called
+6161:aTimerInterrupt(): called
+6177:aTimerInterrupt(): called
+6188:aTimerInterrupt(): called
+6241:aTimerInterrupt(): called
+6271:aTimerInterrupt(): called
+6305:aTimerInterrupt(): called
+6378:aTimerInterrupt(): called
+6472:aTimerInterrupt(): called
+6512:aTimerInterrupt(): called
+6546:aTimerInterrupt(): called
+6639:aTimerInterrupt(): called
+6742:aTimerInterrupt(): called
+6802:aTimerInterrupt(): called
+6835:aTimerInterrupt(): called
+6846:aTimerInterrupt(): called
+6989:aTimerInterrupt(): called
+7005:aTimerInterrupt(): called
+7031:aTimerInterrupt(): called
+7047:aTimerInterrupt(): called
+7212:aTimerInterrupt(): called
+7250:aTimerInterrupt(): called
+7305:aTimerInterrupt(): called
+7360:aTimerInterrupt(): called
+7453:aTimerInterrupt(): called
+7465:aTimerInterrupt(): called
+7525:aTimerInterrupt(): called
+7531:aTimerInterrupt(): called
+7537:aTimerInterrupt(): called
+7548:aTimerInterrupt(): called
+7641:aTimerInterrupt(): called
+7719:aTimerInterrupt(): called
+7757:aTimerInterrupt(): called
+7773:aTimerInterrupt(): called
+7888:aTimerInterrupt(): called
+7981:aTimerInterrupt(): called
+8057:aTimerInterrupt(): called
+8113:aTimerInterrupt(): called
+8146:aTimerInterrupt(): called
+8173:aTimerInterrupt(): called
+8190:aTimerInterrupt(): called
+8228:aTimerInterrupt(): called
+8234:aTimerInterrupt(): called
+8397:aTimerInterrupt(): called
+8523:aTimerInterrupt(): called
+8533:aTimerInterrupt(): called
+8593:aTimerInterrupt(): called
+8599:aTimerInterrupt(): called
+8605:aTimerInterrupt(): called
+8632:aTimerInterrupt(): called
+8664:aTimerInterrupt(): called
+8784:aTimerInterrupt(): called
+8801:aTimerInterrupt(): called
+8920:aTimerInterrupt(): called
+8931:aTimerInterrupt(): called
+8969:aTimerInterrupt(): called
+9018:aTimerInterrupt(): called
+9050:aTimerInterrupt(): called
+9221:aTimerInterrupt(): called
+9292:aTimerInterrupt(): called
+9359:aTimerInterrupt(): called
+9376:aTimerInterrupt(): called
+9392:aTimerInterrupt(): called
+9464:aTimerInterrupt(): called
+9503:aTimerInterrupt(): called
+9798:aTimerInterrupt(): called
+9876:aTimerInterrupt(): called
+10002:aTimerInterrupt(): called
+10013:aTimerInterrupt(): called
+10046:aTimerInterrupt(): called
+10052:aTimerInterrupt(): called
+10058:aTimerInterrupt(): called
+10098:aTimerInterrupt(): called
+10151:aTimerInterrupt(): called
+10167:aTimerInterrupt(): called
+10202:aTimerInterrupt(): called
+10208:aTimerInterrupt(): called
+10224:aTimerInterrupt(): called
+10252:aTimerInterrupt(): called
+10263:aTimerInterrupt(): called
+10269:aTimerInterrupt(): called
+10502:aTimerInterrupt(): called
+10513:aTimerInterrupt(): called
+10551:aTimerInterrupt(): called
+10589:aTimerInterrupt(): called
+10600:aTimerInterrupt(): called
+10671:aTimerInterrupt(): called
+10703:aTimerInterrupt(): called
+10758:aTimerInterrupt(): called
+10807:aTimerInterrupt(): called
+10824:aTimerInterrupt(): called
+10899:aTimerInterrupt(): called
+10997:aTimerInterrupt(): called
+11203:aTimerInterrupt(): called
+11219:aTimerInterrupt(): called
+11273:aTimerInterrupt(): called
+11328:aTimerInterrupt(): called
+11403:aTimerInterrupt(): called
+11457:aTimerInterrupt(): called
+11543:aTimerInterrupt(): called
+11622:aTimerInterrupt(): called
+11734:aTimerInterrupt(): called
+11884:aTimerInterrupt(): called
+11900:aTimerInterrupt(): called
+11906:aTimerInterrupt(): called
+11961:aTimerInterrupt(): called
+12014:aTimerInterrupt(): called
+12020:aTimerInterrupt(): called
+12026:aTimerInterrupt(): called
+12219:aTimerInterrupt(): called
+12296:aTimerInterrupt(): called
+12345:aTimerInterrupt(): called
+12351:aTimerInterrupt(): called
+12357:aTimerInterrupt(): called
+12367:aTimerInterrupt(): called
+12401:aTimerInterrupt(): called
+12760:aTimerInterrupt(): called
+12766:aTimerInterrupt(): called
+12772:aTimerInterrupt(): called
+12806:aTimerInterrupt(): called
+12921:aTimerInterrupt(): called
+13056:aTimerInterrupt(): called
+13066:aTimerInterrupt(): called
+13072:aTimerInterrupt(): called
+13137:aTimerInterrupt(): called
+13143:aTimerInterrupt(): called
+13149:aTimerInterrupt(): called
+13224:aTimerInterrupt(): called
+13285:aTimerInterrupt(): called
+13470:aTimerInterrupt(): called
+13504:aTimerInterrupt(): called
+13510:aTimerInterrupt(): called
+13526:aTimerInterrupt(): called
+13553:aTimerInterrupt(): called
+13625:aTimerInterrupt(): called
+13681:aTimerInterrupt(): called
+13734:aTimerInterrupt(): called
+13746:aTimerInterrupt(): called
+13752:aTimerInterrupt(): called
+13851:aTimerInterrupt(): called
+13861:aTimerInterrupt(): called
+13888:aTimerInterrupt(): called
+13938:aTimerInterrupt(): called
+13990:aTimerInterrupt(): called
+14090:aTimerInterrupt(): called
+14145:aTimerInterrupt(): called
+14178:aTimerInterrupt(): called
+14193:aTimerInterrupt(): called
+14209:aTimerInterrupt(): called
+14309:aTimerInterrupt(): called
+14516:aTimerInterrupt(): called
+14522:aTimerInterrupt(): called
+14556:aTimerInterrupt(): called
+14631:aTimerInterrupt(): called
+14641:aTimerInterrupt(): called
+14867:aTimerInterrupt(): called
+15099:aTimerInterrupt(): called
+15198:aTimerInterrupt(): called
+15204:aTimerInterrupt(): called
+15352:aTimerInterrupt(): called
+15553:aTimerInterrupt(): called
+15565:aTimerInterrupt(): called
+15584:aTimerInterrupt(): called
+15677:aTimerInterrupt(): called
+15726:aTimerInterrupt(): called
+15743:aTimerInterrupt(): called
+15913:aTimerInterrupt(): called
+16017:aTimerInterrupt(): called
+16055:aTimerInterrupt(): called
+16132:aTimerInterrupt(): called
+16251:aTimerInterrupt(): called
+16257:aTimerInterrupt(): called
+16274:aTimerInterrupt(): called
+16371:aTimerInterrupt(): called
+16383:aTimerInterrupt(): called
+16487:aTimerInterrupt(): called
+16498:aTimerInterrupt(): called
+16633:aTimerInterrupt(): called
+16650:aTimerInterrupt(): called
+16656:aTimerInterrupt(): called
+16771:aTimerInterrupt(): called
+16805:aTimerInterrupt(): called
+16816:aTimerInterrupt(): called
+16849:aTimerInterrupt(): called
+16855:aTimerInterrupt(): called
+16888:aTimerInterrupt(): called
+16898:aTimerInterrupt(): called
+16925:aTimerInterrupt(): called
+16979:aTimerInterrupt(): called
+17050:aTimerInterrupt(): called
+17117:aTimerInterrupt(): called
+17134:aTimerInterrupt(): called
+17173:aTimerInterrupt(): called
+17184:aTimerInterrupt(): called
+17237:aTimerInterrupt(): called
+17247:aTimerInterrupt(): called
+17264:aTimerInterrupt(): called
+17274:aTimerInterrupt(): called
+17312:aTimerInterrupt(): called
+17323:aTimerInterrupt(): called
+17339:aTimerInterrupt(): called
+17414:aTimerInterrupt(): called
+17472:aTimerInterrupt(): called
+17502:aTimerInterrupt(): called
+17514:aTimerInterrupt(): called
+17530:aTimerInterrupt(): called
+17569:aTimerInterrupt(): called
+17602:aTimerInterrupt(): called
+17635:aTimerInterrupt(): called
+17710:aTimerInterrupt(): called
+17837:aTimerInterrupt(): called
+18068:aTimerInterrupt(): called
+18078:aTimerInterrupt(): called
+18109:aTimerInterrupt(): called
+18187:aTimerInterrupt(): called
+18214:aTimerInterrupt(): called
+18246:aTimerInterrupt(): called
+18455:aTimerInterrupt(): called
+18461:aTimerInterrupt(): called
+18471:aTimerInterrupt(): called
+18487:aTimerInterrupt(): called
+18493:aTimerInterrupt(): called
+18542:aTimerInterrupt(): called
+18548:aTimerInterrupt(): called
+18659:aTimerInterrupt(): called
+18676:aTimerInterrupt(): called
+18714:aTimerInterrupt(): called
+18827:aTimerInterrupt(): called
+18833:aTimerInterrupt(): called
+18894:aTimerInterrupt(): called
+19106:aTimerInterrupt(): called
+19144:aTimerInterrupt(): called
+19292:aTimerInterrupt(): called
+19325:aTimerInterrupt(): called
+19331:aTimerInterrupt(): called
+19347:aTimerInterrupt(): called
+19449:aTimerInterrupt(): called
+19466:aTimerInterrupt(): called
+19538:aTimerInterrupt(): called
+19588:aTimerInterrupt(): called
+19598:aTimerInterrupt(): called
+19676:aTimerInterrupt(): called
+19714:aTimerInterrupt(): called
+19730:aTimerInterrupt(): called
+19797:aTimerInterrupt(): called
+19816:aTimerInterrupt(): called
+19827:aTimerInterrupt(): called
+19837:aTimerInterrupt(): called
+19897:aTimerInterrupt(): called
+19928:aTimerInterrupt(): called
+19938:aTimerInterrupt(): called
+19950:aTimerInterrupt(): called
+19960:aTimerInterrupt(): called
+19976:aTimerInterrupt(): called
+20025:aTimerInterrupt(): called
+20064:aTimerInterrupt(): called
+20074:aTimerInterrupt(): called
+20107:aTimerInterrupt(): called
+20145:aTimerInterrupt(): called
+20227:aTimerInterrupt(): called
+20306:aTimerInterrupt(): called
+20316:aTimerInterrupt(): called
+20355:aTimerInterrupt(): called
+20404:aTimerInterrupt(): called
+20432:aTimerInterrupt(): called
+20526:aTimerInterrupt(): called
+20554:aTimerInterrupt(): called
+20582:aTimerInterrupt(): called
+20588:aTimerInterrupt(): called
+20680:aTimerInterrupt(): called
+20686:aTimerInterrupt(): called
+20725:aTimerInterrupt(): called
+20741:aTimerInterrupt(): called
+20747:aTimerInterrupt(): called
+21015:aTimerInterrupt(): called
+21068:aTimerInterrupt(): called
+21118:aTimerInterrupt(): called
+21270:aTimerInterrupt(): called
+21434:aTimerInterrupt(): called
+21451:aTimerInterrupt(): called
+21504:aTimerInterrupt(): called
+21626:aTimerInterrupt(): called
+21632:aTimerInterrupt(): called
+21800:aTimerInterrupt(): called
+21811:aTimerInterrupt(): called
+21817:aTimerInterrupt(): called
+21958:aTimerInterrupt(): called
+22012:aTimerInterrupt(): called
+22024:aTimerInterrupt(): called
+22055:aTimerInterrupt(): called
+22131:aTimerInterrupt(): called
+22170:aTimerInterrupt(): called
+22230:aTimerInterrupt(): called
+22301:aTimerInterrupt(): called
+22318:aTimerInterrupt(): called
+22399:aTimerInterrupt(): called
+22562:aTimerInterrupt(): called
+22568:aTimerInterrupt(): called
+22688:aTimerInterrupt(): called
+22826:aTimerInterrupt(): called
+22880:aTimerInterrupt(): called
+22930:aTimerInterrupt(): called
+23055:aTimerInterrupt(): called
+23132:aTimerInterrupt(): called
+23159:aTimerInterrupt(): called
+23165:aTimerInterrupt(): called
+23243:aTimerInterrupt(): called
+23253:aTimerInterrupt(): called
+23421:aTimerInterrupt(): called
+23481:aTimerInterrupt(): called
+23512:aTimerInterrupt(): called
+23610:aTimerInterrupt(): called
+23725:aTimerInterrupt(): called
+23760:aTimerInterrupt(): called
+23776:aTimerInterrupt(): called
+23799:aTimerInterrupt(): called
+23827:aTimerInterrupt(): called
+23922:aTimerInterrupt(): called
+23970:aTimerInterrupt(): called
+24108:aTimerInterrupt(): called
+24180:aTimerInterrupt(): called
+24190:aTimerInterrupt(): called
+24416:aTimerInterrupt(): called
+24488:aTimerInterrupt(): called
+24549:aTimerInterrupt(): called
+24582:aTimerInterrupt(): called
+24598:aTimerInterrupt(): called
+24625:aTimerInterrupt(): called
+24699:aTimerInterrupt(): called
+24797:aTimerInterrupt(): called
+24807:aTimerInterrupt(): called
+24854:aTimerInterrupt(): called
+24970:aTimerInterrupt(): called
+24987:aTimerInterrupt(): called
+25062:aTimerInterrupt(): called
+25074:aTimerInterrupt(): called
+25253:aTimerInterrupt(): called
+25263:aTimerInterrupt(): called
+25275:aTimerInterrupt(): called
+25285:aTimerInterrupt(): called
+25312:aTimerInterrupt(): called
+25329:aTimerInterrupt(): called
+25411:aTimerInterrupt(): called
+25510:aTimerInterrupt(): called
+25526:aTimerInterrupt(): called
+25647:aTimerInterrupt(): called
+25663:aTimerInterrupt(): called
+25733:aTimerInterrupt(): called
+25764:aTimerInterrupt(): called
+25770:aTimerInterrupt(): called
+25791:aTimerInterrupt(): called
+25807:aTimerInterrupt(): called
+25817:aTimerInterrupt(): called
+25829:aTimerInterrupt(): called
+25867:aTimerInterrupt(): called
+25938:aTimerInterrupt(): called
+25988:aTimerInterrupt(): called
+26064:aTimerInterrupt(): called
+26228:aTimerInterrupt(): called
+26327:aTimerInterrupt(): called
+26333:aTimerInterrupt(): called
+26415:aTimerInterrupt(): called
+26431:aTimerInterrupt(): called
+26437:aTimerInterrupt(): called
+26448:aTimerInterrupt(): called
+26464:aTimerInterrupt(): called
+26470:aTimerInterrupt(): called
+26497:aTimerInterrupt(): called
+26507:aTimerInterrupt(): called
+26517:aTimerInterrupt(): called
+26570:aTimerInterrupt(): called
+26576:aTimerInterrupt(): called
+26628:aTimerInterrupt(): called
+26669:aTimerInterrupt(): called
+26686:aTimerInterrupt(): called
+26698:aTimerInterrupt(): called
+26704:aTimerInterrupt(): called
+26735:aTimerInterrupt(): called
+26763:aTimerInterrupt(): called
+26824:aTimerInterrupt(): called
+26857:aTimerInterrupt(): called
+26863:aTimerInterrupt(): called
+26894:aTimerInterrupt(): called
+26904:aTimerInterrupt(): called
+26943:aTimerInterrupt(): called
+26949:aTimerInterrupt(): called
+27051:aTimerInterrupt(): called
+27082:aTimerInterrupt(): called
+27179:aTimerInterrupt(): called
+27207:aTimerInterrupt(): called
+27219:aTimerInterrupt(): called
+27235:aTimerInterrupt(): called
+27251:aTimerInterrupt(): called
+27261:aTimerInterrupt(): called
+27463:aTimerInterrupt(): called
+27518:aTimerInterrupt(): called
+27589:aTimerInterrupt(): called
+ 
+===== LOST PACKETS ===== 
+35:toLayer3: packet being lost
+73:toLayer3: packet being lost
+140:toLayer3: packet being lost
+318:toLayer3: packet being lost
+678:toLayer3: packet being lost
+693:toLayer3: packet being lost
+698:toLayer3: packet being lost
+710:toLayer3: packet being lost
+734:toLayer3: packet being lost
+749:toLayer3: packet being lost
+797:toLayer3: packet being lost
+896:toLayer3: packet being lost
+1005:toLayer3: packet being lost
+1203:toLayer3: packet being lost
+1263:toLayer3: packet being lost
+1271:toLayer3: packet being lost
+1322:toLayer3: packet being lost
+1399:toLayer3: packet being lost
+1454:toLayer3: packet being lost
+1509:toLayer3: packet being lost
+1520:toLayer3: packet being lost
+1575:toLayer3: packet being lost
+1723:toLayer3: packet being lost
+1778:toLayer3: packet being lost
+1833:toLayer3: packet being lost
+1848:toLayer3: packet being lost
+1939:toLayer3: packet being lost
+1947:toLayer3: packet being lost
+1960:toLayer3: packet being lost
+2027:toLayer3: packet being lost
+2332:toLayer3: packet being lost
+2621:toLayer3: packet being lost
+2626:toLayer3: packet being lost
+2655:toLayer3: packet being lost
+2692:toLayer3: packet being lost
+2697:toLayer3: packet being lost
+3006:toLayer3: packet being lost
+3122:toLayer3: packet being lost
+3146:toLayer3: packet being lost
+3176:toLayer3: packet being lost
+3436:toLayer3: packet being lost
+3716:toLayer3: packet being lost
+3954:toLayer3: packet being lost
+3962:toLayer3: packet being lost
+4066:toLayer3: packet being lost
+4143:toLayer3: packet being lost
+4164:toLayer3: packet being lost
+4170:toLayer3: packet being lost
+4217:toLayer3: packet being lost
+4257:toLayer3: packet being lost
+4263:toLayer3: packet being lost
+4329:toLayer3: packet being lost
+4423:toLayer3: packet being lost
+4456:toLayer3: packet being lost
+4553:toLayer3: packet being lost
+4758:toLayer3: packet being lost
+4985:toLayer3: packet being lost
+5013:toLayer3: packet being lost
+5093:toLayer3: packet being lost
+5248:toLayer3: packet being lost
+5253:toLayer3: packet being lost
+5278:toLayer3: packet being lost
+5286:toLayer3: packet being lost
+5334:toLayer3: packet being lost
+5626:toLayer3: packet being lost
+5802:toLayer3: packet being lost
+5899:toLayer3: packet being lost
+5952:toLayer3: packet being lost
+5957:toLayer3: packet being lost
+6073:toLayer3: packet being lost
+6158:toLayer3: packet being lost
+6185:toLayer3: packet being lost
+6302:toLayer3: packet being lost
+6466:toLayer3: packet being lost
+6481:toLayer3: packet being lost
+6490:toLayer3: packet being lost
+6543:toLayer3: packet being lost
+6633:toLayer3: packet being lost
+6739:toLayer3: packet being lost
+6832:toLayer3: packet being lost
+6843:toLayer3: packet being lost
+6986:toLayer3: packet being lost
+7013:toLayer3: packet being lost
+7028:toLayer3: packet being lost
+7209:toLayer3: packet being lost
+7302:toLayer3: packet being lost
+7357:toLayer3: packet being lost
+7447:toLayer3: packet being lost
+7462:toLayer3: packet being lost
+7527:toLayer3: packet being lost
+7533:toLayer3: packet being lost
+7545:toLayer3: packet being lost
+7635:toLayer3: packet being lost
+7716:toLayer3: packet being lost
+7882:toLayer3: packet being lost
+8110:toLayer3: packet being lost
+8143:toLayer3: packet being lost
+8167:toLayer3: packet being lost
+8230:toLayer3: packet being lost
+8485:toLayer3: packet being lost
+8595:toLayer3: packet being lost
+8601:toLayer3: packet being lost
+8626:toLayer3: packet being lost
+8917:toLayer3: packet being lost
+8928:toLayer3: packet being lost
+9012:toLayer3: packet being lost
+9286:toLayer3: packet being lost
+9458:toLayer3: packet being lost
+9873:toLayer3: packet being lost
+10010:toLayer3: packet being lost
+10043:toLayer3: packet being lost
+10048:toLayer3: packet being lost
+10054:toLayer3: packet being lost
+10147:toLayer3: packet being lost
+10199:toLayer3: packet being lost
+10204:toLayer3: packet being lost
+10260:toLayer3: packet being lost
+10265:toLayer3: packet being lost
+10499:toLayer3: packet being lost
+10510:toLayer3: packet being lost
+10597:toLayer3: packet being lost
+10665:toLayer3: packet being lost
+10695:toLayer3: packet being lost
+10755:toLayer3: packet being lost
+10801:toLayer3: packet being lost
+11270:toLayer3: packet being lost
+11325:toLayer3: packet being lost
+11523:toLayer3: packet being lost
+11552:toLayer3: packet being lost
+11616:toLayer3: packet being lost
+11814:toLayer3: packet being lost
+11902:toLayer3: packet being lost
+11958:toLayer3: packet being lost
+12016:toLayer3: packet being lost
+12022:toLayer3: packet being lost
+12293:toLayer3: packet being lost
+12339:toLayer3: packet being lost
+12347:toLayer3: packet being lost
+12353:toLayer3: packet being lost
+12398:toLayer3: packet being lost
+12762:toLayer3: packet being lost
+12768:toLayer3: packet being lost
+12803:toLayer3: packet being lost
+12915:toLayer3: packet being lost
+13050:toLayer3: packet being lost
+13068:toLayer3: packet being lost
+13134:toLayer3: packet being lost
+13139:toLayer3: packet being lost
+13145:toLayer3: packet being lost
+13501:toLayer3: packet being lost
+13506:toLayer3: packet being lost
+13547:toLayer3: packet being lost
+13619:toLayer3: packet being lost
+13678:toLayer3: packet being lost
+13743:toLayer3: packet being lost
+13748:toLayer3: packet being lost
+13848:toLayer3: packet being lost
+13882:toLayer3: packet being lost
+13932:toLayer3: packet being lost
+14087:toLayer3: packet being lost
+14142:toLayer3: packet being lost
+14175:toLayer3: packet being lost
+14180:toLayer3: packet being lost
+14190:toLayer3: packet being lost
+14306:toLayer3: packet being lost
+14518:toLayer3: packet being lost
+14553:toLayer3: packet being lost
+15096:toLayer3: packet being lost
+15195:toLayer3: packet being lost
+15200:toLayer3: packet being lost
+15547:toLayer3: packet being lost
+15562:toLayer3: packet being lost
+15720:toLayer3: packet being lost
+16129:toLayer3: packet being lost
+16253:toLayer3: packet being lost
+16380:toLayer3: packet being lost
+16495:toLayer3: packet being lost
+16627:toLayer3: packet being lost
+16652:toLayer3: packet being lost
+16765:toLayer3: packet being lost
+16802:toLayer3: packet being lost
+16813:toLayer3: packet being lost
+16846:toLayer3: packet being lost
+16851:toLayer3: packet being lost
+16885:toLayer3: packet being lost
+16919:toLayer3: packet being lost
+16976:toLayer3: packet being lost
+17044:toLayer3: packet being lost
+17181:toLayer3: packet being lost
+17320:toLayer3: packet being lost
+17411:toLayer3: packet being lost
+17457:toLayer3: packet being lost
+17469:toLayer3: packet being lost
+17511:toLayer3: packet being lost
+17599:toLayer3: packet being lost
+17632:toLayer3: packet being lost
+18065:toLayer3: packet being lost
+18184:toLayer3: packet being lost
+18208:toLayer3: packet being lost
+18334:toLayer3: packet being lost
+18452:toLayer3: packet being lost
+18457:toLayer3: packet being lost
+18489:toLayer3: packet being lost
+18536:toLayer3: packet being lost
+18544:toLayer3: packet being lost
+18625:toLayer3: packet being lost
+18813:toLayer3: packet being lost
+18829:toLayer3: packet being lost
+19322:toLayer3: packet being lost
+19327:toLayer3: packet being lost
+19434:toLayer3: packet being lost
+19446:toLayer3: packet being lost
+19532:toLayer3: packet being lost
+19582:toLayer3: packet being lost
+19673:toLayer3: packet being lost
+19806:toLayer3: packet being lost
+19813:toLayer3: packet being lost
+19824:toLayer3: packet being lost
+19947:toLayer3: packet being lost
+20019:toLayer3: packet being lost
+20104:toLayer3: packet being lost
+20229:toLayer3: packet being lost
+20300:toLayer3: packet being lost
+20398:toLayer3: packet being lost
+20426:toLayer3: packet being lost
+20520:toLayer3: packet being lost
+20548:toLayer3: packet being lost
+20576:toLayer3: packet being lost
+20584:toLayer3: packet being lost
+20674:toLayer3: packet being lost
+20682:toLayer3: packet being lost
+20743:toLayer3: packet being lost
+20755:toLayer3: packet being lost
+21012:toLayer3: packet being lost
+21112:toLayer3: packet being lost
+21250:toLayer3: packet being lost
+21267:toLayer3: packet being lost
+21623:toLayer3: packet being lost
+21628:toLayer3: packet being lost
+21808:toLayer3: packet being lost
+21813:toLayer3: packet being lost
+22021:toLayer3: packet being lost
+22295:toLayer3: packet being lost
+22361:toLayer3: packet being lost
+22564:toLayer3: packet being lost
+22820:toLayer3: packet being lost
+22924:toLayer3: packet being lost
+23129:toLayer3: packet being lost
+23153:toLayer3: packet being lost
+23161:toLayer3: packet being lost
+23240:toLayer3: packet being lost
+23707:toLayer3: packet being lost
+23756:toLayer3: packet being lost
+23796:toLayer3: packet being lost
+23919:toLayer3: packet being lost
+23930:toLayer3: packet being lost
+24102:toLayer3: packet being lost
+24174:toLayer3: packet being lost
+24410:toLayer3: packet being lost
+24482:toLayer3: packet being lost
+24579:toLayer3: packet being lost
+24619:toLayer3: packet being lost
+24829:toLayer3: packet being lost
+24964:toLayer3: packet being lost
+25071:toLayer3: packet being lost
+25247:toLayer3: packet being lost
+25272:toLayer3: packet being lost
+25306:toLayer3: packet being lost
+25507:toLayer3: packet being lost
+25644:toLayer3: packet being lost
+25702:toLayer3: packet being lost
+25730:toLayer3: packet being lost
+25766:toLayer3: packet being lost
+25779:toLayer3: packet being lost
+25788:toLayer3: packet being lost
+25826:toLayer3: packet being lost
+25932:toLayer3: packet being lost
+25982:toLayer3: packet being lost
+26225:toLayer3: packet being lost
+26324:toLayer3: packet being lost
+26329:toLayer3: packet being lost
+26433:toLayer3: packet being lost
+26445:toLayer3: packet being lost
+26466:toLayer3: packet being lost
+26491:toLayer3: packet being lost
+26539:toLayer3: packet being lost
+26572:toLayer3: packet being lost
+26666:toLayer3: packet being lost
+26695:toLayer3: packet being lost
+26700:toLayer3: packet being lost
+26757:toLayer3: packet being lost
+26854:toLayer3: packet being lost
+26859:toLayer3: packet being lost
+26945:toLayer3: packet being lost
+27048:toLayer3: packet being lost
+27173:toLayer3: packet being lost
+27201:toLayer3: packet being lost
+27216:toLayer3: packet being lost
+27366:toLayer3: packet being lost
+27460:toLayer3: packet being lost
+27515:toLayer3: packet being lost
+27583:toLayer3: packet being lost
+ 
+===== CORRUPTED PACKETS ===== 
+47:toLayer3: packet being corrupted
+121:toLayer3: packet being corrupted
+333:toLayer3: packet being corrupted
+402:toLayer3: packet being corrupted
+754:toLayer3: packet being corrupted
+765:toLayer3: packet being corrupted
+819:toLayer3: packet being corrupted
+836:toLayer3: packet being corrupted
+942:toLayer3: packet being corrupted
+1060:toLayer3: packet being corrupted
+1098:toLayer3: packet being corrupted
+1127:toLayer3: packet being corrupted
+1231:toLayer3: packet being corrupted
+1306:toLayer3: packet being corrupted
+1537:toLayer3: packet being corrupted
+1565:toLayer3: packet being corrupted
+1606:toLayer3: packet being corrupted
+1704:toLayer3: packet being corrupted
+1838:toLayer3: packet being corrupted
+2044:toLayer3: packet being corrupted
+2100:toLayer3: packet being corrupted
+2269:toLayer3: packet being corrupted
+2356:toLayer3: packet being corrupted
+2498:toLayer3: packet being corrupted
+2517:toLayer3: packet being corrupted
+2775:toLayer3: packet being corrupted
+2870:toLayer3: packet being corrupted
+2889:toLayer3: packet being corrupted
+3336:toLayer3: packet being corrupted
+3446:toLayer3: packet being corrupted
+3515:toLayer3: packet being corrupted
+3558:toLayer3: packet being corrupted
+3697:toLayer3: packet being corrupted
+3784:toLayer3: packet being corrupted
+3803:toLayer3: packet being corrupted
+3832:toLayer3: packet being corrupted
+3873:toLayer3: packet being corrupted
+3898:toLayer3: packet being corrupted
+4003:toLayer3: packet being corrupted
+4154:toLayer3: packet being corrupted
+4245:toLayer3: packet being corrupted
+4467:toLayer3: packet being corrupted
+4477:toLayer3: packet being corrupted
+4515:toLayer3: packet being corrupted
+4848:toLayer3: packet being corrupted
+4955:toLayer3: packet being corrupted
+4971:toLayer3: packet being corrupted
+5081:toLayer3: packet being corrupted
+5141:toLayer3: packet being corrupted
+5349:toLayer3: packet being corrupted
+5409:toLayer3: packet being corrupted
+5726:toLayer3: packet being corrupted
+5852:toLayer3: packet being corrupted
+5914:toLayer3: packet being corrupted
+6057:toLayer3: packet being corrupted
+6082:toLayer3: packet being corrupted
+6169:toLayer3: packet being corrupted
+6231:toLayer3: packet being corrupted
+6253:toLayer3: packet being corrupted
+6368:toLayer3: packet being corrupted
+6641:toLayer3: packet being corrupted
+6794:toLayer3: packet being corrupted
+6997:toLayer3: packet being corrupted
+7039:toLayer3: packet being corrupted
+7242:toLayer3: packet being corrupted
+7517:toLayer3: packet being corrupted
+7749:toLayer3: packet being corrupted
+7765:toLayer3: packet being corrupted
+7944:toLayer3: packet being corrupted
+7960:toLayer3: packet being corrupted
+8047:toLayer3: packet being corrupted
+8182:toLayer3: packet being corrupted
+8220:toLayer3: packet being corrupted
+8387:toLayer3: packet being corrupted
+8515:toLayer3: packet being corrupted
+8525:toLayer3: packet being corrupted
+8585:toLayer3: packet being corrupted
+8654:toLayer3: packet being corrupted
+8774:toLayer3: packet being corrupted
+8793:toLayer3: packet being corrupted
+8961:toLayer3: packet being corrupted
+9040:toLayer3: packet being corrupted
+9213:toLayer3: packet being corrupted
+9336:toLayer3: packet being corrupted
+9352:toLayer3: packet being corrupted
+9368:toLayer3: packet being corrupted
+9495:toLayer3: packet being corrupted
+9788:toLayer3: packet being corrupted
+9994:toLayer3: packet being corrupted
+10079:toLayer3: packet being corrupted
+10159:toLayer3: packet being corrupted
+10216:toLayer3: packet being corrupted
+10244:toLayer3: packet being corrupted
+10367:toLayer3: packet being corrupted
+10543:toLayer3: packet being corrupted
+10581:toLayer3: packet being corrupted
+10816:toLayer3: packet being corrupted
+10889:toLayer3: packet being corrupted
+10987:toLayer3: packet being corrupted
+11182:toLayer3: packet being corrupted
+11196:toLayer3: packet being corrupted
+11393:toLayer3: packet being corrupted
+11447:toLayer3: packet being corrupted
+11710:toLayer3: packet being corrupted
+11876:toLayer3: packet being corrupted
+11892:toLayer3: packet being corrupted
+12004:toLayer3: packet being corrupted
+12211:toLayer3: packet being corrupted
+12359:toLayer3: packet being corrupted
+12750:toLayer3: packet being corrupted
+13043:toLayer3: packet being corrupted
+13058:toLayer3: packet being corrupted
+13214:toLayer3: packet being corrupted
+13277:toLayer3: packet being corrupted
+13460:toLayer3: packet being corrupted
+13518:toLayer3: packet being corrupted
+13724:toLayer3: packet being corrupted
+13853:toLayer3: packet being corrupted
+13978:toLayer3: packet being corrupted
+14506:toLayer3: packet being corrupted
+14621:toLayer3: packet being corrupted
+14633:toLayer3: packet being corrupted
+14857:toLayer3: packet being corrupted
+15344:toLayer3: packet being corrupted
+15567:toLayer3: packet being corrupted
+15593:toLayer3: packet being corrupted
+15669:toLayer3: packet being corrupted
+15735:toLayer3: packet being corrupted
+15905:toLayer3: packet being corrupted
+16009:toLayer3: packet being corrupted
+16047:toLayer3: packet being corrupted
+16241:toLayer3: packet being corrupted
+16266:toLayer3: packet being corrupted
+16361:toLayer3: packet being corrupted
+16479:toLayer3: packet being corrupted
+16642:toLayer3: packet being corrupted
+16890:toLayer3: packet being corrupted
+17094:toLayer3: packet being corrupted
+17110:toLayer3: packet being corrupted
+17165:toLayer3: packet being corrupted
+17227:toLayer3: packet being corrupted
+17239:toLayer3: packet being corrupted
+17256:toLayer3: packet being corrupted
+17266:toLayer3: packet being corrupted
+17304:toLayer3: packet being corrupted
+17331:toLayer3: packet being corrupted
+17391:toLayer3: packet being corrupted
+17495:toLayer3: packet being corrupted
+17561:toLayer3: packet being corrupted
+17700:toLayer3: packet being corrupted
+17829:toLayer3: packet being corrupted
+18070:toLayer3: packet being corrupted
+18099:toLayer3: packet being corrupted
+18236:toLayer3: packet being corrupted
+18463:toLayer3: packet being corrupted
+18479:toLayer3: packet being corrupted
+18649:toLayer3: packet being corrupted
+18668:toLayer3: packet being corrupted
+18706:toLayer3: packet being corrupted
+18886:toLayer3: packet being corrupted
+19098:toLayer3: packet being corrupted
+19136:toLayer3: packet being corrupted
+19284:toLayer3: packet being corrupted
+19339:toLayer3: packet being corrupted
+19590:toLayer3: packet being corrupted
+19706:toLayer3: packet being corrupted
+19722:toLayer3: packet being corrupted
+19773:toLayer3: packet being corrupted
+19829:toLayer3: packet being corrupted
+19889:toLayer3: packet being corrupted
+19918:toLayer3: packet being corrupted
+19930:toLayer3: packet being corrupted
+19952:toLayer3: packet being corrupted
+19968:toLayer3: packet being corrupted
+20056:toLayer3: packet being corrupted
+20066:toLayer3: packet being corrupted
+20137:toLayer3: packet being corrupted
+20219:toLayer3: packet being corrupted
+20267:toLayer3: packet being corrupted
+20308:toLayer3: packet being corrupted
+20347:toLayer3: packet being corrupted
+20717:toLayer3: packet being corrupted
+20733:toLayer3: packet being corrupted
+21058:toLayer3: packet being corrupted
+21424:toLayer3: packet being corrupted
+21443:toLayer3: packet being corrupted
+21494:toLayer3: packet being corrupted
+21792:toLayer3: packet being corrupted
+21948:toLayer3: packet being corrupted
+22002:toLayer3: packet being corrupted
+22045:toLayer3: packet being corrupted
+22121:toLayer3: packet being corrupted
+22162:toLayer3: packet being corrupted
+22222:toLayer3: packet being corrupted
+22310:toLayer3: packet being corrupted
+22391:toLayer3: packet being corrupted
+22552:toLayer3: packet being corrupted
+22678:toLayer3: packet being corrupted
+22870:toLayer3: packet being corrupted
+23047:toLayer3: packet being corrupted
+23245:toLayer3: packet being corrupted
+23413:toLayer3: packet being corrupted
+23473:toLayer3: packet being corrupted
+23502:toLayer3: packet being corrupted
+23600:toLayer3: packet being corrupted
+23768:toLayer3: packet being corrupted
+23819:toLayer3: packet being corrupted
+23960:toLayer3: packet being corrupted
+24182:toLayer3: packet being corrupted
+24541:toLayer3: packet being corrupted
+24590:toLayer3: packet being corrupted
+24689:toLayer3: packet being corrupted
+24787:toLayer3: packet being corrupted
+24799:toLayer3: packet being corrupted
+24846:toLayer3: packet being corrupted
+24979:toLayer3: packet being corrupted
+25052:toLayer3: packet being corrupted
+25255:toLayer3: packet being corrupted
+25277:toLayer3: packet being corrupted
+25321:toLayer3: packet being corrupted
+25403:toLayer3: packet being corrupted
+25518:toLayer3: packet being corrupted
+25655:toLayer3: packet being corrupted
+25754:toLayer3: packet being corrupted
+25809:toLayer3: packet being corrupted
+25859:toLayer3: packet being corrupted
+26054:toLayer3: packet being corrupted
+26407:toLayer3: packet being corrupted
+26423:toLayer3: packet being corrupted
+26456:toLayer3: packet being corrupted
+26499:toLayer3: packet being corrupted
+26509:toLayer3: packet being corrupted
+26562:toLayer3: packet being corrupted
+26616:toLayer3: packet being corrupted
+26650:toLayer3: packet being corrupted
+26725:toLayer3: packet being corrupted
+26816:toLayer3: packet being corrupted
+26884:toLayer3: packet being corrupted
+26896:toLayer3: packet being corrupted
+26935:toLayer3: packet being corrupted
+26992:toLayer3: packet being corrupted
+27072:toLayer3: packet being corrupted
+27126:toLayer3: packet being corrupted
+27227:toLayer3: packet being corrupted
+27243:toLayer3: packet being corrupted
+27253:toLayer3: packet being corrupted

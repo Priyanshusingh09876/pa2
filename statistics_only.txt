@@ -1,0 +1,12 @@
+===============STATISTICS=======================
+Number of original packets transmitted by A:1000
+Number of retransmissions by A:571
+Number of data packets delivered to layer 5 at B:1000
+Number of ACK packets sent by B:1276
+Number of corrupted packets:246
+Ratio of lost packets:0.1141552511415525
+Ratio of corrupted packets:0.09754163362410785
+Average RTT:11.197510382581934
+Average communication time:27.23052067628992
+Throughput is:805.7820319385548
+Goodput is:463.77685079419336
