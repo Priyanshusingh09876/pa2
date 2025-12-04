@@ -1,0 +1,3374 @@
+-- * Network Simulator v1.0 * --
+Enter number of messages to simulate (> 0): [10] Enter packet loss probability (0.0 for no loss): [0.0] Enter packet corruption probability (0.0 for no corruption): [0.0] Enter average time between messages from sender's layer 5 (> 0.0): [1000] Enter window size (> 0): [8] Enter retransmission timeout (>0.0) [15.0] Enter trace level (>= 0): [0] Enter random seed: [0] Protocol: Go-Back-N with SACK (Window Size = 16)
+A_init: Protocol mode = GBN with SACK
+A_init: Window size = 16
+B_init: Expecting first packet with seqnum = 0
+
+EVENT time: 43.4339426862392  type: 1  entity: 0
+A_output: got message from layer 5: aaaaaaaaaaaaaaaaaaaa
+GBN A_output: sent packet 0
+
+EVENT time: 45.66060365611743  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 1939  payload: aaaaaaaaaaaaaaaaaaaa  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 1
+GBN B_input: sent ACK for 0 with 
+
+EVENT time: 47.569475386822106  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 0  checksum: 65535  payload:   sack: [-1, -1, -1, -1, -1]
+
+EVENT time: 67.36045411542099  type: 1  entity: 0
+A_output: got message from layer 5: bbbbbbbbbbbbbbbbbbbb
+toLayer3: packet being corrupted
+GBN A_output: sent packet 1
+
+EVENT time: 68.78865932187871  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 1960  payload: ?bbbbbbbbbbbbbbbbbbb  sack: [-1, -1, -1, -1, -1]
+B_input: packet corrupted
+B_input: sent duplicate ACK for 0
+
+EVENT time: 70.75603503524887  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 0  checksum: 65535  payload:   sack: [-1, -1, -1, -1, -1]
+GBN A_input: retransmitting unSACKed packet 1
+
+EVENT time: 75.43739127780998  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 1960  payload: bbbbbbbbbbbbbbbbbbbb  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 2
+GBN B_input: sent ACK for 1 with 
+
+EVENT time: 79.10687582018492  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 1  checksum: 0  payload:   sack: [-1, -1, -1, -1, -1]
+
+EVENT time: 83.31553086947233  type: 1  entity: 0
+A_output: got message from layer 5: cccccccccccccccccccc
+GBN A_output: sent packet 2
+
+EVENT time: 86.29367961668751  type: 2  entity: 1
+B_input: got packet seqnum: 2  acknum: -1  checksum: 1981  payload: cccccccccccccccccccc  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 3
+GBN B_input: sent ACK for 2 with 
+
+EVENT time: 94.63029877620777  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 2  checksum: 1  payload:   sack: [-1, -1, -1, -1, -1]
+
+EVENT time: 238.65474410229803  type: 1  entity: 0
+A_output: got message from layer 5: dddddddddddddddddddd
+GBN A_output: sent packet 3
+
+EVENT time: 245.4675130466628  type: 2  entity: 1
+B_input: got packet seqnum: 3  acknum: -1  checksum: 2002  payload: dddddddddddddddddddd  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 4
+toLayer3: packet being corrupted
+GBN B_input: sent ACK for 3 with 
+
+EVENT time: 248.00180059205908  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 3  checksum: 2  payload: ?  sack: [-1, -1, -1, -1, -1]
+A_input: packet corrupted
+
+EVENT time: 268.654744102298  type: 0  entity: 0
+A_timerinterrupt: timer expired
+GBN timeout: retransmitting packet 3
+
+EVENT time: 274.9099398785363  type: 2  entity: 1
+B_input: got packet seqnum: 3  acknum: -1  checksum: 2002  payload: dddddddddddddddddddd  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 3 with 
+
+EVENT time: 275.9673451948607  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 3  checksum: 2  payload:   sack: [-1, -1, -1, -1, -1]
+
+EVENT time: 529.581591235084  type: 1  entity: 0
+A_output: got message from layer 5: eeeeeeeeeeeeeeeeeeee
+GBN A_output: sent packet 4
+
+EVENT time: 533.6595049897762  type: 2  entity: 1
+B_input: got packet seqnum: 4  acknum: -1  checksum: 2023  payload: eeeeeeeeeeeeeeeeeeee  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 5
+GBN B_input: sent ACK for 4 with 
+
+EVENT time: 535.8993499557481  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 4  checksum: 3  payload:   sack: [-1, -1, -1, -1, -1]
+
+EVENT time: 924.1126743369853  type: 1  entity: 0
+A_output: got message from layer 5: ffffffffffffffffffff
+GBN A_output: sent packet 5
+
+EVENT time: 932.0246589556565  type: 2  entity: 1
+B_input: got packet seqnum: 5  acknum: -1  checksum: 2044  payload: ffffffffffffffffffff  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 6
+GBN B_input: sent ACK for 5 with 
+
+EVENT time: 937.7774895474104  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 5  checksum: 4  payload:   sack: [-1, -1, -1, -1, -1]
+
+EVENT time: 1241.9812616351817  type: 1  entity: 0
+A_output: got message from layer 5: gggggggggggggggggggg
+GBN A_output: sent packet 6
+
+EVENT time: 1246.9043244727927  type: 2  entity: 1
+B_input: got packet seqnum: 6  acknum: -1  checksum: 2065  payload: gggggggggggggggggggg  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 7
+GBN B_input: sent ACK for 6 with 
+
+EVENT time: 1250.9264809106724  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 6  checksum: 5  payload:   sack: [-1, -1, -1, -1, -1]
+
+EVENT time: 1468.8802758873255  type: 1  entity: 0
+A_output: got message from layer 5: hhhhhhhhhhhhhhhhhhhh
+GBN A_output: sent packet 7
+
+EVENT time: 1477.314951017792  type: 2  entity: 1
+B_input: got packet seqnum: 7  acknum: -1  checksum: 2086  payload: hhhhhhhhhhhhhhhhhhhh  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 8
+GBN B_input: sent ACK for 7 with 
+
+EVENT time: 1484.7006744590592  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 7  checksum: 6  payload:   sack: [-1, -1, -1, -1, -1]
+
+EVENT time: 1627.3689992980742  type: 1  entity: 0
+A_output: got message from layer 5: iiiiiiiiiiiiiiiiiiii
+GBN A_output: sent packet 8
+
+EVENT time: 1634.526200140385  type: 2  entity: 1
+B_input: got packet seqnum: 8  acknum: -1  checksum: 2107  payload: iiiiiiiiiiiiiiiiiiii  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 9
+GBN B_input: sent ACK for 8 with 
+
+EVENT time: 1635.9607226783044  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 8  checksum: 7  payload:   sack: [-1, -1, -1, -1, -1]
+
+EVENT time: 1801.1291848506119  type: 1  entity: 0
+A_output: got message from layer 5: jjjjjjjjjjjjjjjjjjjj
+GBN A_output: sent packet 9
+
+EVENT time: 1809.216956083865  type: 2  entity: 1
+B_input: got packet seqnum: 9  acknum: -1  checksum: 2128  payload: jjjjjjjjjjjjjjjjjjjj  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 10
+GBN B_input: sent ACK for 9 with 
+
+EVENT time: 1813.2786645100255  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 9  checksum: 8  payload:   sack: [-1, -1, -1, -1, -1]
+
+EVENT time: 1866.9148838770714  type: 1  entity: 0
+A_output: got message from layer 5: kkkkkkkkkkkkkkkkkkkk
+GBN A_output: sent packet 10
+
+EVENT time: 1868.504593035676  type: 2  entity: 1
+B_input: got packet seqnum: 10  acknum: -1  checksum: 2149  payload: kkkkkkkkkkkkkkkkkkkk  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 11
+GBN B_input: sent ACK for 10 with 
+
+EVENT time: 1872.411114841151  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 10  checksum: 9  payload:   sack: [-1, -1, -1, -1, -1]
+
+EVENT time: 2218.2317575609604  type: 1  entity: 0
+A_output: got message from layer 5: llllllllllllllllllll
+GBN A_output: sent packet 11
+
+EVENT time: 2221.7806634723956  type: 2  entity: 1
+B_input: got packet seqnum: 11  acknum: -1  checksum: 2170  payload: llllllllllllllllllll  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 12
+GBN B_input: sent ACK for 11 with 
+
+EVENT time: 2231.3368022705768  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 11  checksum: 10  payload:   sack: [-1, -1, -1, -1, -1]
+
+EVENT time: 2271.419415875728  type: 1  entity: 0
+A_output: got message from layer 5: mmmmmmmmmmmmmmmmmmmm
+toLayer3: packet being corrupted
+GBN A_output: sent packet 12
+
+EVENT time: 2274.0707113864555  type: 2  entity: 1
+B_input: got packet seqnum: 12  acknum: -1  checksum: 2191  payload: ?mmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+B_input: packet corrupted
+B_input: sent duplicate ACK for 11
+
+EVENT time: 2278.454603717154  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 11  checksum: 10  payload:   sack: [-1, -1, -1, -1, -1]
+GBN A_input: retransmitting unSACKed packet 12
+
+EVENT time: 2288.149723807489  type: 2  entity: 1
+B_input: got packet seqnum: 12  acknum: -1  checksum: 2191  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 13
+GBN B_input: sent ACK for 12 with 
+
+EVENT time: 2295.8048951689198  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 12  checksum: 11  payload:   sack: [-1, -1, -1, -1, -1]
+
+EVENT time: 2670.3329569383827  type: 1  entity: 0
+A_output: got message from layer 5: nnnnnnnnnnnnnnnnnnnn
+GBN A_output: sent packet 13
+
+EVENT time: 2672.546159245582  type: 2  entity: 1
+B_input: got packet seqnum: 13  acknum: -1  checksum: 2212  payload: nnnnnnnnnnnnnnnnnnnn  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 14
+GBN B_input: sent ACK for 13 with 
+
+EVENT time: 2681.447218237861  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 13  checksum: 12  payload:   sack: [-1, -1, -1, -1, -1]
+
+EVENT time: 2705.600146488845  type: 1  entity: 0
+A_output: got message from layer 5: oooooooooooooooooooo
+GBN A_output: sent packet 14
+
+EVENT time: 2715.112613299966  type: 2  entity: 1
+B_input: got packet seqnum: 14  acknum: -1  checksum: 2233  payload: oooooooooooooooooooo  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 15
+toLayer3: packet being corrupted
+GBN B_input: sent ACK for 14 with 
+
+EVENT time: 2720.2368236335333  type: 1  entity: 0
+A_output: got message from layer 5: pppppppppppppppppppp
+GBN A_output: sent packet 15
+
+EVENT time: 2725.027191991943  type: 2  entity: 0
+A_input: got packet seqnum: 999999  acknum: 14  checksum: 13  payload:   sack: [-1, -1, -1, -1, -1]
+A_input: packet corrupted
+
+EVENT time: 2728.5674001281773  type: 2  entity: 1
+B_input: got packet seqnum: 15  acknum: -1  checksum: 2254  payload: pppppppppppppppppppp  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 16
+GBN B_input: sent ACK for 15 with 
+
+EVENT time: 2735.600146488845  type: 0  entity: 0
+A_timerinterrupt: timer expired
+GBN timeout: retransmitting packet 14
+GBN timeout: retransmitting packet 15
+
+EVENT time: 2735.9866328928492  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 15  checksum: 14  payload:   sack: [-1, -1, -1, -1, -1]
+
+EVENT time: 2745.19858394116  type: 2  entity: 1
+B_input: got packet seqnum: 14  acknum: -1  checksum: 2233  payload: oooooooooooooooooooo  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 15 with 
+
+EVENT time: 2747.3183996093626  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 15  checksum: 14  payload:   sack: [-1, -1, -1, -1, -1]
+stopTimer: Warning: Unable to cancel your timer
+
+EVENT time: 2749.1188390758994  type: 2  entity: 1
+B_input: got packet seqnum: 15  acknum: -1  checksum: 2254  payload: pppppppppppppppppppp  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 15 with 
+
+EVENT time: 2752.903958250679  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 15  checksum: 14  payload:   sack: [-1, -1, -1, -1, -1]
+stopTimer: Warning: Unable to cancel your timer
+
+EVENT time: 3072.298348948637  type: 1  entity: 0
+A_output: got message from layer 5: qqqqqqqqqqqqqqqqqqqq
+GBN A_output: sent packet 16
+
+EVENT time: 3077.5221716971337  type: 2  entity: 1
+B_input: got packet seqnum: 16  acknum: -1  checksum: 2275  payload: qqqqqqqqqqqqqqqqqqqq  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 17
+GBN B_input: sent ACK for 16 with 
+
+EVENT time: 3084.1737113559366  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 16  checksum: 15  payload:   sack: [-1, -1, -1, -1, -1]
+
+EVENT time: 3329.898983733634  type: 1  entity: 0
+A_output: got message from layer 5: rrrrrrrrrrrrrrrrrrrr
+GBN A_output: sent packet 17
+
+EVENT time: 3331.397228919339  type: 2  entity: 1
+B_input: got packet seqnum: 17  acknum: -1  checksum: 2296  payload: rrrrrrrrrrrrrrrrrrrr  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 18
+GBN B_input: sent ACK for 17 with 
+
+EVENT time: 3333.542863246558  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 17  checksum: 16  payload:   sack: [-1, -1, -1, -1, -1]
+
+EVENT time: 3418.0120242927333  type: 1  entity: 0
+A_output: got message from layer 5: ssssssssssssssssssss
+GBN A_output: sent packet 18
+
+EVENT time: 3423.436902981658  type: 2  entity: 1
+B_input: got packet seqnum: 18  acknum: -1  checksum: 2317  payload: ssssssssssssssssssss  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 19
+GBN B_input: sent ACK for 18 with 
+
+EVENT time: 3424.4712363048184  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 18  checksum: 17  payload:   sack: [-1, -1, -1, -1, -1]
+
+EVENT time: 3508.8229010895107  type: 1  entity: 0
+A_output: got message from layer 5: tttttttttttttttttttt
+GBN A_output: sent packet 19
+
+EVENT time: 3510.8191167943355  type: 2  entity: 1
+B_input: got packet seqnum: 19  acknum: -1  checksum: 2338  payload: tttttttttttttttttttt  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 20
+GBN B_input: sent ACK for 19 with 
+
+EVENT time: 3515.4848170415353  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 19  checksum: 18  payload:   sack: [-1, -1, -1, -1, -1]
+
+EVENT time: 3624.5002594073303  type: 1  entity: 0
+A_output: got message from layer 5: uuuuuuuuuuuuuuuuuuuu
+GBN A_output: sent packet 20
+
+EVENT time: 3627.593218787194  type: 2  entity: 1
+B_input: got packet seqnum: 20  acknum: -1  checksum: 2359  payload: uuuuuuuuuuuuuuuuuuuu  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 21
+GBN B_input: sent ACK for 20 with 
+
+EVENT time: 3633.8786278878138  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 20  checksum: 19  payload:   sack: [-1, -1, -1, -1, -1]
+
+EVENT time: 3722.2571489608445  type: 1  entity: 0
+A_output: got message from layer 5: vvvvvvvvvvvvvvvvvvvv
+GBN A_output: sent packet 21
+
+EVENT time: 3723.6219061861016  type: 2  entity: 1
+B_input: got packet seqnum: 21  acknum: -1  checksum: 2380  payload: vvvvvvvvvvvvvvvvvvvv  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 22
+GBN B_input: sent ACK for 21 with 
+
+EVENT time: 3731.5154881435587  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 21  checksum: 20  payload:   sack: [-1, -1, -1, -1, -1]
+
+EVENT time: 4099.990844447157  type: 1  entity: 0
+A_output: got message from layer 5: wwwwwwwwwwwwwwwwwwww
+GBN A_output: sent packet 22
+
+EVENT time: 4104.521408734397  type: 2  entity: 1
+B_input: got packet seqnum: 22  acknum: -1  checksum: 2401  payload: wwwwwwwwwwwwwwwwwwww  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 23
+GBN B_input: sent ACK for 22 with 
+
+EVENT time: 4110.653828547013  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 22  checksum: 21  payload:   sack: [-1, -1, -1, -1, -1]
+
+EVENT time: 4157.353434858241  type: 1  entity: 0
+A_output: got message from layer 5: xxxxxxxxxxxxxxxxxxxx
+GBN A_output: sent packet 23
+
+EVENT time: 4161.552201910458  type: 2  entity: 1
+B_input: got packet seqnum: 23  acknum: -1  checksum: 2422  payload: xxxxxxxxxxxxxxxxxxxx  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 24
+GBN B_input: sent ACK for 23 with 
+
+EVENT time: 4169.166447950682  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 23  checksum: 22  payload:   sack: [-1, -1, -1, -1, -1]
+
+EVENT time: 4289.657277138584  type: 1  entity: 0
+A_output: got message from layer 5: yyyyyyyyyyyyyyyyyyyy
+GBN A_output: sent packet 24
+
+EVENT time: 4293.101535081026  type: 2  entity: 1
+B_input: got packet seqnum: 24  acknum: -1  checksum: 2443  payload: yyyyyyyyyyyyyyyyyyyy  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 25
+GBN B_input: sent ACK for 24 with 
+
+EVENT time: 4296.616931669057  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 24  checksum: 23  payload:   sack: [-1, -1, -1, -1, -1]
+
+EVENT time: 4348.277230140079  type: 1  entity: 0
+A_output: got message from layer 5: zzzzzzzzzzzzzzzzzzzz
+GBN A_output: sent packet 25
+
+EVENT time: 4354.5675832392335  type: 2  entity: 1
+B_input: got packet seqnum: 25  acknum: -1  checksum: 2464  payload: zzzzzzzzzzzzzzzzzzzz  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 26
+GBN B_input: sent ACK for 25 with 
+
+EVENT time: 4363.108005005034  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 25  checksum: 24  payload:   sack: [-1, -1, -1, -1, -1]
+
+EVENT time: 4402.1118808557385  type: 1  entity: 0
+A_output: got message from layer 5: aaaaaaaaaaaaaaaaaaaa
+GBN A_output: sent packet 26
+
+EVENT time: 4406.951445051423  type: 2  entity: 1
+B_input: got packet seqnum: 26  acknum: -1  checksum: 1965  payload: aaaaaaaaaaaaaaaaaaaa  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 27
+GBN B_input: sent ACK for 26 with 
+
+EVENT time: 4413.800744651631  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 26  checksum: 25  payload:   sack: [-1, -1, -1, -1, -1]
+
+EVENT time: 4628.180791650136  type: 1  entity: 0
+A_output: got message from layer 5: bbbbbbbbbbbbbbbbbbbb
+GBN A_output: sent packet 27
+
+EVENT time: 4636.11584826197  type: 2  entity: 1
+B_input: got packet seqnum: 27  acknum: -1  checksum: 1986  payload: bbbbbbbbbbbbbbbbbbbb  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 28
+toLayer3: packet being corrupted
+GBN B_input: sent ACK for 27 with 
+
+EVENT time: 4639.793023468733  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 26  payload: ?  sack: [-1, -1, -1, -1, -1]
+A_input: packet corrupted
+
+EVENT time: 4658.180791650136  type: 0  entity: 0
+A_timerinterrupt: timer expired
+toLayer3: packet being corrupted
+GBN timeout: retransmitting packet 27
+
+EVENT time: 4659.97320474868  type: 2  entity: 1
+B_input: got packet seqnum: 27  acknum: -1  checksum: 1986  payload: ?bbbbbbbbbbbbbbbbbbb  sack: [-1, -1, -1, -1, -1]
+B_input: packet corrupted
+B_input: sent duplicate ACK for 27
+
+EVENT time: 4669.42744224372  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 26  payload:   sack: [-1, -1, -1, -1, -1]
+
+EVENT time: 4808.081301309244  type: 1  entity: 0
+A_output: got message from layer 5: cccccccccccccccccccc
+GBN A_output: sent packet 28
+
+EVENT time: 4809.988525040437  type: 2  entity: 1
+B_input: got packet seqnum: 28  acknum: -1  checksum: 2007  payload: cccccccccccccccccccc  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 29
+GBN B_input: sent ACK for 28 with 
+
+EVENT time: 4819.700125125889  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 28  checksum: 27  payload:   sack: [-1, -1, -1, -1, -1]
+
+EVENT time: 4868.385876033814  type: 1  entity: 0
+A_output: got message from layer 5: dddddddddddddddddddd
+GBN A_output: sent packet 29
+
+EVENT time: 4869.944822534867  type: 2  entity: 1
+B_input: got packet seqnum: 29  acknum: -1  checksum: 2028  payload: dddddddddddddddddddd  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 30
+toLayer3: packet being corrupted
+GBN B_input: sent ACK for 29 with 
+
+EVENT time: 4871.182958464308  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 29  checksum: 28  payload: ?  sack: [-1, -1, -1, -1, -1]
+A_input: packet corrupted
+
+EVENT time: 4898.385876033814  type: 0  entity: 0
+A_timerinterrupt: timer expired
+GBN timeout: retransmitting packet 29
+
+EVENT time: 4901.710104678487  type: 2  entity: 1
+B_input: got packet seqnum: 29  acknum: -1  checksum: 2028  payload: dddddddddddddddddddd  sack: [-1, -1, -1, -1, -1]
+toLayer3: packet being corrupted
+GBN B_input: sent ACK for 29 with 
+
+EVENT time: 4907.974639118625  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 29  checksum: 28  payload: ?  sack: [-1, -1, -1, -1, -1]
+A_input: packet corrupted
+
+EVENT time: 4922.171697134312  type: 1  entity: 0
+A_output: got message from layer 5: eeeeeeeeeeeeeeeeeeee
+GBN A_output: sent packet 30
+
+EVENT time: 4926.169133579516  type: 2  entity: 1
+B_input: got packet seqnum: 30  acknum: -1  checksum: 2049  payload: eeeeeeeeeeeeeeeeeeee  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 31
+GBN B_input: sent ACK for 30 with 
+
+EVENT time: 4928.385876033814  type: 0  entity: 0
+A_timerinterrupt: timer expired
+GBN timeout: retransmitting packet 29
+GBN timeout: retransmitting packet 30
+
+EVENT time: 4928.400738547929  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 30  checksum: 29  payload:   sack: [-1, -1, -1, -1, -1]
+
+EVENT time: 4932.503341776787  type: 2  entity: 1
+B_input: got packet seqnum: 29  acknum: -1  checksum: 2028  payload: dddddddddddddddddddd  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 30 with 
+
+EVENT time: 4934.272408215583  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 30  checksum: 29  payload:   sack: [-1, -1, -1, -1, -1]
+stopTimer: Warning: Unable to cancel your timer
+
+EVENT time: 4941.857600634785  type: 2  entity: 1
+B_input: got packet seqnum: 30  acknum: -1  checksum: 2049  payload: eeeeeeeeeeeeeeeeeeee  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 30 with 
+
+EVENT time: 4945.921231727042  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 30  checksum: 29  payload:   sack: [-1, -1, -1, -1, -1]
+stopTimer: Warning: Unable to cancel your timer
+
+EVENT time: 5148.081911679434  type: 1  entity: 0
+A_output: got message from layer 5: ffffffffffffffffffff
+GBN A_output: sent packet 31
+
+EVENT time: 5157.412549211097  type: 2  entity: 1
+B_input: got packet seqnum: 31  acknum: -1  checksum: 2070  payload: ffffffffffffffffffff  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 0
+GBN B_input: sent ACK for 31 with 
+
+EVENT time: 5167.323007904294  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 31  checksum: 30  payload:   sack: [-1, -1, -1, -1, -1]
+
+EVENT time: 5341.752372814112  type: 1  entity: 0
+A_output: got message from layer 5: gggggggggggggggggggg
+GBN A_output: sent packet 0
+
+EVENT time: 5346.040681173132  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2059  payload: gggggggggggggggggggg  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 1
+toLayer3: packet being corrupted
+GBN B_input: sent ACK for 0 with SACK:28,29,30,31
+
+EVENT time: 5353.017151402326  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 999999  checksum: 891  payload: SACK:28,29,30,31  sack: [-1, -1, -1, -1, -1]
+A_input: packet corrupted
+
+EVENT time: 5371.752372814112  type: 0  entity: 0
+A_timerinterrupt: timer expired
+GBN timeout: retransmitting packet 0
+
+EVENT time: 5373.713705862606  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2059  payload: gggggggggggggggggggg  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 0 with SACK:28,29,30,31
+
+EVENT time: 5381.400189214759  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 0  checksum: 891  payload: SACK:28,29,30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 28
+GBN A_input: SACK for 29
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+
+EVENT time: 5631.238746299631  type: 1  entity: 0
+A_output: got message from layer 5: hhhhhhhhhhhhhhhhhhhh
+GBN A_output: sent packet 1
+
+EVENT time: 5633.125919370098  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 2080  payload: hhhhhhhhhhhhhhhhhhhh  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 2
+GBN B_input: sent ACK for 1 with SACK:29,30,31
+
+EVENT time: 5635.595660267953  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 1  checksum: 742  payload: SACK:29,30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 29
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+
+EVENT time: 5999.414044618061  type: 1  entity: 0
+A_output: got message from layer 5: iiiiiiiiiiiiiiiiiiii
+GBN A_output: sent packet 2
+
+EVENT time: 6001.984313486129  type: 2  entity: 1
+B_input: got packet seqnum: 2  acknum: -1  checksum: 2101  payload: iiiiiiiiiiiiiiiiiiii  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 3
+GBN B_input: sent ACK for 2 with SACK:30,31
+
+EVENT time: 6008.394421216468  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 2  checksum: 592  payload: SACK:30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+
+EVENT time: 6375.267799920652  type: 1  entity: 0
+A_output: got message from layer 5: jjjjjjjjjjjjjjjjjjjj
+GBN A_output: sent packet 3
+
+EVENT time: 6382.436536759545  type: 2  entity: 1
+B_input: got packet seqnum: 3  acknum: -1  checksum: 2122  payload: jjjjjjjjjjjjjjjjjjjj  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 4
+GBN B_input: sent ACK for 3 with SACK:31
+
+EVENT time: 6390.607806634724  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 3  checksum: 450  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+
+EVENT time: 6401.83111056856  type: 1  entity: 0
+A_output: got message from layer 5: kkkkkkkkkkkkkkkkkkkk
+GBN A_output: sent packet 4
+
+EVENT time: 6409.197058015687  type: 2  entity: 1
+B_input: got packet seqnum: 4  acknum: -1  checksum: 2143  payload: kkkkkkkkkkkkkkkkkkkk  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 5
+GBN B_input: sent ACK for 4 with 
+
+EVENT time: 6411.717886898404  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 4  checksum: 3  payload:   sack: [-1, -1, -1, -1, -1]
+
+EVENT time: 6720.578630939664  type: 1  entity: 0
+A_output: got message from layer 5: llllllllllllllllllll
+toLayer3: packet being corrupted
+GBN A_output: sent packet 5
+
+EVENT time: 6729.588457899716  type: 2  entity: 1
+B_input: got packet seqnum: 5  acknum: 999999  checksum: 2164  payload: llllllllllllllllllll  sack: [-1, -1, -1, -1, -1]
+B_input: packet corrupted
+B_input: sent duplicate ACK for 4
+
+EVENT time: 6734.6112247077845  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 4  checksum: 3  payload:   sack: [-1, -1, -1, -1, -1]
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 6741.608844264046  type: 2  entity: 1
+B_input: got packet seqnum: 5  acknum: -1  checksum: 2164  payload: llllllllllllllllllll  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 6
+GBN B_input: sent ACK for 5 with 
+
+EVENT time: 6745.940549943541  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 5  checksum: 4  payload:   sack: [-1, -1, -1, -1, -1]
+
+EVENT time: 7088.644062623981  type: 1  entity: 0
+A_output: got message from layer 5: mmmmmmmmmmmmmmmmmmmm
+toLayer3: packet being corrupted
+GBN A_output: sent packet 6
+
+EVENT time: 7091.836451307718  type: 2  entity: 1
+B_input: got packet seqnum: 6  acknum: -1  checksum: 2185  payload: ?mmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+B_input: packet corrupted
+B_input: sent duplicate ACK for 5
+
+EVENT time: 7101.2190008239995  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 5  checksum: 4  payload:   sack: [-1, -1, -1, -1, -1]
+GBN A_input: retransmitting unSACKed packet 6
+
+EVENT time: 7105.982757042146  type: 2  entity: 1
+B_input: got packet seqnum: 6  acknum: -1  checksum: 2185  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 7
+toLayer3: packet being corrupted
+GBN B_input: sent ACK for 6 with 
+
+EVENT time: 7111.947904904324  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 6  checksum: 5  payload: ?  sack: [-1, -1, -1, -1, -1]
+A_input: packet corrupted
+
+EVENT time: 7131.2190008239995  type: 0  entity: 0
+A_timerinterrupt: timer expired
+GBN timeout: retransmitting packet 6
+
+EVENT time: 7138.342692342906  type: 2  entity: 1
+B_input: got packet seqnum: 6  acknum: -1  checksum: 2185  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 6 with 
+
+EVENT time: 7142.471419415876  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 6  checksum: 5  payload:   sack: [-1, -1, -1, -1, -1]
+
+EVENT time: 7473.6655781731615  type: 1  entity: 0
+A_output: got message from layer 5: nnnnnnnnnnnnnnnnnnnn
+GBN A_output: sent packet 7
+
+EVENT time: 7476.126804406872  type: 2  entity: 1
+B_input: got packet seqnum: 7  acknum: -1  checksum: 2206  payload: nnnnnnnnnnnnnnnnnnnn  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 8
+GBN B_input: sent ACK for 7 with 
+
+EVENT time: 7483.02966399121  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 7  checksum: 6  payload:   sack: [-1, -1, -1, -1, -1]
+
+EVENT time: 7763.945432905057  type: 1  entity: 0
+A_output: got message from layer 5: oooooooooooooooooooo
+GBN A_output: sent packet 8
+
+EVENT time: 7770.562089907528  type: 2  entity: 1
+B_input: got packet seqnum: 8  acknum: -1  checksum: 2227  payload: oooooooooooooooooooo  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 9
+GBN B_input: sent ACK for 8 with 
+
+EVENT time: 7776.929074983977  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 8  checksum: 7  payload:   sack: [-1, -1, -1, -1, -1]
+
+EVENT time: 8160.869167149876  type: 1  entity: 0
+A_output: got message from layer 5: pppppppppppppppppppp
+GBN A_output: sent packet 9
+
+EVENT time: 8168.460341196936  type: 2  entity: 1
+B_input: got packet seqnum: 9  acknum: -1  checksum: 2248  payload: pppppppppppppppppppp  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 10
+GBN B_input: sent ACK for 9 with 
+
+EVENT time: 8169.9552903836175  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 9  checksum: 8  payload:   sack: [-1, -1, -1, -1, -1]
+
+EVENT time: 8342.442091128269  type: 1  entity: 0
+A_output: got message from layer 5: qqqqqqqqqqqqqqqqqqqq
+toLayer3: packet being corrupted
+GBN A_output: sent packet 10
+
+EVENT time: 8345.641895809807  type: 2  entity: 1
+B_input: got packet seqnum: 10  acknum: -1  checksum: 2269  payload: ?qqqqqqqqqqqqqqqqqqq  sack: [-1, -1, -1, -1, -1]
+B_input: packet corrupted
+B_input: sent duplicate ACK for 9
+
+EVENT time: 8350.46937467574  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 9  checksum: 8  payload:   sack: [-1, -1, -1, -1, -1]
+GBN A_input: retransmitting unSACKed packet 10
+
+EVENT time: 8353.609027375103  type: 2  entity: 1
+B_input: got packet seqnum: 10  acknum: -1  checksum: 2269  payload: qqqqqqqqqqqqqqqqqqqq  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 11
+GBN B_input: sent ACK for 10 with 
+
+EVENT time: 8355.881008331553  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 10  checksum: 9  payload:   sack: [-1, -1, -1, -1, -1]
+
+EVENT time: 8360.093997009186  type: 1  entity: 0
+A_output: got message from layer 5: rrrrrrrrrrrrrrrrrrrr
+GBN A_output: sent packet 11
+
+EVENT time: 8362.02209540086  type: 2  entity: 1
+B_input: got packet seqnum: 11  acknum: -1  checksum: 2290  payload: rrrrrrrrrrrrrrrrrrrr  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 12
+GBN B_input: sent ACK for 11 with 
+
+EVENT time: 8370.574053163244  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 11  checksum: 10  payload:   sack: [-1, -1, -1, -1, -1]
+
+EVENT time: 8524.21033356731  type: 1  entity: 0
+A_output: got message from layer 5: ssssssssssssssssssss
+toLayer3: packet being corrupted
+GBN A_output: sent packet 12
+
+EVENT time: 8529.86785485397  type: 2  entity: 1
+B_input: got packet seqnum: 12  acknum: -1  checksum: 2311  payload: ?sssssssssssssssssss  sack: [-1, -1, -1, -1, -1]
+B_input: packet corrupted
+B_input: sent duplicate ACK for 11
+
+EVENT time: 8533.271736808376  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 11  checksum: 10  payload:   sack: [-1, -1, -1, -1, -1]
+GBN A_input: retransmitting unSACKed packet 12
+
+EVENT time: 8542.427411725213  type: 2  entity: 1
+B_input: got packet seqnum: 12  acknum: -1  checksum: 2311  payload: ssssssssssssssssssss  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 13
+GBN B_input: sent ACK for 12 with 
+
+EVENT time: 8545.386608478044  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 12  checksum: 11  payload:   sack: [-1, -1, -1, -1, -1]
+
+EVENT time: 8772.276985992004  type: 1  entity: 0
+A_output: got message from layer 5: tttttttttttttttttttt
+GBN A_output: sent packet 13
+
+EVENT time: 8781.125583666493  type: 2  entity: 1
+B_input: got packet seqnum: 13  acknum: -1  checksum: 2332  payload: tttttttttttttttttttt  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 14
+GBN B_input: sent ACK for 13 with 
+
+EVENT time: 8783.272316660054  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 13  checksum: 12  payload:   sack: [-1, -1, -1, -1, -1]
+
+EVENT time: 8879.384746848964  type: 1  entity: 0
+A_output: got message from layer 5: uuuuuuuuuuuuuuuuuuuu
+GBN A_output: sent packet 14
+
+EVENT time: 8885.632251960815  type: 2  entity: 1
+B_input: got packet seqnum: 14  acknum: -1  checksum: 2353  payload: uuuuuuuuuuuuuuuuuuuu  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 15
+GBN B_input: sent ACK for 14 with 
+
+EVENT time: 8895.52183599353  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 14  checksum: 13  payload:   sack: [-1, -1, -1, -1, -1]
+
+EVENT time: 9039.887691885127  type: 1  entity: 0
+A_output: got message from layer 5: vvvvvvvvvvvvvvvvvvvv
+GBN A_output: sent packet 15
+
+EVENT time: 9041.281014435253  type: 2  entity: 1
+B_input: got packet seqnum: 15  acknum: -1  checksum: 2374  payload: vvvvvvvvvvvvvvvvvvvv  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 16
+GBN B_input: sent ACK for 15 with 
+
+EVENT time: 9043.90841395306  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 15  checksum: 14  payload:   sack: [-1, -1, -1, -1, -1]
+
+EVENT time: 9299.343852046266  type: 1  entity: 0
+A_output: got message from layer 5: wwwwwwwwwwwwwwwwwwww
+GBN A_output: sent packet 16
+
+EVENT time: 9304.038941618091  type: 2  entity: 1
+B_input: got packet seqnum: 16  acknum: -1  checksum: 2395  payload: wwwwwwwwwwwwwwwwwwww  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 17
+GBN B_input: sent ACK for 16 with 
+
+EVENT time: 9306.748466444898  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 16  checksum: 15  payload:   sack: [-1, -1, -1, -1, -1]
+
+EVENT time: 9415.851313821833  type: 1  entity: 0
+A_output: got message from layer 5: xxxxxxxxxxxxxxxxxxxx
+GBN A_output: sent packet 17
+
+EVENT time: 9425.075930051577  type: 2  entity: 1
+B_input: got packet seqnum: 17  acknum: -1  checksum: 2416  payload: xxxxxxxxxxxxxxxxxxxx  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 18
+GBN B_input: sent ACK for 17 with 
+
+EVENT time: 9427.879116183965  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 17  checksum: 16  payload:   sack: [-1, -1, -1, -1, -1]
+
+EVENT time: 9466.585283974731  type: 1  entity: 0
+A_output: got message from layer 5: yyyyyyyyyyyyyyyyyyyy
+GBN A_output: sent packet 18
+
+EVENT time: 9471.189458906827  type: 2  entity: 1
+B_input: got packet seqnum: 18  acknum: -1  checksum: 2437  payload: yyyyyyyyyyyyyyyyyyyy  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 19
+GBN B_input: sent ACK for 18 with 
+
+EVENT time: 9479.278328806422  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 18  checksum: 17  payload:   sack: [-1, -1, -1, -1, -1]
+
+EVENT time: 9596.508682515947  type: 1  entity: 0
+A_output: got message from layer 5: zzzzzzzzzzzzzzzzzzzz
+GBN A_output: sent packet 19
+
+EVENT time: 9605.47813348796  type: 2  entity: 1
+B_input: got packet seqnum: 19  acknum: -1  checksum: 2458  payload: zzzzzzzzzzzzzzzzzzzz  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 20
+GBN B_input: sent ACK for 19 with 
+
+EVENT time: 9611.420758690147  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 19  checksum: 18  payload:   sack: [-1, -1, -1, -1, -1]
+
+EVENT time: 9623.596911526842  type: 1  entity: 0
+A_output: got message from layer 5: aaaaaaaaaaaaaaaaaaaa
+GBN A_output: sent packet 20
+
+EVENT time: 9630.621448408461  type: 2  entity: 1
+B_input: got packet seqnum: 20  acknum: -1  checksum: 1959  payload: aaaaaaaaaaaaaaaaaaaa  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 21
+GBN B_input: sent ACK for 20 with 
+
+EVENT time: 9632.145786919767  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 20  checksum: 19  payload:   sack: [-1, -1, -1, -1, -1]
+
+EVENT time: 9819.196142460403  type: 1  entity: 0
+A_output: got message from layer 5: bbbbbbbbbbbbbbbbbbbb
+GBN A_output: sent packet 21
+
+EVENT time: 9823.98022400586  type: 2  entity: 1
+B_input: got packet seqnum: 21  acknum: -1  checksum: 1980  payload: bbbbbbbbbbbbbbbbbbbb  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 22
+GBN B_input: sent ACK for 21 with 
+
+EVENT time: 9827.454420606098  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 21  checksum: 20  payload:   sack: [-1, -1, -1, -1, -1]
+
+EVENT time: 10194.647053437911  type: 1  entity: 0
+A_output: got message from layer 5: cccccccccccccccccccc
+GBN A_output: sent packet 22
+
+EVENT time: 10195.737693411054  type: 2  entity: 1
+B_input: got packet seqnum: 22  acknum: -1  checksum: 2001  payload: cccccccccccccccccccc  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 23
+GBN B_input: sent ACK for 22 with 
+
+EVENT time: 10204.958189642019  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 22  checksum: 21  payload:   sack: [-1, -1, -1, -1, -1]
+
+EVENT time: 10251.106295968506  type: 1  entity: 0
+A_output: got message from layer 5: dddddddddddddddddddd
+toLayer3: packet being corrupted
+GBN A_output: sent packet 23
+
+EVENT time: 10258.400006103702  type: 2  entity: 1
+B_input: got packet seqnum: 23  acknum: -1  checksum: 2022  payload: ?ddddddddddddddddddd  sack: [-1, -1, -1, -1, -1]
+B_input: packet corrupted
+B_input: sent duplicate ACK for 22
+
+EVENT time: 10264.941404461806  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 22  checksum: 21  payload:   sack: [-1, -1, -1, -1, -1]
+GBN A_input: retransmitting unSACKed packet 23
+
+EVENT time: 10269.383251442  type: 2  entity: 1
+B_input: got packet seqnum: 23  acknum: -1  checksum: 2022  payload: dddddddddddddddddddd  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 24
+GBN B_input: sent ACK for 23 with 
+
+EVENT time: 10274.78972746971  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 23  checksum: 22  payload:   sack: [-1, -1, -1, -1, -1]
+
+EVENT time: 10446.19281594287  type: 1  entity: 0
+A_output: got message from layer 5: eeeeeeeeeeeeeeeeeeee
+toLayer3: packet being corrupted
+GBN A_output: sent packet 24
+
+EVENT time: 10455.050477614674  type: 2  entity: 1
+B_input: got packet seqnum: 24  acknum: -1  checksum: 2043  payload: ?eeeeeeeeeeeeeeeeeee  sack: [-1, -1, -1, -1, -1]
+B_input: packet corrupted
+B_input: sent duplicate ACK for 23
+
+EVENT time: 10456.161717581714  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 23  checksum: 22  payload:   sack: [-1, -1, -1, -1, -1]
+GBN A_input: retransmitting unSACKed packet 24
+
+EVENT time: 10462.051332132938  type: 2  entity: 1
+B_input: got packet seqnum: 24  acknum: -1  checksum: 2043  payload: eeeeeeeeeeeeeeeeeeee  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 25
+toLayer3: packet being corrupted
+GBN B_input: sent ACK for 24 with 
+
+EVENT time: 10470.748863185521  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 999999  checksum: 23  payload:   sack: [-1, -1, -1, -1, -1]
+A_input: packet corrupted
+
+EVENT time: 10486.161717581714  type: 0  entity: 0
+A_timerinterrupt: timer expired
+GBN timeout: retransmitting packet 24
+
+EVENT time: 10495.044373912779  type: 2  entity: 1
+B_input: got packet seqnum: 24  acknum: -1  checksum: 2043  payload: eeeeeeeeeeeeeeeeeeee  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 24 with 
+
+EVENT time: 10498.024719992676  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 24  checksum: 23  payload:   sack: [-1, -1, -1, -1, -1]
+
+EVENT time: 10823.54808191168  type: 1  entity: 0
+A_output: got message from layer 5: ffffffffffffffffffff
+GBN A_output: sent packet 25
+
+EVENT time: 10829.349803155614  type: 2  entity: 1
+B_input: got packet seqnum: 25  acknum: -1  checksum: 2064  payload: ffffffffffffffffffff  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 26
+GBN B_input: sent ACK for 25 with 
+
+EVENT time: 10831.930234687337  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 25  checksum: 24  payload:   sack: [-1, -1, -1, -1, -1]
+
+EVENT time: 10973.015533921323  type: 1  entity: 0
+A_output: got message from layer 5: gggggggggggggggggggg
+GBN A_output: sent packet 26
+
+EVENT time: 10976.412274544511  type: 2  entity: 1
+B_input: got packet seqnum: 26  acknum: -1  checksum: 2085  payload: gggggggggggggggggggg  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 27
+GBN B_input: sent ACK for 26 with 
+
+EVENT time: 10982.932523575548  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 26  checksum: 25  payload:   sack: [-1, -1, -1, -1, -1]
+
+EVENT time: 11157.213049714652  type: 1  entity: 0
+A_output: got message from layer 5: hhhhhhhhhhhhhhhhhhhh
+GBN A_output: sent packet 27
+
+EVENT time: 11160.38731040376  type: 2  entity: 1
+B_input: got packet seqnum: 27  acknum: -1  checksum: 2106  payload: hhhhhhhhhhhhhhhhhhhh  sack: [-1, -1, -1, -1, -1]
+GBN B_input: delivered packet(s), new expected = 28
+GBN B_input: sent ACK for 27 with 
+
+EVENT time: 11163.016907254249  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 26  payload:   sack: [-1, -1, -1, -1, -1]
+
+EVENT time: 11281.789605395672  type: 1  entity: 0
+A_output: got message from layer 5: iiiiiiiiiiiiiiiiiiii
+toLayer3: packet being corrupted
+GBN A_output: sent packet 28
+
+EVENT time: 11283.39661854915  type: 2  entity: 1
+B_input: got packet seqnum: 28  acknum: -1  checksum: 2127  payload: ?iiiiiiiiiiiiiiiiiii  sack: [-1, -1, -1, -1, -1]
+B_input: packet corrupted
+B_input: sent duplicate ACK for 27
+
+EVENT time: 11286.90212714011  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 26  payload:   sack: [-1, -1, -1, -1, -1]
+
+EVENT time: 11342.61909848323  type: 1  entity: 0
+A_output: got message from layer 5: jjjjjjjjjjjjjjjjjjjj
+GBN A_output: sent packet 29
+
+EVENT time: 11350.473677785578  type: 2  entity: 1
+B_input: got packet seqnum: 29  acknum: -1  checksum: 2148  payload: jjjjjjjjjjjjjjjjjjjj  sack: [-1, -1, -1, -1, -1]
+GBN B_input: buffered packet 29 for SACK
+GBN B_input: sent ACK for 27 with SACK:29
+
+EVENT time: 11354.010773033846  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 481  payload: SACK:29  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 29
+stopTimer: Warning: Unable to cancel your timer
+
+EVENT time: 11524.05774101993  type: 1  entity: 0
+A_output: got message from layer 5: kkkkkkkkkkkkkkkkkkkk
+GBN A_output: sent packet 30
+
+EVENT time: 11525.71639149144  type: 2  entity: 1
+B_input: got packet seqnum: 30  acknum: -1  checksum: 2169  payload: kkkkkkkkkkkkkkkkkkkk  sack: [-1, -1, -1, -1, -1]
+GBN B_input: buffered packet 30 for SACK
+GBN B_input: sent ACK for 27 with SACK:29,30
+
+EVENT time: 11535.590044862209  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 624  payload: SACK:29,30  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 29
+GBN A_input: SACK for 30
+stopTimer: Warning: Unable to cancel your timer
+
+EVENT time: 11846.516312143316  type: 1  entity: 0
+A_output: got message from layer 5: llllllllllllllllllll
+GBN A_output: sent packet 31
+
+EVENT time: 11854.405224768823  type: 2  entity: 1
+B_input: got packet seqnum: 31  acknum: -1  checksum: 2190  payload: llllllllllllllllllll  sack: [-1, -1, -1, -1, -1]
+GBN B_input: buffered packet 31 for SACK
+GBN B_input: sent ACK for 27 with SACK:29,30,31
+
+EVENT time: 11856.961210974458  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 768  payload: SACK:29,30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 29
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+stopTimer: Warning: Unable to cancel your timer
+
+EVENT time: 12017.603076265756  type: 1  entity: 0
+A_output: got message from layer 5: mmmmmmmmmmmmmmmmmmmm
+GBN A_output: sent packet 0
+
+EVENT time: 12023.916501358073  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: buffered packet 0 for SACK
+GBN B_input: sent ACK for 27 with SACK:29,30,31
+
+EVENT time: 12030.666920987578  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 768  payload: SACK:29,30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 29
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+stopTimer: Warning: Unable to cancel your timer
+GBN A_input: retransmitting unSACKed packet 0
+
+EVENT time: 12037.129215369121  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:29,30,31
+
+EVENT time: 12040.58061464278  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 768  payload: SACK:29,30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 29
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 0
+
+EVENT time: 12042.346110415967  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: ?mmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+B_input: packet corrupted
+B_input: sent duplicate ACK for 27
+
+EVENT time: 12045.943082979828  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 768  payload: SACK:29,30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 29
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+
+EVENT time: 12050.341532639546  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:29,30,31
+
+EVENT time: 12058.890194402906  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 768  payload: SACK:29,30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 29
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+
+EVENT time: 12066.209173863948  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:29,30,31
+
+EVENT time: 12070.01983703116  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 768  payload: SACK:29,30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 29
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+
+EVENT time: 12076.70818201239  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:29,30,31
+
+EVENT time: 12078.683523056732  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 768  payload: SACK:29,30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 29
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+
+EVENT time: 12080.819818720052  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:29,30,31
+
+EVENT time: 12089.451429792167  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 768  payload: SACK:29,30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 29
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+
+EVENT time: 12090.469008453625  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:29,30,31
+
+EVENT time: 12094.162114322335  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 768  payload: SACK:29,30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 29
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+
+EVENT time: 12101.94692831202  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:29,30,31
+
+EVENT time: 12103.641010773032  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 768  payload: SACK:29,30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 29
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+
+EVENT time: 12108.402020325326  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:29,30,31
+
+EVENT time: 12116.807855464338  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 768  payload: SACK:29,30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 29
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+
+EVENT time: 12123.604419080171  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:29,30,31
+
+EVENT time: 12128.67442854091  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 768  payload: SACK:29,30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 29
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+
+EVENT time: 12131.086489455854  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:29,30,31
+
+EVENT time: 12137.032135990477  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 768  payload: SACK:29,30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 29
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+
+EVENT time: 12139.991882076478  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+toLayer3: packet being corrupted
+GBN B_input: sent ACK for 27 with SACK:29,30,31
+
+EVENT time: 12145.135776848658  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 768  payload: ?ACK:29,30,31  sack: [-1, -1, -1, -1, -1]
+A_input: packet corrupted
+
+EVENT time: 12167.032135990477  type: 0  entity: 0
+A_timerinterrupt: timer expired
+GBN timeout: retransmitting packet 0
+
+EVENT time: 12171.947782830286  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:29,30,31
+
+EVENT time: 12177.174901577806  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 768  payload: SACK:29,30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 29
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+
+EVENT time: 12179.736655781731  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:29,30,31
+
+EVENT time: 12180.904751731925  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 768  payload: SACK:29,30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 29
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+
+EVENT time: 12188.781304361095  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:29,30,31
+
+EVENT time: 12195.142796105838  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 768  payload: SACK:29,30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 29
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+
+EVENT time: 12201.445783867915  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+toLayer3: packet being corrupted
+GBN B_input: sent ACK for 27 with SACK:29,30,31
+
+EVENT time: 12203.283516953032  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 768  payload: ?ACK:29,30,31  sack: [-1, -1, -1, -1, -1]
+A_input: packet corrupted
+
+EVENT time: 12225.142796105838  type: 0  entity: 0
+A_timerinterrupt: timer expired
+GBN timeout: retransmitting packet 0
+
+EVENT time: 12233.249794000061  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:29,30,31
+
+EVENT time: 12238.279427472762  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 768  payload: SACK:29,30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 29
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+
+EVENT time: 12245.375926999724  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:29,30,31
+
+EVENT time: 12252.108218634601  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 768  payload: SACK:29,30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 29
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+
+EVENT time: 12260.595080416271  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:29,30,31
+
+EVENT time: 12270.296792504652  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 768  payload: SACK:29,30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 29
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+
+EVENT time: 12272.776146732991  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:29,30,31
+
+EVENT time: 12277.739860225223  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 768  payload: SACK:29,30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 29
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+
+EVENT time: 12286.340708639787  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:29,30,31
+
+EVENT time: 12289.143345439006  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 768  payload: SACK:29,30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 29
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+
+EVENT time: 12296.989959410379  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:29,30,31
+
+EVENT time: 12306.870754112366  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 768  payload: SACK:29,30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 29
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+
+EVENT time: 12307.997375408182  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:29,30,31
+
+EVENT time: 12314.410779137545  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 768  payload: SACK:29,30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 29
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+
+EVENT time: 12321.641865291296  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+toLayer3: packet being corrupted
+GBN B_input: sent ACK for 27 with SACK:29,30,31
+
+EVENT time: 12330.808801538129  type: 2  entity: 0
+A_input: got packet seqnum: 999999  acknum: 27  checksum: 768  payload: SACK:29,30,31  sack: [-1, -1, -1, -1, -1]
+A_input: packet corrupted
+
+EVENT time: 12344.410779137545  type: 0  entity: 0
+A_timerinterrupt: timer expired
+GBN timeout: retransmitting packet 0
+
+EVENT time: 12351.848689230015  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:29,30,31
+
+EVENT time: 12355.45115512558  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 768  payload: SACK:29,30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 29
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+
+EVENT time: 12363.299966429637  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:29,30,31
+
+EVENT time: 12365.479659413431  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 768  payload: SACK:29,30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 29
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+
+EVENT time: 12366.871608630632  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:29,30,31
+
+EVENT time: 12368.85601367229  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 768  payload: SACK:29,30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 29
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+
+EVENT time: 12374.29120761742  type: 1  entity: 0
+A_output: got message from layer 5: nnnnnnnnnnnnnnnnnnnn
+toLayer3: packet being corrupted
+GBN A_output: sent packet 1
+
+EVENT time: 12377.979277932063  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:29,30,31
+
+EVENT time: 12381.854487746816  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 2200  payload: ?nnnnnnnnnnnnnnnnnnn  sack: [-1, -1, -1, -1, -1]
+B_input: packet corrupted
+B_input: sent duplicate ACK for 27
+
+EVENT time: 12384.753868221074  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 768  payload: SACK:29,30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 29
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+
+EVENT time: 12392.16815698721  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:29,30,31
+
+EVENT time: 12393.348399304175  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 768  payload: SACK:29,30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 29
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+
+EVENT time: 12394.713705862603  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 768  payload: SACK:29,30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 29
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+
+EVENT time: 12399.325083162936  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 2200  payload: nnnnnnnnnnnnnnnnnnnn  sack: [-1, -1, -1, -1, -1]
+GBN B_input: buffered packet 1 for SACK
+GBN B_input: sent ACK for 27 with SACK:29,30,31
+
+EVENT time: 12403.797418134096  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 768  payload: SACK:29,30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 29
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+
+EVENT time: 12403.9429914243  type: 1  entity: 0
+A_output: got message from layer 5: oooooooooooooooooooo
+toLayer3: packet being corrupted
+GBN A_output: sent packet 2
+
+EVENT time: 12404.000671407206  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:29,30,31
+
+EVENT time: 12411.6248054445  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 768  payload: SACK:29,30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 29
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+
+EVENT time: 12413.165410321357  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 2200  payload: nnnnnnnnnnnnnnnnnnnn  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:29,30,31
+
+EVENT time: 12414.415356913965  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 768  payload: SACK:29,30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 29
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+
+EVENT time: 12421.164738914149  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:29,30,31
+
+EVENT time: 12422.48966948454  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 768  payload: SACK:29,30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 29
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+
+EVENT time: 12424.26126895962  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 2200  payload: nnnnnnnnnnnnnnnnnnnn  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:29,30,31
+
+EVENT time: 12425.691946165347  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 768  payload: SACK:29,30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 29
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+
+EVENT time: 12426.948271126435  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:29,30,31
+
+EVENT time: 12431.134128849144  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 2200  payload: nnnnnnnnnnnnnnnnnnnn  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:29,30,31
+
+EVENT time: 12434.435621204258  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 768  payload: SACK:29,30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 29
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+
+EVENT time: 12438.405041657763  type: 2  entity: 1
+B_input: got packet seqnum: 2  acknum: -1  checksum: 2221  payload: ?ooooooooooooooooooo  sack: [-1, -1, -1, -1, -1]
+B_input: packet corrupted
+B_input: sent duplicate ACK for 27
+
+EVENT time: 12439.922849208042  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 768  payload: SACK:29,30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 29
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+
+EVENT time: 12443.710715048675  type: 2  entity: 1
+B_input: got packet seqnum: 999999  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+B_input: packet corrupted
+B_input: sent duplicate ACK for 27
+
+EVENT time: 12446.837244788961  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 768  payload: SACK:29,30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 29
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+
+EVENT time: 12452.680990020444  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 768  payload: SACK:29,30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 29
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+
+EVENT time: 12452.715872676778  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 2200  payload: nnnnnnnnnnnnnnnnnnnn  sack: [-1, -1, -1, -1, -1]
+toLayer3: packet being corrupted
+GBN B_input: sent ACK for 27 with SACK:29,30,31
+
+EVENT time: 12457.569170201727  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 768  payload: ?ACK:29,30,31  sack: [-1, -1, -1, -1, -1]
+A_input: packet corrupted
+
+EVENT time: 12459.025727103488  type: 2  entity: 1
+B_input: got packet seqnum: 2  acknum: -1  checksum: 2221  payload: oooooooooooooooooooo  sack: [-1, -1, -1, -1, -1]
+GBN B_input: buffered packet 2 for SACK
+GBN B_input: sent ACK for 27 with SACK:30,31
+
+EVENT time: 12460.073244422741  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 617  payload: SACK:30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+
+EVENT time: 12460.103457747124  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:30,31
+
+EVENT time: 12466.242194891202  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 617  payload: SACK:30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+
+EVENT time: 12468.853450117496  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 2200  payload: nnnnnnnnnnnnnnnnnnnn  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:30,31
+
+EVENT time: 12472.853358561968  type: 2  entity: 1
+B_input: got packet seqnum: 2  acknum: -1  checksum: 2221  payload: oooooooooooooooooooo  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:30,31
+
+EVENT time: 12475.66039002655  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:30,31
+
+EVENT time: 12476.67094943083  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 617  payload: SACK:30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+
+EVENT time: 12480.023957029938  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 2200  payload: nnnnnnnnnnnnnnnnnnnn  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:30,31
+
+EVENT time: 12483.728873561815  type: 2  entity: 1
+B_input: got packet seqnum: 2  acknum: -1  checksum: 2221  payload: oooooooooooooooooooo  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:30,31
+
+EVENT time: 12484.2656941435  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 617  payload: SACK:30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+
+EVENT time: 12491.286965544603  type: 1  entity: 0
+A_output: got message from layer 5: pppppppppppppppppppp
+GBN A_output: sent packet 3
+
+EVENT time: 12492.169164098028  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 617  payload: SACK:30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+
+EVENT time: 12492.301156651509  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:30,31
+
+EVENT time: 12495.37791070284  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 2200  payload: nnnnnnnnnnnnnnnnnnnn  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:30,31
+
+EVENT time: 12499.31702627644  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 617  payload: SACK:30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+
+EVENT time: 12501.105319376205  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 617  payload: SACK:30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+
+EVENT time: 12503.892239143039  type: 2  entity: 1
+B_input: got packet seqnum: 2  acknum: -1  checksum: 2221  payload: oooooooooooooooooooo  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:30,31
+
+EVENT time: 12505.268257698293  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:30,31
+
+EVENT time: 12506.108859523305  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 617  payload: SACK:30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+
+EVENT time: 12509.06463820307  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 2200  payload: nnnnnnnnnnnnnnnnnnnn  sack: [-1, -1, -1, -1, -1]
+toLayer3: packet being corrupted
+GBN B_input: sent ACK for 27 with SACK:30,31
+
+EVENT time: 12509.54542680136  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 617  payload: SACK:30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+
+EVENT time: 12515.530350657678  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 617  payload: SACK:30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+
+EVENT time: 12517.61329996643  type: 2  entity: 1
+B_input: got packet seqnum: 2  acknum: -1  checksum: 2221  payload: oooooooooooooooooooo  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:30,31
+
+EVENT time: 12522.453260902743  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 617  payload: SACK:30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+
+EVENT time: 12522.765984069338  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:30,31
+
+EVENT time: 12527.88927884762  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 2200  payload: ?nnnnnnnnnnnnnnnnnnn  sack: [-1, -1, -1, -1, -1]
+B_input: packet corrupted
+B_input: sent duplicate ACK for 27
+
+EVENT time: 12530.73824274423  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 999999  checksum: 617  payload: SACK:30,31  sack: [-1, -1, -1, -1, -1]
+A_input: packet corrupted
+
+EVENT time: 12536.1520126957  type: 2  entity: 1
+B_input: got packet seqnum: 2  acknum: -1  checksum: 2221  payload: oooooooooooooooooooo  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:30,31
+
+EVENT time: 12538.523697622608  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+toLayer3: packet being corrupted
+GBN B_input: sent ACK for 27 with SACK:30,31
+
+EVENT time: 12538.849909970402  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 617  payload: SACK:30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 3
+
+EVENT time: 12542.20819727165  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 617  payload: SACK:30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+
+EVENT time: 12545.562517166662  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 2200  payload: nnnnnnnnnnnnnnnnnnnn  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:30,31
+
+EVENT time: 12546.490737632379  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 617  payload: SACK:30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+
+EVENT time: 12548.649708548235  type: 2  entity: 1
+B_input: got packet seqnum: 2  acknum: -1  checksum: 2221  payload: oooooooooooooooooooo  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:30,31
+
+EVENT time: 12550.315225684379  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:30,31
+
+EVENT time: 12552.517685476247  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 617  payload: SACK:30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+
+EVENT time: 12556.422101504564  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 2200  payload: nnnnnnnnnnnnnnnnnnnn  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:30,31
+
+EVENT time: 12560.536790063179  type: 2  entity: 0
+A_input: got packet seqnum: 999999  acknum: 27  checksum: 617  payload: SACK:30,31  sack: [-1, -1, -1, -1, -1]
+A_input: packet corrupted
+
+EVENT time: 12562.058198797573  type: 2  entity: 1
+B_input: got packet seqnum: 2  acknum: -1  checksum: 2221  payload: oooooooooooooooooooo  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:30,31
+
+EVENT time: 12564.341166417435  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: ?mmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+B_input: packet corrupted
+B_input: sent duplicate ACK for 27
+
+EVENT time: 12566.092135380113  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 617  payload: SACK:30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+
+EVENT time: 12566.756248664818  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 2200  payload: nnnnnnnnnnnnnnnnnnnn  sack: [-1, -1, -1, -1, -1]
+toLayer3: packet being corrupted
+GBN B_input: sent ACK for 27 with SACK:30,31
+
+EVENT time: 12569.530045472582  type: 2  entity: 1
+B_input: got packet seqnum: 2  acknum: -1  checksum: 2221  payload: oooooooooooooooooooo  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:30,31
+
+EVENT time: 12571.883693960392  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 617  payload: SACK:30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+
+EVENT time: 12579.50450148015  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:30,31
+
+EVENT time: 12579.835779900513  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 617  payload: SACK:30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 3
+
+EVENT time: 12583.257240516377  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 617  payload: SACK:30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+
+EVENT time: 12586.525437177652  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 617  payload: SACK:30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+
+EVENT time: 12588.619159520253  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 617  payload: SACK:30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+
+EVENT time: 12588.893642994479  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 2200  payload: nnnnnnnnnnnnnnnnnnnn  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:30,31
+
+EVENT time: 12595.192693868836  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 999999  checksum: 617  payload: SACK:30,31  sack: [-1, -1, -1, -1, -1]
+A_input: packet corrupted
+
+EVENT time: 12596.383465071569  type: 2  entity: 1
+B_input: got packet seqnum: 2  acknum: -1  checksum: 2221  payload: oooooooooooooooooooo  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:30,31
+
+EVENT time: 12602.165318765836  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 617  payload: SACK:30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+
+EVENT time: 12603.84704123051  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 617  payload: SACK:30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+
+EVENT time: 12605.62868129521  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+toLayer3: packet being corrupted
+GBN B_input: sent ACK for 27 with SACK:30,31
+
+EVENT time: 12609.399090548422  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 617  payload: SACK:30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+
+EVENT time: 12611.833887752926  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 2200  payload: nnnnnnnnnnnnnnnnnnnn  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:30,31
+
+EVENT time: 12616.622486037786  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 617  payload: SACK:30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+
+EVENT time: 12616.666310617393  type: 2  entity: 1
+B_input: got packet seqnum: 2  acknum: -1  checksum: 2221  payload: oooooooooooooooooooo  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:30,31
+
+EVENT time: 12620.827997680597  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:30,31
+
+EVENT time: 12622.627185888245  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 617  payload: ?ACK:30,31  sack: [-1, -1, -1, -1, -1]
+A_input: packet corrupted
+
+EVENT time: 12625.495071260724  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 2200  payload: nnnnnnnnnnnnnnnnnnnn  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:30,31
+
+EVENT time: 12625.507003997927  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 617  payload: SACK:30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+
+EVENT time: 12627.309732352676  type: 2  entity: 1
+B_input: got packet seqnum: 2  acknum: -1  checksum: 2221  payload: oooooooooooooooooooo  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:30,31
+
+EVENT time: 12629.999694814906  type: 1  entity: 0
+A_output: got message from layer 5: qqqqqqqqqqqqqqqqqqqq
+GBN A_output: sent packet 4
+
+EVENT time: 12630.401318399614  type: 2  entity: 1
+B_input: got packet seqnum: 3  acknum: -1  checksum: 2242  payload: pppppppppppppppppppp  sack: [-1, -1, -1, -1, -1]
+GBN B_input: buffered packet 3 for SACK
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12631.884701071202  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 617  payload: SACK:30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+
+EVENT time: 12635.381511886964  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12636.209265419478  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 617  payload: SACK:30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 0
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+
+EVENT time: 12642.971221045565  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 617  payload: SACK:30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+
+EVENT time: 12644.694570757169  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 2200  payload: nnnnnnnnnnnnnnnnnnnn  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12646.013092440566  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 617  payload: SACK:30,31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 30
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+
+EVENT time: 12646.58037049471  type: 2  entity: 1
+B_input: got packet seqnum: 2  acknum: -1  checksum: 2221  payload: oooooooooooooooooooo  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12655.024872585223  type: 1  entity: 0
+A_output: got message from layer 5: rrrrrrrrrrrrrrrrrrrr
+GBN A_output: sent packet 5
+
+EVENT time: 12655.06146427809  type: 2  entity: 1
+B_input: got packet seqnum: 3  acknum: -1  checksum: 2242  payload: pppppppppppppppppppp  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12655.458815271462  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12659.537827692495  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12660.81304361095  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12661.070558793914  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12666.346018860444  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 2200  payload: nnnnnnnnnnnnnnnnnnnn  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12667.803521835993  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12669.725730155344  type: 2  entity: 1
+B_input: got packet seqnum: 2  acknum: -1  checksum: 2221  payload: oooooooooooooooooooo  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12675.213782158884  type: 2  entity: 1
+B_input: got packet seqnum: 3  acknum: -1  checksum: 2242  payload: pppppppppppppppppppp  sack: [-1, -1, -1, -1, -1]
+toLayer3: packet being corrupted
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12676.64857936339  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12677.28467665639  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12678.512649922177  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12679.169408246107  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 2200  payload: nnnnnnnnnnnnnnnnnnnn  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12680.646198919643  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12680.843440046394  type: 2  entity: 1
+B_input: got packet seqnum: 2  acknum: -1  checksum: 2221  payload: oooooooooooooooooooo  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12682.1024201178  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12684.333567308578  type: 2  entity: 1
+B_input: got packet seqnum: 3  acknum: -1  checksum: 2242  payload: pppppppppppppppppppp  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12685.215704824976  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: ?ACK:31  sack: [-1, -1, -1, -1, -1]
+A_input: packet corrupted
+
+EVENT time: 12689.83278908658  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12690.889797662288  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12692.02246162298  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 2200  payload: nnnnnnnnnnnnnnnnnnnn  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12693.036194952245  type: 2  entity: 1
+B_input: got packet seqnum: 2  acknum: -1  checksum: 2221  payload: oooooooooooooooooooo  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12695.318369090854  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12699.59846797083  type: 2  entity: 1
+B_input: got packet seqnum: 3  acknum: -1  checksum: 2242  payload: pppppppppppppppppppp  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12704.9236732078  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12708.110873744932  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12709.549546800134  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12712.955107272566  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 2200  payload: nnnnnnnnnnnnnnnnnnnn  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12714.348735007781  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12714.44813379315  type: 2  entity: 1
+B_input: got packet seqnum: 2  acknum: -1  checksum: 2221  payload: oooooooooooooooooooo  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12716.652546769621  type: 2  entity: 1
+B_input: got packet seqnum: 3  acknum: -1  checksum: 2242  payload: pppppppppppppppppppp  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12721.65974913785  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12722.01370281076  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12725.68767357402  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12731.01559495834  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12731.644276253553  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 2200  payload: nnnnnnnnnnnnnnnnnnnn  sack: [-1, -1, -1, -1, -1]
+toLayer3: packet being corrupted
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12739.46095156713  type: 2  entity: 1
+B_input: got packet seqnum: 2  acknum: -1  checksum: 2221  payload: oooooooooooooooooooo  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12740.686544389171  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12742.143314920499  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12747.435285500662  type: 2  entity: 1
+B_input: got packet seqnum: 3  acknum: -1  checksum: 2242  payload: pppppppppppppppppppp  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12749.43565172277  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12751.56758323924  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: ?mmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+B_input: packet corrupted
+B_input: sent duplicate ACK for 27
+
+EVENT time: 12753.887630848116  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 2200  payload: nnnnnnnnnnnnnnnnnnnn  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12754.651234473708  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12761.609576708273  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12763.636036255995  type: 2  entity: 1
+B_input: got packet seqnum: 2  acknum: -1  checksum: 2221  payload: oooooooooooooooooooo  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12767.514847254859  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: ?ACK:31  sack: [-1, -1, -1, -1, -1]
+A_input: packet corrupted
+
+EVENT time: 12771.274178289139  type: 2  entity: 1
+B_input: got packet seqnum: 3  acknum: -1  checksum: 2242  payload: pppppppppppppppppppp  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12772.82625812556  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12776.702108829004  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12779.78215887936  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12782.35795159765  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 2200  payload: nnnnnnnnnnnnnnnnnnnn  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12784.24570451979  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12784.75353251748  type: 2  entity: 1
+B_input: got packet seqnum: 2  acknum: -1  checksum: 2221  payload: oooooooooooooooooooo  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12788.633991515853  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12789.919949949652  type: 2  entity: 1
+B_input: got packet seqnum: 3  acknum: 999999  checksum: 2242  payload: pppppppppppppppppppp  sack: [-1, -1, -1, -1, -1]
+B_input: packet corrupted
+B_input: sent duplicate ACK for 27
+
+EVENT time: 12793.410077211836  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12795.587115085298  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12800.440687276832  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12802.762688070323  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 2200  payload: nnnnnnnnnnnnnnnnnnnn  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12804.838038270209  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12810.599932859277  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12812.63469344158  type: 2  entity: 1
+B_input: got packet seqnum: 2  acknum: -1  checksum: 2221  payload: oooooooooooooooooooo  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12817.934293649096  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12819.481704153566  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12822.29685354168  type: 2  entity: 1
+B_input: got packet seqnum: 3  acknum: -1  checksum: 2242  payload: pppppppppppppppppppp  sack: [-1, -1, -1, -1, -1]
+toLayer3: packet being corrupted
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12824.540452284307  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12829.638080996132  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12830.240821558273  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12833.324167607652  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12837.065889461957  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: ?ACK:31  sack: [-1, -1, -1, -1, -1]
+A_input: packet corrupted
+
+EVENT time: 12837.714316232803  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 2200  payload: nnnnnnnnnnnnnnnnnnnn  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12840.654622028258  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12844.362285225998  type: 2  entity: 1
+B_input: got packet seqnum: 2  acknum: -1  checksum: 2221  payload: oooooooooooooooooooo  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12844.647938474684  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12850.341990417186  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12853.926938688322  type: 2  entity: 1
+B_input: got packet seqnum: 3  acknum: -1  checksum: 2242  payload: pppppppppppppppppppp  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12856.040437025064  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12859.84615619374  type: 2  entity: 1
+B_input: got packet seqnum: 999999  acknum: -1  checksum: 2200  payload: nnnnnnnnnnnnnnnnnnnn  sack: [-1, -1, -1, -1, -1]
+B_input: packet corrupted
+B_input: sent duplicate ACK for 27
+
+EVENT time: 12863.449842829685  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12869.289468062389  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12869.563249610897  type: 2  entity: 1
+B_input: got packet seqnum: 2  acknum: -1  checksum: 2221  payload: oooooooooooooooooooo  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12871.80886257516  type: 2  entity: 1
+B_input: got packet seqnum: 3  acknum: -1  checksum: 2242  payload: pppppppppppppppppppp  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12873.279915768922  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12875.607562486657  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12875.697744682158  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 2200  payload: nnnnnnnnnnnnnnnnnnnn  sack: [-1, -1, -1, -1, -1]
+toLayer3: packet being corrupted
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12878.21774956512  type: 2  entity: 1
+B_input: got packet seqnum: 2  acknum: -1  checksum: 2221  payload: ?ooooooooooooooooooo  sack: [-1, -1, -1, -1, -1]
+B_input: packet corrupted
+B_input: sent duplicate ACK for 27
+
+EVENT time: 12879.642384105968  type: 2  entity: 1
+B_input: got packet seqnum: 3  acknum: -1  checksum: 2242  payload: pppppppppppppppppppp  sack: [-1, -1, -1, -1, -1]
+toLayer3: packet being corrupted
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12879.826654866185  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12883.437635425895  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12884.856318857395  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12887.06924649801  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 2200  payload: ?nnnnnnnnnnnnnnnnnnn  sack: [-1, -1, -1, -1, -1]
+B_input: packet corrupted
+B_input: sent duplicate ACK for 27
+
+EVENT time: 12887.443861201828  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12895.084505752748  type: 2  entity: 1
+B_input: got packet seqnum: 2  acknum: -1  checksum: 2221  payload: oooooooooooooooooooo  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12896.463576158949  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: ?ACK:31  sack: [-1, -1, -1, -1, -1]
+A_input: packet corrupted
+
+EVENT time: 12902.263374736785  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12904.371745963936  type: 2  entity: 1
+B_input: got packet seqnum: 3  acknum: -1  checksum: 2242  payload: pppppppppppppppppppp  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12905.997131260117  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: ?ACK:31  sack: [-1, -1, -1, -1, -1]
+A_input: packet corrupted
+
+EVENT time: 12912.816309091473  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: ?mmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+B_input: packet corrupted
+B_input: sent duplicate ACK for 27
+
+EVENT time: 12914.404614398642  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12918.076296273699  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12919.314859462273  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 2200  payload: nnnnnnnnnnnnnnnnnnnn  sack: [-1, -1, -1, -1, -1]
+toLayer3: packet being corrupted
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12921.308786278887  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12922.950956755281  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12925.655537583554  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12927.511947996469  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: ?ACK:31  sack: [-1, -1, -1, -1, -1]
+A_input: packet corrupted
+
+EVENT time: 12928.13681447799  type: 2  entity: 1
+B_input: got packet seqnum: 2  acknum: -1  checksum: 2221  payload: oooooooooooooooooooo  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12932.728629413748  type: 2  entity: 1
+B_input: got packet seqnum: 3  acknum: -1  checksum: 2242  payload: ?ppppppppppppppppppp  sack: [-1, -1, -1, -1, -1]
+B_input: packet corrupted
+B_input: sent duplicate ACK for 27
+
+EVENT time: 12937.09720145269  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12938.395764030894  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+toLayer3: packet being corrupted
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12939.442732016978  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 2200  payload: nnnnnnnnnnnnnnnnnnnn  sack: [-1, -1, -1, -1, -1]
+toLayer3: packet being corrupted
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12939.618854335164  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12944.620685445732  type: 2  entity: 1
+B_input: got packet seqnum: 2  acknum: -1  checksum: 2221  payload: oooooooooooooooooooo  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12945.54802087467  type: 2  entity: 0
+A_input: got packet seqnum: 999999  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+A_input: packet corrupted
+
+EVENT time: 12949.7535935545  type: 2  entity: 1
+B_input: got packet seqnum: 3  acknum: -1  checksum: 2242  payload: pppppppppppppppppppp  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12950.362865077679  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: ?ACK:31  sack: [-1, -1, -1, -1, -1]
+A_input: packet corrupted
+
+EVENT time: 12953.737632374045  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12959.519028290668  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12962.182134464563  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 2200  payload: nnnnnnnnnnnnnnnnnnnn  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12962.539536729037  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12967.390087588132  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12968.861415448479  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12968.968535416741  type: 2  entity: 1
+B_input: got packet seqnum: 2  acknum: -1  checksum: 2221  payload: oooooooooooooooooooo  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12973.666646321004  type: 2  entity: 1
+B_input: got packet seqnum: 3  acknum: -1  checksum: 2242  payload: pppppppppppppppppppp  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12975.686758018748  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: 999999  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+B_input: packet corrupted
+B_input: sent duplicate ACK for 27
+
+EVENT time: 12976.965544602812  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 2200  payload: nnnnnnnnnnnnnnnnnnnn  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12978.872951445062  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12983.704977568907  type: 2  entity: 1
+B_input: got packet seqnum: 2  acknum: -1  checksum: 2221  payload: oooooooooooooooooooo  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12986.2411877804  type: 2  entity: 1
+B_input: got packet seqnum: 3  acknum: -1  checksum: 2242  payload: pppppppppppppppppppp  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12987.959135715822  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12993.857081820135  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 12994.735099337759  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 12998.19345683158  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 2200  payload: nnnnnnnnnnnnnnnnnnnn  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 13002.631702627654  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 13002.929746391197  type: 2  entity: 1
+B_input: got packet seqnum: 2  acknum: -1  checksum: 2221  payload: oooooooooooooooooooo  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 13007.800317392508  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 13007.848139896858  type: 2  entity: 1
+B_input: got packet seqnum: 3  acknum: -1  checksum: 2242  payload: pppppppppppppppppppp  sack: [-1, -1, -1, -1, -1]
+toLayer3: packet being corrupted
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 13009.485366374716  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+toLayer3: packet being corrupted
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 13013.703360087904  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 2200  payload: nnnnnnnnnnnnnnnnnnnn  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 13014.361491744752  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 13019.254890591152  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 13020.455671864995  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 13021.392315439325  type: 2  entity: 1
+B_input: got packet seqnum: 2  acknum: -1  checksum: 2221  payload: oooooooooooooooooooo  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 13023.948820459616  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+
+EVENT time: 13024.422650837745  type: 2  entity: 1
+B_input: got packet seqnum: 3  acknum: -1  checksum: 2242  payload: pppppppppppppppppppp  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 13027.994323557245  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: ?ACK:31  sack: [-1, -1, -1, -1, -1]
+A_input: packet corrupted
+
+EVENT time: 13028.254036072878  type: 1  entity: 0
+A_output: got message from layer 5: ssssssssssssssssssss
+GBN A_output: sent packet 6
+
+EVENT time: 13029.517654957745  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 13031.482528153332  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: ?ACK:31  sack: [-1, -1, -1, -1, -1]
+A_input: packet corrupted
+
+EVENT time: 13033.411175878176  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+GBN A_input: retransmitting unSACKed packet 6
+
+EVENT time: 13036.929197058029  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 2200  payload: nnnnnnnnnnnnnnnnnnnn  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 13042.151829584649  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+GBN A_input: retransmitting unSACKed packet 6
+
+EVENT time: 13046.71770378736  type: 2  entity: 1
+B_input: got packet seqnum: 2  acknum: -1  checksum: 2221  payload: oooooooooooooooooooo  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 13049.490035706662  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+GBN A_input: retransmitting unSACKed packet 6
+
+EVENT time: 13052.471633045456  type: 2  entity: 1
+B_input: got packet seqnum: 3  acknum: -1  checksum: 2242  payload: pppppppppppppppppppp  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 13055.464796899325  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 6
+
+EVENT time: 13059.168218024246  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 13064.166173284102  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 5
+GBN A_input: retransmitting unSACKed packet 6
+
+EVENT time: 13068.859767448972  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 2200  payload: ?nnnnnnnnnnnnnnnnnnn  sack: [-1, -1, -1, -1, -1]
+B_input: packet corrupted
+B_input: sent duplicate ACK for 27
+
+EVENT time: 13069.201574755094  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+GBN A_input: retransmitting unSACKed packet 6
+
+EVENT time: 13071.838740195943  type: 2  entity: 1
+B_input: got packet seqnum: 2  acknum: -1  checksum: 2221  payload: oooooooooooooooooooo  sack: [-1, -1, -1, -1, -1]
+toLayer3: packet being corrupted
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 13077.5291299173  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 6
+
+EVENT time: 13080.338785973707  type: 2  entity: 1
+B_input: got packet seqnum: 3  acknum: -1  checksum: 2242  payload: pppppppppppppppppppp  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 13083.80410168768  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+GBN A_input: retransmitting unSACKed packet 6
+
+EVENT time: 13086.529984435574  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 13091.556321909251  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 2200  payload: nnnnnnnnnnnnnnnnnnnn  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 13093.77031769769  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+GBN A_input: retransmitting unSACKed packet 6
+
+EVENT time: 13096.05667287211  type: 2  entity: 1
+B_input: got packet seqnum: 2  acknum: -1  checksum: 2221  payload: oooooooooooooooooooo  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 13101.069246498007  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: ?ACK:31  sack: [-1, -1, -1, -1, -1]
+A_input: packet corrupted
+
+EVENT time: 13105.714712973431  type: 2  entity: 1
+B_input: got packet seqnum: 3  acknum: -1  checksum: 2242  payload: pppppppppppppppppppp  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with SACK:31
+
+EVENT time: 13110.841822565393  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+GBN A_input: retransmitting unSACKed packet 6
+
+EVENT time: 13114.39906002992  type: 2  entity: 1
+B_input: got packet seqnum: 4  acknum: -1  checksum: 2263  payload: qqqqqqqqqqqqqqqqqqqq  sack: [-1, -1, -1, -1, -1]
+GBN B_input: buffered packet 4 for SACK
+GBN B_input: sent ACK for 27 with 
+
+EVENT time: 13114.498123111674  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+GBN A_input: retransmitting unSACKed packet 6
+
+EVENT time: 13115.472670674777  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with 
+
+EVENT time: 13117.09997863705  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 6
+
+EVENT time: 13120.725058748143  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 2200  payload: nnnnnnnnnnnnnnnnnnnn  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with 
+
+EVENT time: 13126.871730704679  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+GBN A_input: retransmitting unSACKed packet 6
+
+EVENT time: 13129.452803125108  type: 2  entity: 1
+B_input: got packet seqnum: 2  acknum: -1  checksum: 2221  payload: oooooooooooooooooooo  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with 
+
+EVENT time: 13133.702658162189  type: 2  entity: 1
+B_input: got packet seqnum: 3  acknum: -1  checksum: 2242  payload: pppppppppppppppppppp  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with 
+
+EVENT time: 13135.182531205182  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 474  payload: SACK:31  sack: [-1, -1, -1, -1, -1]
+GBN A_input: SACK for 31
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+GBN A_input: retransmitting unSACKed packet 6
+
+EVENT time: 13138.151615955083  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 26  payload:   sack: [-1, -1, -1, -1, -1]
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+GBN A_input: retransmitting unSACKed packet 6
+
+EVENT time: 13139.235389263595  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 26  payload:   sack: [-1, -1, -1, -1, -1]
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+GBN A_input: retransmitting unSACKed packet 6
+
+EVENT time: 13141.085757011633  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 26  payload:   sack: [-1, -1, -1, -1, -1]
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 5
+GBN A_input: retransmitting unSACKed packet 6
+
+EVENT time: 13142.635639515373  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 26  payload:   sack: [-1, -1, -1, -1, -1]
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+GBN A_input: retransmitting unSACKed packet 6
+
+EVENT time: 13143.092898342858  type: 2  entity: 1
+B_input: got packet seqnum: 4  acknum: -1  checksum: 2263  payload: qqqqqqqqqqqqqqqqqqqq  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with 
+
+EVENT time: 13146.048036133921  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 26  payload:   sack: [-1, -1, -1, -1, -1]
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+GBN A_input: retransmitting unSACKed packet 6
+
+EVENT time: 13150.546739097275  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: ?mmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+B_input: packet corrupted
+B_input: sent duplicate ACK for 27
+
+EVENT time: 13150.619251075783  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 26  payload:   sack: [-1, -1, -1, -1, -1]
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 0
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+GBN A_input: retransmitting unSACKed packet 6
+
+EVENT time: 13152.846186712253  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 2200  payload: ?nnnnnnnnnnnnnnnnnnn  sack: [-1, -1, -1, -1, -1]
+B_input: packet corrupted
+B_input: sent duplicate ACK for 27
+
+EVENT time: 13154.309060945468  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 26  payload:   sack: [-1, -1, -1, -1, -1]
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+GBN A_input: retransmitting unSACKed packet 6
+
+EVENT time: 13160.011352885538  type: 2  entity: 1
+B_input: got packet seqnum: 2  acknum: -1  checksum: 2221  payload: oooooooooooooooooooo  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with 
+
+EVENT time: 13160.089358195752  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 26  payload:   sack: [-1, -1, -1, -1, -1]
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+GBN A_input: retransmitting unSACKed packet 6
+
+EVENT time: 13164.606189153728  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 26  payload:   sack: [-1, -1, -1, -1, -1]
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+toLayer3: packet being corrupted
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+GBN A_input: retransmitting unSACKed packet 6
+
+EVENT time: 13164.946501052902  type: 2  entity: 1
+B_input: got packet seqnum: 3  acknum: -1  checksum: 2242  payload: pppppppppppppppppppp  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with 
+
+EVENT time: 13166.442548905925  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 26  payload:   sack: [-1, -1, -1, -1, -1]
+GBN A_input: retransmitting unSACKed packet 0
+GBN A_input: retransmitting unSACKed packet 1
+GBN A_input: retransmitting unSACKed packet 2
+GBN A_input: retransmitting unSACKed packet 3
+GBN A_input: retransmitting unSACKed packet 4
+GBN A_input: retransmitting unSACKed packet 5
+GBN A_input: retransmitting unSACKed packet 6
+
+EVENT time: 13169.436689352106  type: 2  entity: 1
+B_input: got packet seqnum: 4  acknum: -1  checksum: 2263  payload: qqqqqqqqqqqqqqqqqqqq  sack: [-1, -1, -1, -1, -1]
+GBN B_input: sent ACK for 27 with 
+
+EVENT time: 13171.348033082078  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: ?mmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+B_input: packet corrupted
+B_input: sent duplicate ACK for 27
+
+EVENT time: 13173.848597674503  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 27  checksum: 26  payload:   sack: [-1, -1, -1, -1, -1]

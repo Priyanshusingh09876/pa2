@@ -1,7 +1,6 @@
 import java.util.*;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.sql.Time;
 
 public class StudentNetworkSimulator extends NetworkSimulator {
     /*
@@ -12,122 +11,53 @@ public class StudentNetworkSimulator extends NetworkSimulator {
      *
      * int A : a predefined integer that represents entity A
      * int B : a predefined integer that represents entity B
-     *
-     * Predefined Member Methods:
-     *
-     * void stopTimer(int entity):
-     * Stops the timer running at "entity" [A or B]
-     * void startTimer(int entity, double increment):
-     * Starts a timer running at "entity" [A or B], which will expire in
-     * "increment" time units, causing the interrupt handler to be
-     * called. You should only call this with A.
-     * void toLayer3(int callingEntity, Packet p)
-     * Puts the packet "p" into the network from "callingEntity" [A or B]
-     * void toLayer5(String dataSent)
-     * Passes "dataSent" up to layer 5
-     * double getTime()
-     * Returns the current time in the simulator. Might be useful for
-     * debugging.
-     * int getTraceLevel()
-     * Returns TraceLevel
-     * void printEventList()
-     * Prints the current event list to stdout. Might be useful for
-     * debugging, but probably not.
-     *
-     *
-     * Predefined Classes:
-     *
-     * Message: Used to encapsulate a message coming from layer 5
-     * Constructor:
-     * Message(String inputData):
-     * creates a new Message containing "inputData"
-     * Methods:
-     * boolean setData(String inputData):
-     * sets an existing Message's data to "inputData"
-     * returns true on success, false otherwise
-     * String getData():
-     * returns the data contained in the message
-     * Packet: Used to encapsulate a packet
-     * Constructors:
-     * Packet (Packet p):
-     * creates a new Packet that is a copy of "p"
-     * Packet (int seq, int ack, int check, String newPayload)
-     * creates a new Packet with a sequence field of "seq", an
-     * ack field of "ack", a checksum field of "check", and a
-     * payload of "newPayload"
-     * Packet (int seq, int ack, int check)
-     * chreate a new Packet with a sequence field of "seq", an
-     * ack field of "ack", a checksum field of "check", and
-     * an empty payload
-     * Methods:
-     * boolean setSeqnum(int n)
-     * sets the Packet's sequence field to "n"
-     * returns true on success, false otherwise
-     * boolean setAcknum(int n)
-     * sets the Packet's ack field to "n"
-     * returns true on success, false otherwise
-     * boolean setChecksum(int n)
-     * sets the Packet's checksum to "n"
-     * returns true on success, false otherwise
-     * boolean setPayload(String newPayload)
-     * sets the Packet's payload to "newPayload"
-     * returns true on success, false otherwise
-     * int getSeqnum()
-     * returns the contents of the Packet's sequence field
-     * int getAcknum()
-     * returns the contents of the Packet's ack field
-     * int getChecksum()
-     * returns the checksum of the Packet
-     * int getPayload()
-     * returns the Packet's payload
-     *
-     */
-
-    /*
-     * Please use the following variables in your routines.
-     * int WindowSize : the window size
-     * double RxmtInterval : the retransmission timeout
-     * int LimitSeqNo : when sequence number reaches this value, it wraps around
      */
 
     public static final int FirstSeqNo = 0;
     private int WindowSize;
     private double RxmtInterval;
     private int LimitSeqNo;
+    
+    // Protocol mode: 0 = Stop-and-Wait, 1 = SR, 2 = GBN with SACK
+    private static final int STOP_AND_WAIT = 0;
+    private static final int SELECTIVE_REPEAT = 1;
+    private static final int GBN_WITH_SACK = 2;
+    private int protocolMode = SELECTIVE_REPEAT; // Default to SR
+    
+    // Special window sizes to trigger different protocols
+    private static final int SAW_WINDOW = 1;
+    private static final int SR_WINDOW = 8;
+    private static final int GBN_WINDOW = 16;
+    
+    // Common variables
     private int Base;
-    private int ReceiverBase;
-    private int CurrentSequenceNumber;
-    private int MaxBufferSize;
-    private int OriginalPacketsTransmitted = 0;
-    private int layer5 = 0;
-    private int retransmission = 0;
-    private int acks = 0;
-    private int corruptedcount = 0;
-    private double lost = 0;
-    private double corruptedratio;
-    private double averagertt;
-    private Map<Integer, Double> packetrttcalc;
-    private double averagecommunicationtime;
-    private Map<Integer, Double> packetcommunicationcalc;
-    private Packet[] ackbuffer;
-    private Queue<Message> sendingBuffer;
+    private int NextSeqNum;
+    private int ExpectedSeqNum;
+    private Map<Integer, Packet> senderBuffer;
     private Map<Integer, Packet> receiverBuffer;
-    private int rttcounter = 0;
-    private int totalbytes = 0;
-    private int goodbytes = 0;
-    private int totalgoodbytes = 0;
-    private Queue<Integer> goodputBuffer;
-    private Map<Integer, Double> packetdelay;
-    private double packetdelaytotal =0;
-    private double totalrttstart;
-    private double totalrttend;
-
-    // Add any necessary class variables here. Remember, you cannot use
-    // these variables to send messages error free! They can only hold
-    // state information for A or B.
-    // Also add any necessary methods (e.g. checksum of a String)
-
-    // This is the constructor. Don't touch!
+    private Queue<Packet> waitingQueue;
+    private Map<Integer, Double> rttStartTimes;
+    private Map<Integer, Double> commStartTimes;
+    private Set<Integer> ackedPackets;
+    
+    // Statistics
+    private int originalPacketsTransmitted = 0;
+    private int retransmissions = 0;
+    private int packetsToLayer5 = 0;
+    private int acksSent = 0;
+    private int corruptedPackets = 0;
+    private double totalRTT = 0;
+    private int rttCount = 0;
+    private double totalCommTime = 0;
+    private int commTimeCount = 0;
+    private int totalDataBytes = 0;
+    private int totalGoodputBytes = 0;
+    
+    // For GBN with SACK
+    private Set<Integer> sackedPackets;
+    private LinkedList<Integer> recentReceived;
+    
+    // Constructor
     public StudentNetworkSimulator(int numMessages,
             double loss,
             double corrupt,
@@ -138,269 +68,765 @@ public class StudentNetworkSimulator extends NetworkSimulator {
             double delay) {
         super(numMessages, loss, corrupt, avgDelay, trace, seed);
         WindowSize = winsize;
-        LimitSeqNo = winsize * 2; // set appropriately; assumes SR here!
         RxmtInterval = delay;
-    }
-
-    protected boolean isCorrupted(Packet packet) {// Method used to compare checksum in received packet with the
-                                                  // checksum created using data in received packet
-
-        int checksum = packet.getChecksum();
-        int verifyChecksum = packet.getSeqnum();
-        verifyChecksum += packet.getAcknum();
-        if (packet.getPayload() != null) {
-            for (char c : packet.getPayload().toCharArray()) {
-                int csum = c & 0xFF;
-                verifyChecksum += csum;
-            }
-        }
-        verifyChecksum = verifyChecksum & 0xFF;
-
-        if (checksum != verifyChecksum) {
-            return true;
+        
+        // Automatically set protocol mode based on window size
+        if (winsize == 1) {
+            protocolMode = STOP_AND_WAIT;
+            LimitSeqNo = 2;
+            System.out.println("Protocol: Stop-and-Wait (Window Size = 1)");
+        } else if (winsize == 16) {
+            protocolMode = GBN_WITH_SACK;
+            LimitSeqNo = winsize * 2;
+            System.out.println("Protocol: Go-Back-N with SACK (Window Size = 16)");
         } else {
-            return false;
+            protocolMode = SELECTIVE_REPEAT;
+            LimitSeqNo = winsize * 2;
+            System.out.println("Protocol: Selective Repeat (Window Size = " + winsize + ")");
         }
     }
 
-    protected Packet createPacket(Message message) {// Method for creating packet from messages
-
-        int checksum = createChecksum(CurrentSequenceNumber, -1, message.getData());
-        Packet p = new Packet(CurrentSequenceNumber, -1, checksum, message.getData());
-        goodbytes = (p.getPayload().getBytes(StandardCharsets.UTF_16).length);
-        totalbytes = totalbytes + 12 + goodbytes;
-        totalgoodbytes = totalgoodbytes+ goodbytes;
-        goodputBuffer.add(CurrentSequenceNumber);
-        return p;
-
-    }
-
-    protected int createChecksum(int seq, int ack, String data) {// Generating checksum for a incoming message or packet.
-
-        int checksum = seq + ack;
-        if (data != null) {
-            for (char c : data.toCharArray()) {
-                int csum = c & 0xFF;
-                checksum += csum;
+    // Calculate checksum
+    protected int calculateChecksum(int seqnum, int acknum, String payload) {
+        int checksum = seqnum + acknum;
+        if (payload != null) {
+            for (char c : payload.toCharArray()) {
+                checksum += (c & 0xFF);
             }
         }
-        checksum = checksum & 0xFF;
-        return checksum;
-
+        return checksum & 0xFFFF;
     }
 
-    // This routine will be called whenever the upper layer at the sender [A]
-    // has a message to send. It is the job of your protocol to insure that
-    // the data in such a message is delivered in-order, and correctly, to
-    // the receiving upper layer.
+    // Verify checksum
+    protected boolean isCorrupted(Packet packet) {
+        if (packet == null) return true;
+        int calculated = calculateChecksum(packet.getSeqnum(), 
+                                          packet.getAcknum(), 
+                                          packet.getPayload());
+        return calculated != packet.getChecksum();
+    }
+
+    // Create data packet
+    protected Packet makeDataPacket(int seqnum, String data) {
+        int checksum = calculateChecksum(seqnum, -1, data);
+        return new Packet(seqnum, -1, checksum, data);
+    }
+
+    // Create ACK packet (with optional SACK for GBN mode)
+    protected Packet makeAckPacket(int acknum) {
+        int checksum = calculateChecksum(-1, acknum, null);
+        Packet ack = new Packet(-1, acknum, checksum, null);
+        
+        // Add SACK info for GBN mode
+        if (protocolMode == GBN_WITH_SACK && recentReceived != null && !recentReceived.isEmpty()) {
+            int[] sack = new int[5];
+            Arrays.fill(sack, -1);
+            int idx = 0;
+            for (Integer seq : recentReceived) {
+                if (idx < 5 && seq > acknum) {
+                    sack[idx++] = seq;
+                }
+            }
+            // Note: You need to modify Packet.java to add setSack method
+            // For now, we'll encode SACK in payload
+            StringBuilder sackStr = new StringBuilder();
+            for (int i = 0; i < 5 && sack[i] != -1; i++) {
+                if (i > 0) sackStr.append(",");
+                sackStr.append(sack[i]);
+            }
+            if (sackStr.length() > 0) {
+                ack.setPayload("SACK:" + sackStr.toString());
+                checksum = calculateChecksum(-1, acknum, ack.getPayload());
+                ack.setChecksum(checksum);
+            }
+        }
+        
+        return ack;
+    }
+
+    // A_output - called when layer 5 has data to send
     protected void aOutput(Message message) {
-        System.out.println("aOutput(): called");
-        System.out.println("Upper Layer msg: " + message.getData());
-        if (CurrentSequenceNumber == 0)
-            totalrttstart = getTime();
-        if (CurrentSequenceNumber < Base + WindowSize) {// If new message is in window then send to B
-            Packet p = createPacket(message);
-            toLayer3(A, p);
-            if (p.getSeqnum() == Base) {
+        if (traceLevel >= 2) {
+            System.out.println("A_output: got message from layer 5: " + message.getData());
+        }
+        
+        if (protocolMode == STOP_AND_WAIT) {
+            aOutputStopAndWait(message);
+        } else if (protocolMode == SELECTIVE_REPEAT) {
+            aOutputSelectiveRepeat(message);
+        } else if (protocolMode == GBN_WITH_SACK) {
+            aOutputGBN(message);
+        }
+    }
+    
+    // Stop-and-Wait A_output
+    private void aOutputStopAndWait(Message message) {
+        if (NextSeqNum == Base) {
+            // Can send immediately
+            Packet packet = makeDataPacket(NextSeqNum, message.getData());
+            senderBuffer.put(NextSeqNum, packet);
+            toLayer3(A, packet);
+            startTimer(A, RxmtInterval);
+            
+            rttStartTimes.put(NextSeqNum, getTime());
+            commStartTimes.put(NextSeqNum, getTime());
+            originalPacketsTransmitted++;
+            totalDataBytes += 12 + message.getData().length();
+            
+            NextSeqNum = (NextSeqNum + 1) % LimitSeqNo;
+            
+            if (traceLevel >= 2) {
+                System.out.println("SAW A_output: sent packet " + packet.getSeqnum());
+            }
+        } else {
+            // Must buffer
+            waitingQueue.offer(makeDataPacket(NextSeqNum, message.getData()));
+            NextSeqNum = (NextSeqNum + 1) % LimitSeqNo;
+            if (traceLevel >= 2) {
+                System.out.println("SAW A_output: buffered message");
+            }
+        }
+    }
+    
+    // Selective Repeat A_output
+    private void aOutputSelectiveRepeat(Message message) {
+        int seqnum = NextSeqNum;
+        
+        // Check if within window
+        if (isInSenderWindow(seqnum)) {
+            Packet packet = makeDataPacket(seqnum, message.getData());
+            senderBuffer.put(seqnum, packet);
+            toLayer3(A, packet);
+            
+            if (seqnum == Base) {
                 stopTimer(A);
                 startTimer(A, RxmtInterval);
             }
-            packetrttcalc.put(p.getSeqnum(), getTime());
-            packetcommunicationcalc.put(p.getSeqnum(), getTime());
-            ackbuffer[CurrentSequenceNumber % LimitSeqNo] = p;
-            packetdelay.put(CurrentSequenceNumber,getTime());
-            CurrentSequenceNumber++;
-
-        } else if (CurrentSequenceNumber >= Base + WindowSize) {
-            if (sendingBuffer.size() <= MaxBufferSize) {// Buffer it if less than buffer size else exit.
-                // buffer it
-                sendingBuffer.add(message);
-            } else {// End program if Maximum buffer size is exceeded
-                System.out.println("Exceeded Maximum Buffed Size.....Shut Down");
+            
+            rttStartTimes.put(seqnum, getTime());
+            commStartTimes.put(seqnum, getTime());
+            originalPacketsTransmitted++;
+            totalDataBytes += 12 + message.getData().length();
+            
+            NextSeqNum = (NextSeqNum + 1) % LimitSeqNo;
+            
+            if (traceLevel >= 2) {
+                System.out.println("SR A_output: sent packet " + seqnum);
+            }
+        } else {
+            // Buffer for later
+            if (waitingQueue.size() < 50) {
+                waitingQueue.offer(makeDataPacket(NextSeqNum, message.getData()));
+                NextSeqNum = (NextSeqNum + 1) % LimitSeqNo;
+                if (traceLevel >= 2) {
+                    System.out.println("SR A_output: buffered message, queue size: " + waitingQueue.size());
+                }
+            } else {
+                System.err.println("SR A_output: Buffer full, dropping message");
                 System.exit(1);
             }
-
         }
-
     }
-
-    // This routine will be called whenever a packet sent from the B-side
-    // (i.e. as a result of a toLayer3() being done by a B-side procedure)
-    // arrives at the A-side. "packet" is the (possibly corrupted) packet
-    // sent from the B-side.
-    protected void aInput(Packet packet) {
-        System.out.println("aInput(): called");
-        boolean corrupted = isCorrupted(packet);// Checking if received ack is corrupted
-        if (corrupted == false) {
-
-            if (packet.getAcknum() >= Base && packet.getAcknum() < CurrentSequenceNumber) {// When received packet ack
-                                                                                           // is in window
-                OriginalPacketsTransmitted = OriginalPacketsTransmitted + (packet.getAcknum() - Base) + 1;
-                if (packetrttcalc.get(Base) != null) {// Calculating Rtt
-                    double startTime = packetrttcalc.remove(Base);
-                    averagertt = averagertt + (getTime() - startTime);
-                    rttcounter++;
-                }
-                double time = getTime();
-                for (int i = Base; i <= packet.getAcknum(); i++) {// Calculating Communication time
-                    if (packetcommunicationcalc.containsKey(i)) {
-                        double startTime = packetcommunicationcalc.remove(i);
-                        averagecommunicationtime = averagecommunicationtime + (time - startTime);
-                    }
-                    if (packetdelay.containsKey(i)) {
-                        double startTime = packetdelay.remove(i);
-                        packetdelaytotal = packetdelaytotal + (time - startTime);
-                    }
-                }
-                Base = packet.getAcknum() + 1;
-                stopTimer(A);
-                if (Base < CurrentSequenceNumber) {
-                    startTimer(A, RxmtInterval); // Restart timer for the next oldest unacknowledged packet in window
-                }
-                if (Base == CurrentSequenceNumber && sendingBuffer.size() != 0) {
-                    startTimer(A, RxmtInterval);
-
-                }
-                // If window was full, checking once window opens up for messages in buffer.
-                // Base updated to value after ack.
-                while (sendingBuffer.size() != 0 && CurrentSequenceNumber < Base + WindowSize) {// Checking if all message in windowhave already been sent, if not we check buffer and send.
-                    Message m = sendingBuffer.remove();
-                    Packet p = createPacket(m);
-                    toLayer3(A, p);
-                    packetdelay.put(p.getSeqnum(),getTime());
-                    packetcommunicationcalc.put(p.getSeqnum(), getTime());
-                    ackbuffer[CurrentSequenceNumber % LimitSeqNo] = p;
-                    CurrentSequenceNumber++;
-                }
-            } else if (packet.getAcknum() == Base - 1) {// Scenario where a duplicate packet is received.
-                if (ackbuffer[Base % LimitSeqNo] != null) {
-                    stopTimer(A);
-                    if(goodputBuffer.contains(Base)&& !receiverBuffer.containsKey(Base)){
-                    goodputBuffer.remove(Base);
-                    totalgoodbytes = totalgoodbytes- (ackbuffer[Base % LimitSeqNo].getPayload().getBytes(StandardCharsets.UTF_16).length);
-                    }
-                    toLayer3(A, ackbuffer[Base % LimitSeqNo]);
-                    totalbytes = totalbytes + 12 + 40 + (ackbuffer[Base % LimitSeqNo].getPayload().getBytes(StandardCharsets.UTF_16).length);
-                    retransmission++;
-                    startTimer(A, RxmtInterval);
-                }
-
+    
+    // GBN with SACK A_output
+    private void aOutputGBN(Message message) {
+        int seqnum = NextSeqNum;
+        
+        if (isInSenderWindow(seqnum)) {
+            Packet packet = makeDataPacket(seqnum, message.getData());
+            senderBuffer.put(seqnum, packet);
+            toLayer3(A, packet);
+            
+            if (Base == NextSeqNum) {
+                startTimer(A, RxmtInterval);
             }
-        } else {// Scenario when the ack received is corrupted
-            System.out.println("aInput(): got corrupted ACK/NAK");
-            corruptedcount++;
+            
+            rttStartTimes.put(seqnum, getTime());
+            commStartTimes.put(seqnum, getTime());
+            originalPacketsTransmitted++;
+            totalDataBytes += 12 + message.getData().length();
+            
+            NextSeqNum = (NextSeqNum + 1) % LimitSeqNo;
+            
+            if (traceLevel >= 2) {
+                System.out.println("GBN A_output: sent packet " + seqnum);
+            }
+        } else {
+            if (waitingQueue.size() < 50) {
+                waitingQueue.offer(makeDataPacket(NextSeqNum, message.getData()));
+                NextSeqNum = (NextSeqNum + 1) % LimitSeqNo;
+                if (traceLevel >= 2) {
+                    System.out.println("GBN A_output: buffered message");
+                }
+            } else {
+                System.err.println("GBN A_output: Buffer full");
+                System.exit(1);
+            }
         }
     }
 
-    // This routine will be called when A's timer expires (thus generating a
-    // timer interrupt). You'll probably want to use this routine to control
-    // the retransmission of packets. See startTimer() and stopTimer(), above,
-    // for how the timer is started and stopped.
+    // A_input - called when ACK arrives at A
+    protected void aInput(Packet packet) {
+        if (traceLevel >= 2) {
+            System.out.println("A_input: got packet " + packet);
+        }
+        
+        if (isCorrupted(packet)) {
+            corruptedPackets++;
+            if (traceLevel >= 1) {
+                System.out.println("A_input: packet corrupted");
+            }
+            return;
+        }
+        
+        if (protocolMode == STOP_AND_WAIT) {
+            aInputStopAndWait(packet);
+        } else if (protocolMode == SELECTIVE_REPEAT) {
+            aInputSelectiveRepeat(packet);
+        } else if (protocolMode == GBN_WITH_SACK) {
+            aInputGBN(packet);
+        }
+    }
+    
+    // Stop-and-Wait A_input
+    private void aInputStopAndWait(Packet packet) {
+        int acknum = packet.getAcknum();
+        
+        if (acknum == Base) {
+            // Correct ACK
+            stopTimer(A);
+            
+            // Update RTT
+            if (rttStartTimes.containsKey(acknum)) {
+                double rtt = getTime() - rttStartTimes.remove(acknum);
+                totalRTT += rtt;
+                rttCount++;
+            }
+            
+            // Update comm time
+            if (commStartTimes.containsKey(acknum)) {
+                double commTime = getTime() - commStartTimes.remove(acknum);
+                totalCommTime += commTime;
+                commTimeCount++;
+            }
+            
+            Base = (Base + 1) % LimitSeqNo;
+            
+            // Send next buffered packet if any
+            if (!waitingQueue.isEmpty() && Base == (NextSeqNum - waitingQueue.size() + LimitSeqNo) % LimitSeqNo) {
+                Packet next = waitingQueue.poll();
+                senderBuffer.put(next.getSeqnum(), next);
+                toLayer3(A, next);
+                startTimer(A, RxmtInterval);
+                
+                rttStartTimes.put(next.getSeqnum(), getTime());
+                commStartTimes.put(next.getSeqnum(), getTime());
+                originalPacketsTransmitted++;
+                
+                if (traceLevel >= 2) {
+                    System.out.println("SAW A_input: sent buffered packet " + next.getSeqnum());
+                }
+            }
+        } else {
+            // Duplicate or wrong ACK - ignore in Stop-and-Wait
+            if (traceLevel >= 2) {
+                System.out.println("SAW A_input: ignoring ACK for " + acknum);
+            }
+        }
+    }
+    
+    // Selective Repeat A_input
+    private void aInputSelectiveRepeat(Packet packet) {
+        int acknum = packet.getAcknum();
+        
+        // Cumulative ACK
+        if (isInSenderWindow(acknum) || acknum == (Base - 1 + LimitSeqNo) % LimitSeqNo) {
+            if (acknum == (Base - 1 + LimitSeqNo) % LimitSeqNo) {
+                // Duplicate ACK - retransmit base
+                if (senderBuffer.containsKey(Base)) {
+                    toLayer3(A, senderBuffer.get(Base));
+                    retransmissions++;
+                    totalDataBytes += 12 + senderBuffer.get(Base).getPayload().length();
+                    stopTimer(A);
+                    startTimer(A, RxmtInterval);
+                    
+                    if (traceLevel >= 1) {
+                        System.out.println("SR A_input: duplicate ACK, retransmitting " + Base);
+                    }
+                }
+            } else {
+                // New cumulative ACK
+                int oldBase = Base;
+                
+                // Mark all packets up to acknum as ACKed
+                while (Base != (acknum + 1) % LimitSeqNo) {
+                    if (rttStartTimes.containsKey(Base)) {
+                        double rtt = getTime() - rttStartTimes.remove(Base);
+                        totalRTT += rtt;
+                        rttCount++;
+                    }
+                    if (commStartTimes.containsKey(Base)) {
+                        double commTime = getTime() - commStartTimes.remove(Base);
+                        totalCommTime += commTime;
+                        commTimeCount++;
+                    }
+                    senderBuffer.remove(Base);
+                    ackedPackets.add(Base);
+                    Base = (Base + 1) % LimitSeqNo;
+                }
+                
+                stopTimer(A);
+                if (!senderBuffer.isEmpty() && senderBuffer.containsKey(Base)) {
+                    startTimer(A, RxmtInterval);
+                }
+                
+                // Send buffered packets
+                while (!waitingQueue.isEmpty() && isInSenderWindow(NextSeqNum - waitingQueue.size())) {
+                    Packet pkt = waitingQueue.poll();
+                    int seq = pkt.getSeqnum();
+                    senderBuffer.put(seq, pkt);
+                    toLayer3(A, pkt);
+                    
+                    rttStartTimes.put(seq, getTime());
+                    commStartTimes.put(seq, getTime());
+                    originalPacketsTransmitted++;
+                    totalDataBytes += 12 + pkt.getPayload().length();
+                    
+                    if (traceLevel >= 2) {
+                        System.out.println("SR A_input: sent buffered packet " + seq);
+                    }
+                }
+                
+                if (traceLevel >= 2) {
+                    System.out.println("SR A_input: cumulative ACK moved window from " + oldBase + " to " + Base);
+                }
+            }
+        }
+    }
+    
+    // GBN with SACK A_input
+    private void aInputGBN(Packet packet) {
+        int acknum = packet.getAcknum();
+        
+        // Process SACK info if present
+        if (packet.getPayload() != null && packet.getPayload().startsWith("SACK:")) {
+            String sackInfo = packet.getPayload().substring(5);
+            if (!sackInfo.isEmpty()) {
+                String[] sacks = sackInfo.split(",");
+                for (String s : sacks) {
+                    try {
+                        int sackNum = Integer.parseInt(s);
+                        sackedPackets.add(sackNum);
+                        if (traceLevel >= 2) {
+                            System.out.println("GBN A_input: SACK for " + sackNum);
+                        }
+                    } catch (NumberFormatException e) {
+                        // Ignore invalid SACK
+                    }
+                }
+            }
+        }
+        
+        if (acknum >= Base || acknum == (Base - 1 + LimitSeqNo) % LimitSeqNo) {
+            if (acknum == (Base - 1 + LimitSeqNo) % LimitSeqNo) {
+                // Duplicate ACK - retransmit all unSACKed packets
+                stopTimer(A);
+                boolean anyRetransmitted = false;
+                
+                for (int seq = Base; seq != NextSeqNum; seq = (seq + 1) % LimitSeqNo) {
+                    if (!sackedPackets.contains(seq) && senderBuffer.containsKey(seq)) {
+                        toLayer3(A, senderBuffer.get(seq));
+                        retransmissions++;
+                        totalDataBytes += 12 + senderBuffer.get(seq).getPayload().length();
+                        anyRetransmitted = true;
+                        
+                        if (traceLevel >= 1) {
+                            System.out.println("GBN A_input: retransmitting unSACKed packet " + seq);
+                        }
+                    }
+                }
+                
+                if (anyRetransmitted) {
+                    startTimer(A, RxmtInterval);
+                }
+            } else {
+                // Cumulative ACK
+                while (Base != (acknum + 1) % LimitSeqNo) {
+                    if (rttStartTimes.containsKey(Base)) {
+                        double rtt = getTime() - rttStartTimes.remove(Base);
+                        totalRTT += rtt;
+                        rttCount++;
+                    }
+                    if (commStartTimes.containsKey(Base)) {
+                        double commTime = getTime() - commStartTimes.remove(Base);
+                        totalCommTime += commTime;
+                        commTimeCount++;
+                    }
+                    senderBuffer.remove(Base);
+                    sackedPackets.remove(Base);
+                    Base = (Base + 1) % LimitSeqNo;
+                }
+                
+                stopTimer(A);
+                if (Base != NextSeqNum) {
+                    startTimer(A, RxmtInterval);
+                }
+                
+                // Send buffered packets
+                while (!waitingQueue.isEmpty() && isInSenderWindow(NextSeqNum - waitingQueue.size())) {
+                    Packet pkt = waitingQueue.poll();
+                    senderBuffer.put(pkt.getSeqnum(), pkt);
+                    toLayer3(A, pkt);
+                    
+                    rttStartTimes.put(pkt.getSeqnum(), getTime());
+                    commStartTimes.put(pkt.getSeqnum(), getTime());
+                    originalPacketsTransmitted++;
+                    totalDataBytes += 12 + pkt.getPayload().length();
+                }
+            }
+        }
+    }
+
+    // A_timerinterrupt - called when A's timer expires
     protected void aTimerInterrupt() {
-        System.out.println("aTimerInterrupt(): called");
-        toLayer3(A, ackbuffer[Base % LimitSeqNo]);
-        if(goodputBuffer.contains(Base)&& !receiverBuffer.containsKey(Base)){
-            goodputBuffer.remove(Base);
-            totalgoodbytes = totalgoodbytes- (ackbuffer[Base % LimitSeqNo].getPayload().getBytes(StandardCharsets.UTF_16).length);
+        if (traceLevel >= 2) {
+            System.out.println("A_timerinterrupt: timer expired");
         }
-        totalbytes = totalbytes + 12 + 40 + (ackbuffer[Base % LimitSeqNo].getPayload().getBytes(StandardCharsets.UTF_16).length);
-        startTimer(A, RxmtInterval);
-        packetrttcalc.remove(Base);
-        retransmission++;
+        
+        if (protocolMode == STOP_AND_WAIT) {
+            // Retransmit single packet
+            if (senderBuffer.containsKey(Base)) {
+                toLayer3(A, senderBuffer.get(Base));
+                startTimer(A, RxmtInterval);
+                retransmissions++;
+                totalDataBytes += 12 + senderBuffer.get(Base).getPayload().length();
+                
+                // Remove from RTT calculation
+                rttStartTimes.remove(Base);
+                
+                if (traceLevel >= 1) {
+                    System.out.println("SAW timeout: retransmitting packet " + Base);
+                }
+            }
+        } else if (protocolMode == SELECTIVE_REPEAT) {
+            // Retransmit only base packet
+            if (senderBuffer.containsKey(Base)) {
+                toLayer3(A, senderBuffer.get(Base));
+                startTimer(A, RxmtInterval);
+                retransmissions++;
+                totalDataBytes += 12 + senderBuffer.get(Base).getPayload().length();
+                
+                // Remove from RTT calculation
+                rttStartTimes.remove(Base);
+                
+                if (traceLevel >= 1) {
+                    System.out.println("SR timeout: retransmitting packet " + Base);
+                }
+            }
+        } else if (protocolMode == GBN_WITH_SACK) {
+            // Retransmit all unACKed, unSACKed packets
+            boolean anyRetransmitted = false;
+            for (int seq = Base; seq != NextSeqNum; seq = (seq + 1) % LimitSeqNo) {
+                if (!sackedPackets.contains(seq) && senderBuffer.containsKey(seq)) {
+                    toLayer3(A, senderBuffer.get(seq));
+                    retransmissions++;
+                    totalDataBytes += 12 + senderBuffer.get(seq).getPayload().length();
+                    anyRetransmitted = true;
+                    
+                    // Remove from RTT calculation
+                    rttStartTimes.remove(seq);
+                    
+                    if (traceLevel >= 1) {
+                        System.out.println("GBN timeout: retransmitting packet " + seq);
+                    }
+                }
+            }
+            
+            if (anyRetransmitted) {
+                startTimer(A, RxmtInterval);
+            }
+        }
     }
 
-    // This routine will be called once, before any of your other A-side
-    // routines are called. It can be used to do any required
-    // initialization (e.g. of member variables you add to control the state
-    // of entity A).
+    // A_init - initialize A side
     protected void aInit() {
         Base = FirstSeqNo;
-        CurrentSequenceNumber = FirstSeqNo;
-        ackbuffer = new Packet[LimitSeqNo];
-        sendingBuffer = new LinkedList<>();
-        MaxBufferSize = 50;
-        packetrttcalc = new HashMap<>();
-        packetcommunicationcalc = new HashMap<>();
-        packetdelay = new HashMap<>();
-        goodputBuffer= new LinkedList<>();
-
+        NextSeqNum = FirstSeqNo;
+        senderBuffer = new HashMap<>();
+        waitingQueue = new LinkedList<>();
+        rttStartTimes = new HashMap<>();
+        commStartTimes = new HashMap<>();
+        ackedPackets = new HashSet<>();
+        
+        if (protocolMode == GBN_WITH_SACK) {
+            sackedPackets = new HashSet<>();
+        }
+        
+        System.out.println("A_init: Protocol mode = " + 
+            (protocolMode == STOP_AND_WAIT ? "Stop-and-Wait" : 
+             protocolMode == SELECTIVE_REPEAT ? "Selective Repeat" : "GBN with SACK"));
+        System.out.println("A_init: Window size = " + WindowSize);
     }
 
-    // This routine will be called whenever a packet sent from the A-side
-    // (i.e. as a result of a toLayer3() being done by an A-side procedure)
-    // arrives at the B-side. "packet" is the (possibly corrupted) packet
-    // sent from the A-side.
+    // B_input - called when packet arrives at B
     protected void bInput(Packet packet) {
-        System.out.println("bInput(): B getting " + packet.getPayload());
-        boolean corrupted = isCorrupted(packet);
-        if (corrupted == false) {
-            if (packet.getSeqnum() >= ReceiverBase && packet.getSeqnum() < ReceiverBase + WindowSize) {// Check if packet in window
-                if (packet.getSeqnum() == ReceiverBase) {// If packet is receiver base then send it along with all packets in buffer
-                    System.out.println("bInput(): expecting pkt " + ReceiverBase + ", getting pkt " + packet.getSeqnum());
-                    toLayer5(packet.getPayload());
-                    layer5++;
-                    ReceiverBase++;
-                    while (receiverBuffer.containsKey(ReceiverBase)) {// Sending buffered messages
-                        Packet p = receiverBuffer.remove(ReceiverBase);
-                        toLayer5(p.getPayload());
-                        layer5++;
-                        ReceiverBase++;
-                    }
-                } else {// If packet is not the base then we buffer it and send ack.
-                    receiverBuffer.put(packet.getSeqnum(), packet);
-                    packetrttcalc.remove(packet.getSeqnum());
+        if (traceLevel >= 2) {
+            System.out.println("B_input: got packet " + packet);
+        }
+        
+        if (isCorrupted(packet)) {
+            corruptedPackets++;
+            if (traceLevel >= 1) {
+                System.out.println("B_input: packet corrupted");
+            }
+            
+            // Send duplicate ACK for last correctly received in-order packet
+            if (ExpectedSeqNum > 0) {
+                Packet ack = makeAckPacket((ExpectedSeqNum - 1 + LimitSeqNo) % LimitSeqNo);
+                toLayer3(B, ack);
+                acksSent++;
+                totalDataBytes += 12;
+                
+                if (traceLevel >= 2) {
+                    System.out.println("B_input: sent duplicate ACK for " + ack.getAcknum());
                 }
             }
-            Packet ackPacket = new Packet(-1, ReceiverBase - 1, -1, null);// Sending acknowledgement to sender
-            ackPacket.setChecksum(createChecksum(-1, ReceiverBase - 1, null));
-            totalbytes = totalbytes + 12;
-            toLayer3(B, ackPacket);
-            acks++;
-        } else {// Scenario when the received data packet is corrupted
-            
-            corruptedcount++;
+            return;
         }
-
+        
+        if (protocolMode == STOP_AND_WAIT) {
+            bInputStopAndWait(packet);
+        } else if (protocolMode == SELECTIVE_REPEAT) {
+            bInputSelectiveRepeat(packet);
+        } else if (protocolMode == GBN_WITH_SACK) {
+            bInputGBN(packet);
+        }
+    }
+    
+    // Stop-and-Wait B_input
+    private void bInputStopAndWait(Packet packet) {
+        int seqnum = packet.getSeqnum();
+        
+        if (seqnum == ExpectedSeqNum) {
+            // In-order packet
+            toLayer5(packet.getPayload());
+            packetsToLayer5++;
+            totalGoodputBytes += packet.getPayload().length();
+            
+            ExpectedSeqNum = (ExpectedSeqNum + 1) % LimitSeqNo;
+            
+            // Send ACK
+            Packet ack = makeAckPacket(seqnum);
+            toLayer3(B, ack);
+            acksSent++;
+            totalDataBytes += 12;
+            
+            if (traceLevel >= 2) {
+                System.out.println("SAW B_input: delivered packet " + seqnum + ", sent ACK");
+            }
+        } else {
+            // Out of order or duplicate - send duplicate ACK
+            Packet ack = makeAckPacket((ExpectedSeqNum - 1 + LimitSeqNo) % LimitSeqNo);
+            toLayer3(B, ack);
+            acksSent++;
+            totalDataBytes += 12;
+            
+            if (traceLevel >= 2) {
+                System.out.println("SAW B_input: out-of-order/duplicate packet " + seqnum + 
+                                 ", expected " + ExpectedSeqNum);
+            }
+        }
+    }
+    
+    // Selective Repeat B_input
+    private void bInputSelectiveRepeat(Packet packet) {
+        int seqnum = packet.getSeqnum();
+        
+        if (isInReceiverWindow(seqnum)) {
+            if (seqnum == ExpectedSeqNum) {
+                // In-order packet
+                toLayer5(packet.getPayload());
+                packetsToLayer5++;
+                totalGoodputBytes += packet.getPayload().length();
+                ExpectedSeqNum = (ExpectedSeqNum + 1) % LimitSeqNo;
+                
+                // Check buffer for subsequent in-order packets
+                while (receiverBuffer.containsKey(ExpectedSeqNum)) {
+                    Packet buffered = receiverBuffer.remove(ExpectedSeqNum);
+                    toLayer5(buffered.getPayload());
+                    packetsToLayer5++;
+                    totalGoodputBytes += buffered.getPayload().length();
+                    ExpectedSeqNum = (ExpectedSeqNum + 1) % LimitSeqNo;
+                    
+                    if (traceLevel >= 2) {
+                        System.out.println("SR B_input: delivered buffered packet " + 
+                                         (ExpectedSeqNum - 1 + LimitSeqNo) % LimitSeqNo);
+                    }
+                }
+                
+                if (traceLevel >= 2) {
+                    System.out.println("SR B_input: delivered packet(s), new expected = " + ExpectedSeqNum);
+                }
+            } else {
+                // Out-of-order but in window - buffer it
+                if (!receiverBuffer.containsKey(seqnum)) {
+                    receiverBuffer.put(seqnum, packet);
+                    if (traceLevel >= 2) {
+                        System.out.println("SR B_input: buffered out-of-order packet " + seqnum);
+                    }
+                }
+            }
+        }
+        
+        // Always send cumulative ACK
+        Packet ack = makeAckPacket((ExpectedSeqNum - 1 + LimitSeqNo) % LimitSeqNo);
+        toLayer3(B, ack);
+        acksSent++;
+        totalDataBytes += 12;
+        
+        if (traceLevel >= 2) {
+            System.out.println("SR B_input: sent cumulative ACK for " + ack.getAcknum());
+        }
+    }
+    
+    // GBN with SACK B_input
+    private void bInputGBN(Packet packet) {
+        int seqnum = packet.getSeqnum();
+        
+        // Update recent received list for SACK
+        if (!recentReceived.contains(seqnum)) {
+            recentReceived.add(seqnum);
+            if (recentReceived.size() > 5) {
+                recentReceived.removeFirst();
+            }
+        }
+        
+        if (seqnum == ExpectedSeqNum) {
+            // In-order packet
+            toLayer5(packet.getPayload());
+            packetsToLayer5++;
+            totalGoodputBytes += packet.getPayload().length();
+            ExpectedSeqNum = (ExpectedSeqNum + 1) % LimitSeqNo;
+            
+            // Check buffer for subsequent packets
+            while (receiverBuffer.containsKey(ExpectedSeqNum)) {
+                Packet buffered = receiverBuffer.remove(ExpectedSeqNum);
+                toLayer5(buffered.getPayload());
+                packetsToLayer5++;
+                totalGoodputBytes += buffered.getPayload().length();
+                ExpectedSeqNum = (ExpectedSeqNum + 1) % LimitSeqNo;
+            }
+            
+            if (traceLevel >= 2) {
+                System.out.println("GBN B_input: delivered packet(s), new expected = " + ExpectedSeqNum);
+            }
+        } else if (isInReceiverWindow(seqnum)) {
+            // Out-of-order but in window - buffer for SACK
+            if (!receiverBuffer.containsKey(seqnum)) {
+                receiverBuffer.put(seqnum, packet);
+                if (traceLevel >= 2) {
+                    System.out.println("GBN B_input: buffered packet " + seqnum + " for SACK");
+                }
+            }
+        }
+        
+        // Send cumulative ACK with SACK
+        Packet ack = makeAckPacket((ExpectedSeqNum - 1 + LimitSeqNo) % LimitSeqNo);
+        toLayer3(B, ack);
+        acksSent++;
+        totalDataBytes += 12;
+        if (ack.getPayload() != null) {
+            totalDataBytes += ack.getPayload().length();
+        }
+        
+        if (traceLevel >= 2) {
+            System.out.println("GBN B_input: sent ACK for " + ack.getAcknum() + 
+                             (ack.getPayload() != null ? " with " + ack.getPayload() : ""));
+        }
     }
 
-    // This routine will be called once, before any of your other B-side
-    // routines are called. It can be used to do any required
-    // initialization (e.g. of member variables you add to control the state
-    // of entity B).
+    // B_init - initialize B side
     protected void bInit() {
-        ReceiverBase = FirstSeqNo;
+        ExpectedSeqNum = FirstSeqNo;
         receiverBuffer = new HashMap<>();
-
+        
+        if (protocolMode == GBN_WITH_SACK) {
+            recentReceived = new LinkedList<>();
+        }
+        
+        System.out.println("B_init: Expecting first packet with seqnum = " + ExpectedSeqNum);
     }
 
-    // Use to print final statistics
+    // Helper method to check if sequence number is in sender window
+    private boolean isInSenderWindow(int seqnum) {
+        if (WindowSize == 1) {
+            return seqnum == Base;
+        }
+        
+        int distance = (seqnum - Base + LimitSeqNo) % LimitSeqNo;
+        return distance < WindowSize;
+    }
+    
+    // Helper method to check if sequence number is in receiver window
+    private boolean isInReceiverWindow(int seqnum) {
+        int distance = (seqnum - ExpectedSeqNum + LimitSeqNo) % LimitSeqNo;
+        return distance < WindowSize;
+    }
+
+    // Print final statistics
     protected void Simulation_done() {
-        totalrttend = getTime();
-        lost = (double) (retransmission - corruptedcount)/ (double) ((OriginalPacketsTransmitted + retransmission) + acks);
-        corruptedratio = (double) (corruptedcount)/ (double) ((OriginalPacketsTransmitted + retransmission) + acks - (retransmission - (corruptedcount)));
-        // TO PRINT THE STATISTICS, FILL IN THE DETAILS BY PUTTING VARIBALE NAMES. DO
-        // NOT CHANGE THE FORMAT OF PRINTED OUTPUT
+        // Calculate final statistics
+        double lossRatio = 0;
+        double corruptRatio = 0;
+        double avgRTT = 0;
+        double avgCommTime = 0;
+        double throughput = 0;
+        double goodput = 0;
+        
+        int totalPackets = originalPacketsTransmitted + retransmissions + acksSent;
+        int lostPackets = retransmissions - corruptedPackets;
+        
+        if (totalPackets > 0) {
+            lossRatio = (double) lostPackets / totalPackets;
+            if (totalPackets - lostPackets > 0) {
+                corruptRatio = (double) corruptedPackets / (totalPackets - lostPackets);
+            }
+        }
+        
+        if (rttCount > 0) {
+            avgRTT = totalRTT / rttCount;
+        }
+        
+        if (commTimeCount > 0) {
+            avgCommTime = totalCommTime / commTimeCount;
+        }
+        
+        double totalTime = getTime();
+        if (totalTime > 0) {
+            throughput = totalDataBytes / totalTime;
+            goodput = totalGoodputBytes / totalTime;
+        }
+        
         System.out.println("\n\n===============STATISTICS=======================");
-        System.out.println("Number of original packets transmitted by A:" + OriginalPacketsTransmitted);
-        System.out.println("Number of retransmissions by A:" + retransmission);
-        System.out.println("Number of data packets delivered to layer 5 at B:" + layer5);
-        System.out.println("Number of ACK packets sent by B:" + acks);
-        System.out.println("Number of corrupted packets:" + (corruptedcount));
-        System.out.println("Ratio of lost packets:" + lost);
-        System.out.println("Ratio of corrupted packets:" + corruptedratio);
-        System.out.println("Average RTT:" + averagertt / (double) rttcounter);
-        System.out.println("Average communication time:" + averagecommunicationtime / (double) OriginalPacketsTransmitted);
+        System.out.println("Protocol: " + 
+            (protocolMode == STOP_AND_WAIT ? "Stop-and-Wait" : 
+             protocolMode == SELECTIVE_REPEAT ? "Selective Repeat" : "GBN with SACK"));
+        System.out.println("Number of original packets transmitted by A: " + originalPacketsTransmitted);
+        System.out.println("Number of retransmissions by A: " + retransmissions);
+        System.out.println("Number of data packets delivered to layer 5 at B: " + packetsToLayer5);
+        System.out.println("Number of ACK packets sent by B: " + acksSent);
+        System.out.println("Number of corrupted packets: " + corruptedPackets);
+        System.out.printf("Ratio of lost packets: %.6f\n", lossRatio);
+        System.out.printf("Ratio of corrupted packets: %.6f\n", corruptRatio);
+        System.out.printf("Average RTT: %.4f\n", avgRTT);
+        System.out.printf("Average communication time: %.4f\n", avgCommTime);
         System.out.println("==================================================");
-
-        // PRINT YOUR OWN STATISTIC HERE TO CHECK THE CORRECTNESS OF YOUR PROGRAM
-        System.out.println("\nEXTRA:");
-        System.out.println("Total Rtt is:" + (totalrttend - totalrttstart));
-        System.out.println("Throughput is:" + (totalbytes) / (averagecommunicationtime / 1000)+ "bytes/second");
-        System.out.println("Goodput is:" + (totalgoodbytes) / (averagecommunicationtime / 1000)+ "bytes/second");
-        System.out.println("Average packet delay is:"+(packetdelaytotal/(double)OriginalPacketsTransmitted));
-        // EXAMPLE GIVEN BELOW
-        // System.out.println("Example statistic you want to check e.g. number of ACK
-        // packets received by A :" + "<YourVariableHere>");
+        
+        System.out.println("\nEXTRA STATISTICS:");
+        System.out.printf("Total simulation time: %.4f\n", totalTime);
+        System.out.printf("Throughput: %.2f bytes/time unit\n", throughput);
+        System.out.printf("Goodput: %.2f bytes/time unit\n", goodput);
+        System.out.printf("Average packet delay: %.4f\n", avgCommTime);
+        System.out.println("==================================================");
     }
-
 }

@@ -1,0 +1,264 @@
+-- * Network Simulator v1.0 * --
+Enter number of messages to simulate (> 0): [10] Enter packet loss probability (0.0 for no loss): [0.0] Enter packet corruption probability (0.0 for no corruption): [0.0] Enter average time between messages from sender's layer 5 (> 0.0): [1000] Enter window size (> 0): [8] Enter retransmission timeout (>0.0) [15.0] Enter trace level (>= 0): [0] Enter random seed: [0] Protocol: Selective Repeat (Window Size = 8)
+A_init: Protocol mode = Selective Repeat
+A_init: Window size = 8
+B_init: Expecting first packet with seqnum = 0
+stopTimer: Warning: Unable to cancel your timer
+toLayer3: packet being lost
+stopTimer: Warning: Unable to cancel your timer
+toLayer3: packet being corrupted
+B_input: packet corrupted
+SR A_input: duplicate ACK, retransmitting 1
+toLayer3: packet being lost
+SR timeout: retransmitting packet 1
+SR timeout: retransmitting packet 2
+toLayer3: packet being corrupted
+stopTimer: Warning: Unable to cancel your timer
+B_input: packet corrupted
+toLayer3: packet being lost
+SR A_input: duplicate ACK, retransmitting 3
+SR timeout: retransmitting packet 3
+stopTimer: Warning: Unable to cancel your timer
+stopTimer: Warning: Unable to cancel your timer
+stopTimer: Warning: Unable to cancel your timer
+stopTimer: Warning: Unable to cancel your timer
+stopTimer: Warning: Unable to cancel your timer
+stopTimer: Warning: Unable to cancel your timer
+stopTimer: Warning: Unable to cancel your timer
+toLayer3: packet being lost
+stopTimer: Warning: Unable to cancel your timer
+SR timeout: retransmitting packet 11
+toLayer3: packet being corrupted
+A_input: packet corrupted
+SR timeout: retransmitting packet 11
+stopTimer: Warning: Unable to cancel your timer
+toLayer3: packet being corrupted
+stopTimer: Warning: Unable to cancel your timer
+B_input: packet corrupted
+SR A_input: duplicate ACK, retransmitting 14
+SR A_input: duplicate ACK, retransmitting 14
+stopTimer: Warning: Unable to cancel your timer
+stopTimer: Warning: Unable to cancel your timer
+stopTimer: Warning: Unable to cancel your timer
+stopTimer: Warning: Unable to cancel your timer
+stopTimer: Warning: Unable to cancel your timer
+stopTimer: Warning: Unable to cancel your timer
+stopTimer: Warning: Unable to cancel your timer
+stopTimer: Warning: Unable to cancel your timer
+stopTimer: Warning: Unable to cancel your timer
+toLayer3: packet being lost
+SR timeout: retransmitting packet 8
+toLayer3: packet being lost
+toLayer3: packet being lost
+SR timeout: retransmitting packet 8
+toLayer3: packet being lost
+SR timeout: retransmitting packet 8
+toLayer3: packet being lost
+SR timeout: retransmitting packet 9
+toLayer3: packet being lost
+toLayer3: packet being corrupted
+SR timeout: retransmitting packet 9
+B_input: packet corrupted
+toLayer3: packet being corrupted
+A_input: packet corrupted
+SR timeout: retransmitting packet 9
+toLayer3: packet being lost
+SR timeout: retransmitting packet 10
+SR timeout: retransmitting packet 10
+toLayer3: packet being corrupted
+stopTimer: Warning: Unable to cancel your timer
+B_input: packet corrupted
+toLayer3: packet being corrupted
+SR A_input: duplicate ACK, retransmitting 11
+B_input: packet corrupted
+SR A_input: duplicate ACK, retransmitting 11
+stopTimer: Warning: Unable to cancel your timer
+toLayer3: packet being lost
+stopTimer: Warning: Unable to cancel your timer
+SR timeout: retransmitting packet 13
+stopTimer: Warning: Unable to cancel your timer
+toLayer3: packet being corrupted
+stopTimer: Warning: Unable to cancel your timer
+B_input: packet corrupted
+SR A_input: duplicate ACK, retransmitting 15
+stopTimer: Warning: Unable to cancel your timer
+toLayer3: packet being lost
+stopTimer: Warning: Unable to cancel your timer
+SR timeout: retransmitting packet 1
+stopTimer: Warning: Unable to cancel your timer
+stopTimer: Warning: Unable to cancel your timer
+toLayer3: packet being corrupted
+A_input: packet corrupted
+SR timeout: retransmitting packet 3
+toLayer3: packet being corrupted
+A_input: packet corrupted
+stopTimer: Warning: Unable to cancel your timer
+toLayer3: packet being corrupted
+stopTimer: Warning: Unable to cancel your timer
+B_input: packet corrupted
+SR A_input: duplicate ACK, retransmitting 6
+stopTimer: Warning: Unable to cancel your timer
+stopTimer: Warning: Unable to cancel your timer
+toLayer3: packet being lost
+SR timeout: retransmitting packet 8
+toLayer3: packet being corrupted
+stopTimer: Warning: Unable to cancel your timer
+B_input: packet corrupted
+SR A_input: duplicate ACK, retransmitting 9
+toLayer3: packet being lost
+toLayer3: packet being lost
+SR timeout: retransmitting packet 9
+SR timeout: retransmitting packet 9
+stopTimer: Warning: Unable to cancel your timer
+toLayer3: packet being corrupted
+A_input: packet corrupted
+toLayer3: packet being lost
+SR timeout: retransmitting packet 10
+stopTimer: Warning: Unable to cancel your timer
+stopTimer: Warning: Unable to cancel your timer
+stopTimer: Warning: Unable to cancel your timer
+toLayer3: packet being lost
+SR timeout: retransmitting packet 14
+stopTimer: Warning: Unable to cancel your timer
+stopTimer: Warning: Unable to cancel your timer
+toLayer3: packet being lost
+SR timeout: retransmitting packet 0
+stopTimer: Warning: Unable to cancel your timer
+stopTimer: Warning: Unable to cancel your timer
+stopTimer: Warning: Unable to cancel your timer
+toLayer3: packet being lost
+toLayer3: packet being lost
+SR timeout: retransmitting packet 3
+stopTimer: Warning: Unable to cancel your timer
+toLayer3: packet being corrupted
+A_input: packet corrupted
+SR timeout: retransmitting packet 5
+stopTimer: Warning: Unable to cancel your timer
+toLayer3: packet being corrupted
+A_input: packet corrupted
+toLayer3: packet being lost
+SR timeout: retransmitting packet 6
+toLayer3: packet being corrupted
+SR timeout: retransmitting packet 6
+B_input: packet corrupted
+stopTimer: Warning: Unable to cancel your timer
+stopTimer: Warning: Unable to cancel your timer
+stopTimer: Warning: Unable to cancel your timer
+stopTimer: Warning: Unable to cancel your timer
+toLayer3: packet being corrupted
+A_input: packet corrupted
+SR timeout: retransmitting packet 11
+toLayer3: packet being lost
+SR timeout: retransmitting packet 11
+stopTimer: Warning: Unable to cancel your timer
+stopTimer: Warning: Unable to cancel your timer
+toLayer3: packet being lost
+SR timeout: retransmitting packet 13
+stopTimer: Warning: Unable to cancel your timer
+stopTimer: Warning: Unable to cancel your timer
+toLayer3: packet being lost
+toLayer3: packet being corrupted
+SR timeout: retransmitting packet 15
+B_input: packet corrupted
+toLayer3: packet being lost
+SR timeout: retransmitting packet 15
+SR timeout: retransmitting packet 15
+stopTimer: Warning: Unable to cancel your timer
+stopTimer: Warning: Unable to cancel your timer
+stopTimer: Warning: Unable to cancel your timer
+toLayer3: packet being lost
+stopTimer: Warning: Unable to cancel your timer
+toLayer3: packet being lost
+SR timeout: retransmitting packet 3
+SR timeout: retransmitting packet 3
+toLayer3: packet being lost
+SR timeout: retransmitting packet 3
+stopTimer: Warning: Unable to cancel your timer
+stopTimer: Warning: Unable to cancel your timer
+stopTimer: Warning: Unable to cancel your timer
+stopTimer: Warning: Unable to cancel your timer
+toLayer3: packet being lost
+SR timeout: retransmitting packet 7
+toLayer3: packet being corrupted
+stopTimer: Warning: Unable to cancel your timer
+B_input: packet corrupted
+SR A_input: duplicate ACK, retransmitting 8
+stopTimer: Warning: Unable to cancel your timer
+stopTimer: Warning: Unable to cancel your timer
+toLayer3: packet being corrupted
+stopTimer: Warning: Unable to cancel your timer
+B_input: packet corrupted
+SR A_input: duplicate ACK, retransmitting 11
+stopTimer: Warning: Unable to cancel your timer
+stopTimer: Warning: Unable to cancel your timer
+stopTimer: Warning: Unable to cancel your timer
+stopTimer: Warning: Unable to cancel your timer
+stopTimer: Warning: Unable to cancel your timer
+stopTimer: Warning: Unable to cancel your timer
+toLayer3: packet being corrupted
+stopTimer: Warning: Unable to cancel your timer
+B_input: packet corrupted
+SR A_input: duplicate ACK, retransmitting 2
+stopTimer: Warning: Unable to cancel your timer
+toLayer3: packet being lost
+stopTimer: Warning: Unable to cancel your timer
+SR timeout: retransmitting packet 4
+toLayer3: packet being corrupted
+stopTimer: Warning: Unable to cancel your timer
+B_input: packet corrupted
+SR A_input: duplicate ACK, retransmitting 5
+stopTimer: Warning: Unable to cancel your timer
+stopTimer: Warning: Unable to cancel your timer
+stopTimer: Warning: Unable to cancel your timer
+stopTimer: Warning: Unable to cancel your timer
+stopTimer: Warning: Unable to cancel your timer
+toLayer3: packet being corrupted
+A_input: packet corrupted
+SR timeout: retransmitting packet 10
+toLayer3: packet being corrupted
+A_input: packet corrupted
+SR timeout: retransmitting packet 10
+stopTimer: Warning: Unable to cancel your timer
+stopTimer: Warning: Unable to cancel your timer
+stopTimer: Warning: Unable to cancel your timer
+stopTimer: Warning: Unable to cancel your timer
+toLayer3: packet being lost
+toLayer3: packet being lost
+SR timeout: retransmitting packet 14
+SR timeout: retransmitting packet 14
+toLayer3: packet being lost
+stopTimer: Warning: Unable to cancel your timer
+SR timeout: retransmitting packet 15
+stopTimer: Warning: Unable to cancel your timer
+toLayer3: packet being lost
+toLayer3: packet being lost
+SR timeout: retransmitting packet 0
+SR timeout: retransmitting packet 0
+stopTimer: Warning: Unable to cancel your timer
+stopTimer: Warning: Unable to cancel your timer
+stopTimer: Warning: Unable to cancel your timer
+toLayer3: packet being corrupted
+A_input: packet corrupted
+SR timeout: retransmitting packet 3
+Simulator terminated at time 20124.515518662072
+
+
+===============STATISTICS=======================
+Protocol: Selective Repeat
+Number of original packets transmitted by A: 100
+Number of retransmissions by A: 58
+Number of data packets delivered to layer 5 at B: 100
+Number of ACK packets sent by B: 139
+Number of corrupted packets: 26
+Ratio of lost packets: 0.107744
+Ratio of corrupted packets: 0.098113
+Average RTT: 12.1545
+Average communication time: 26.9793
+==================================================
+
+EXTRA STATISTICS:
+Total simulation time: 20124.5155
+Throughput: 0.33 bytes/time unit
+Goodput: 0.10 bytes/time unit
+Average packet delay: 26.9793
+==================================================

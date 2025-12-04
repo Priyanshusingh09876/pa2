@@ -4,6 +4,7 @@ public class Packet
     private int acknum;
     private int checksum;
     private String payload;
+    private int[] sack;  // Added for SACK support
     
     public Packet(Packet p)
     {
@@ -11,6 +12,13 @@ public class Packet
         acknum = p.getAcknum();
         checksum = p.getChecksum();
         payload = new String(p.getPayload());
+        if (p.getSack() != null) {
+            sack = new int[5];
+            int[] pSack = p.getSack();
+            for (int i = 0; i < 5; i++) {
+                sack[i] = pSack[i];
+            }
+        }
     }
     
     public Packet(int seq, int ack, int check, String newPayload)
@@ -30,6 +38,10 @@ public class Packet
         {
             payload = new String(newPayload);
         }
+        sack = new int[5];
+        for (int i = 0; i < 5; i++) {
+            sack[i] = -1;
+        }
     }
     
     public Packet(int seq, int ack, int check)
@@ -38,6 +50,10 @@ public class Packet
         acknum = ack;
         checksum = check;
         payload = "";
+        sack = new int[5];
+        for (int i = 0; i < 5; i++) {
+            sack[i] = -1;
+        }
     }    
         
 
@@ -78,6 +94,20 @@ public class Packet
         }
     }
     
+    public boolean setSack(int[] newSack)
+    {
+        if (newSack == null || newSack.length != 5)
+        {
+            return false;
+        }
+        sack = new int[5];
+        for (int i = 0; i < 5; i++)
+        {
+            sack[i] = newSack[i];
+        }
+        return true;
+    }
+    
     public int getSeqnum()
     {
         return seqnum;
@@ -98,10 +128,27 @@ public class Packet
         return payload;
     }
     
+    public int[] getSack()
+    {
+        return sack;
+    }
+    
     public String toString()
     {
-        return("seqnum: " + seqnum + "  acknum: " + acknum + "  checksum: " +
-               checksum + "  payload: " + payload);
+        StringBuilder sb = new StringBuilder();
+        sb.append("seqnum: ").append(seqnum);
+        sb.append("  acknum: ").append(acknum);
+        sb.append("  checksum: ").append(checksum);
+        sb.append("  payload: ").append(payload);
+        if (sack != null) {
+            sb.append("  sack: [");
+            for (int i = 0; i < 5; i++) {
+                if (i > 0) sb.append(", ");
+                sb.append(sack[i]);
+            }
+            sb.append("]");
+        }
+        return sb.toString();
     }
     
 }

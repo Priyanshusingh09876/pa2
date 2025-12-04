@@ -1,0 +1,331 @@
+-- * Network Simulator v1.0 * --
+Enter number of messages to simulate (> 0): [10] Enter packet loss probability (0.0 for no loss): [0.0] Enter packet corruption probability (0.0 for no corruption): [0.0] Enter average time between messages from sender's layer 5 (> 0.0): [1000] Enter window size (> 0): [8] Enter retransmission timeout (>0.0) [15.0] Enter trace level (>= 0): [0] Enter random seed: [0] A_init: Protocol mode = Selective Repeat
+A_init: Window size = 1
+B_init: Expecting first packet with seqnum = 0
+
+EVENT time: 21.7169713431196  type: 1  entity: 0
+A_output: got message from layer 5: aaaaaaaaaaaaaaaaaaaa
+stopTimer: Warning: Unable to cancel your timer
+SR A_output: sent packet 0
+
+EVENT time: 23.94363231299783  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 1939  payload: aaaaaaaaaaaaaaaaaaaa  sack: [-1, -1, -1, -1, -1]
+SR B_input: delivered packet(s), new expected = 1
+SR B_input: sent cumulative ACK for 0
+
+EVENT time: 25.852504043702503  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 0  checksum: 65535  payload:   sack: [-1, -1, -1, -1, -1]
+SR A_input: cumulative ACK moved window from 0 to 1
+
+EVENT time: 33.680227057710496  type: 1  entity: 0
+A_output: got message from layer 5: bbbbbbbbbbbbbbbbbbbb
+toLayer3: packet being corrupted
+stopTimer: Warning: Unable to cancel your timer
+SR A_output: sent packet 1
+
+EVENT time: 35.108432264168215  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 1960  payload: ?bbbbbbbbbbbbbbbbbbb  sack: [-1, -1, -1, -1, -1]
+B_input: packet corrupted
+B_input: sent duplicate ACK for 0
+
+EVENT time: 37.075807977538375  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 0  checksum: 65535  payload:   sack: [-1, -1, -1, -1, -1]
+SR A_input: duplicate ACK, retransmitting 1
+
+EVENT time: 41.65776543473616  type: 1  entity: 0
+A_output: got message from layer 5: cccccccccccccccccccc
+SR A_output: buffered message, queue size: 1
+
+EVENT time: 41.75716422009949  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 1960  payload: bbbbbbbbbbbbbbbbbbbb  sack: [-1, -1, -1, -1, -1]
+SR B_input: delivered packet(s), new expected = 0
+SR B_input: sent cumulative ACK for 1
+
+EVENT time: 45.42664876247444  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 1  checksum: 0  payload:   sack: [-1, -1, -1, -1, -1]
+SR A_input: sent buffered packet 0
+SR A_input: cumulative ACK moved window from 1 to 0
+
+EVENT time: 48.40479750968963  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 1979  payload: cccccccccccccccccccc  sack: [-1, -1, -1, -1, -1]
+SR B_input: delivered packet(s), new expected = 1
+SR B_input: sent cumulative ACK for 0
+
+EVENT time: 56.741416669209876  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 0  checksum: 65535  payload:   sack: [-1, -1, -1, -1, -1]
+stopTimer: Warning: Unable to cancel your timer
+SR A_input: cumulative ACK moved window from 0 to 1
+
+EVENT time: 119.32737205114901  type: 1  entity: 0
+A_output: got message from layer 5: dddddddddddddddddddd
+stopTimer: Warning: Unable to cancel your timer
+SR A_output: sent packet 1
+
+EVENT time: 126.14014099551378  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 2000  payload: dddddddddddddddddddd  sack: [-1, -1, -1, -1, -1]
+SR B_input: delivered packet(s), new expected = 0
+toLayer3: packet being corrupted
+SR B_input: sent cumulative ACK for 1
+
+EVENT time: 128.67442854091007  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 1  checksum: 0  payload: ?  sack: [-1, -1, -1, -1, -1]
+A_input: packet corrupted
+
+EVENT time: 149.327372051149  type: 0  entity: 0
+A_timerinterrupt: timer expired
+SR timeout: retransmitting packet 1
+
+EVENT time: 155.5825678273873  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 2000  payload: dddddddddddddddddddd  sack: [-1, -1, -1, -1, -1]
+SR B_input: sent cumulative ACK for 1
+
+EVENT time: 156.63997314371164  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 1  checksum: 0  payload:   sack: [-1, -1, -1, -1, -1]
+SR A_input: cumulative ACK moved window from 1 to 0
+
+EVENT time: 264.790795617542  type: 1  entity: 0
+A_output: got message from layer 5: eeeeeeeeeeeeeeeeeeee
+stopTimer: Warning: Unable to cancel your timer
+SR A_output: sent packet 0
+
+EVENT time: 268.86870937223426  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2019  payload: eeeeeeeeeeeeeeeeeeee  sack: [-1, -1, -1, -1, -1]
+SR B_input: delivered packet(s), new expected = 1
+SR B_input: sent cumulative ACK for 0
+
+EVENT time: 271.10855433820615  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 0  checksum: 65535  payload:   sack: [-1, -1, -1, -1, -1]
+SR A_input: cumulative ACK moved window from 0 to 1
+
+EVENT time: 462.05633716849263  type: 1  entity: 0
+A_output: got message from layer 5: ffffffffffffffffffff
+stopTimer: Warning: Unable to cancel your timer
+SR A_output: sent packet 1
+
+EVENT time: 469.96832178716386  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 2040  payload: ffffffffffffffffffff  sack: [-1, -1, -1, -1, -1]
+SR B_input: delivered packet(s), new expected = 0
+SR B_input: sent cumulative ACK for 1
+
+EVENT time: 475.72115237891774  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 1  checksum: 0  payload:   sack: [-1, -1, -1, -1, -1]
+SR A_input: cumulative ACK moved window from 1 to 0
+
+EVENT time: 620.9906308175908  type: 1  entity: 0
+A_output: got message from layer 5: gggggggggggggggggggg
+stopTimer: Warning: Unable to cancel your timer
+SR A_output: sent packet 0
+
+EVENT time: 625.9136936552019  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2059  payload: gggggggggggggggggggg  sack: [-1, -1, -1, -1, -1]
+SR B_input: delivered packet(s), new expected = 1
+SR B_input: sent cumulative ACK for 0
+
+EVENT time: 629.9358500930815  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 0  checksum: 65535  payload:   sack: [-1, -1, -1, -1, -1]
+SR A_input: cumulative ACK moved window from 0 to 1
+
+EVENT time: 734.4401379436628  type: 1  entity: 0
+A_output: got message from layer 5: hhhhhhhhhhhhhhhhhhhh
+stopTimer: Warning: Unable to cancel your timer
+SR A_output: sent packet 1
+
+EVENT time: 742.8748130741294  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 2080  payload: hhhhhhhhhhhhhhhhhhhh  sack: [-1, -1, -1, -1, -1]
+SR B_input: delivered packet(s), new expected = 0
+SR B_input: sent cumulative ACK for 1
+
+EVENT time: 750.2605365153966  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 1  checksum: 0  payload:   sack: [-1, -1, -1, -1, -1]
+SR A_input: cumulative ACK moved window from 1 to 0
+
+EVENT time: 813.6844996490371  type: 1  entity: 0
+A_output: got message from layer 5: iiiiiiiiiiiiiiiiiiii
+stopTimer: Warning: Unable to cancel your timer
+SR A_output: sent packet 0
+
+EVENT time: 820.841700491348  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2099  payload: iiiiiiiiiiiiiiiiiiii  sack: [-1, -1, -1, -1, -1]
+SR B_input: delivered packet(s), new expected = 1
+SR B_input: sent cumulative ACK for 0
+
+EVENT time: 822.2762230292673  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 0  checksum: 65535  payload:   sack: [-1, -1, -1, -1, -1]
+SR A_input: cumulative ACK moved window from 0 to 1
+
+EVENT time: 900.5645924253059  type: 1  entity: 0
+A_output: got message from layer 5: jjjjjjjjjjjjjjjjjjjj
+stopTimer: Warning: Unable to cancel your timer
+SR A_output: sent packet 1
+
+EVENT time: 908.6523636585589  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 2120  payload: jjjjjjjjjjjjjjjjjjjj  sack: [-1, -1, -1, -1, -1]
+SR B_input: delivered packet(s), new expected = 0
+SR B_input: sent cumulative ACK for 1
+
+EVENT time: 912.7140720847194  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 1  checksum: 0  payload:   sack: [-1, -1, -1, -1, -1]
+SR A_input: cumulative ACK moved window from 1 to 0
+
+EVENT time: 933.4574419385357  type: 1  entity: 0
+A_output: got message from layer 5: kkkkkkkkkkkkkkkkkkkk
+stopTimer: Warning: Unable to cancel your timer
+SR A_output: sent packet 0
+
+EVENT time: 935.0471510971404  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2139  payload: kkkkkkkkkkkkkkkkkkkk  sack: [-1, -1, -1, -1, -1]
+SR B_input: delivered packet(s), new expected = 1
+SR B_input: sent cumulative ACK for 0
+
+EVENT time: 938.9536729026154  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 0  checksum: 65535  payload:   sack: [-1, -1, -1, -1, -1]
+SR A_input: cumulative ACK moved window from 0 to 1
+
+EVENT time: 1109.1158787804802  type: 1  entity: 0
+A_output: got message from layer 5: llllllllllllllllllll
+stopTimer: Warning: Unable to cancel your timer
+SR A_output: sent packet 1
+
+EVENT time: 1112.6647846919154  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 2160  payload: llllllllllllllllllll  sack: [-1, -1, -1, -1, -1]
+SR B_input: delivered packet(s), new expected = 0
+SR B_input: sent cumulative ACK for 1
+
+EVENT time: 1122.2209234900965  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 1  checksum: 0  payload:   sack: [-1, -1, -1, -1, -1]
+SR A_input: cumulative ACK moved window from 1 to 0
+
+EVENT time: 1135.709707937864  type: 1  entity: 0
+A_output: got message from layer 5: mmmmmmmmmmmmmmmmmmmm
+toLayer3: packet being corrupted
+stopTimer: Warning: Unable to cancel your timer
+SR A_output: sent packet 0
+
+EVENT time: 1138.3610034485914  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: ?mmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+B_input: packet corrupted
+
+EVENT time: 1165.709707937864  type: 0  entity: 0
+A_timerinterrupt: timer expired
+SR timeout: retransmitting packet 0
+
+EVENT time: 1170.0936002685626  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2179  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+SR B_input: delivered packet(s), new expected = 1
+SR B_input: sent cumulative ACK for 0
+
+EVENT time: 1179.7887203588973  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 0  checksum: 65535  payload:   sack: [-1, -1, -1, -1, -1]
+SR A_input: cumulative ACK moved window from 0 to 1
+
+EVENT time: 1335.1664784691914  type: 1  entity: 0
+A_output: got message from layer 5: nnnnnnnnnnnnnnnnnnnn
+stopTimer: Warning: Unable to cancel your timer
+SR A_output: sent packet 1
+
+EVENT time: 1342.8216498306222  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 2200  payload: nnnnnnnnnnnnnnnnnnnn  sack: [-1, -1, -1, -1, -1]
+SR B_input: delivered packet(s), new expected = 0
+SR B_input: sent cumulative ACK for 1
+
+EVENT time: 1345.0348521378214  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 1  checksum: 0  payload:   sack: [-1, -1, -1, -1, -1]
+SR A_input: cumulative ACK moved window from 1 to 0
+
+EVENT time: 1352.8000732444225  type: 1  entity: 0
+A_output: got message from layer 5: oooooooooooooooooooo
+stopTimer: Warning: Unable to cancel your timer
+SR A_output: sent packet 0
+
+EVENT time: 1360.1184118167666  type: 1  entity: 0
+A_output: got message from layer 5: pppppppppppppppppppp
+SR A_output: buffered message, queue size: 1
+
+EVENT time: 1361.7011322367014  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2219  payload: oooooooooooooooooooo  sack: [-1, -1, -1, -1, -1]
+SR B_input: delivered packet(s), new expected = 1
+SR B_input: sent cumulative ACK for 0
+
+EVENT time: 1371.2135990478223  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 0  checksum: 65535  payload:   sack: [-1, -1, -1, -1, -1]
+SR A_input: cumulative ACK moved window from 0 to 1
+
+EVENT time: 1536.1491744743184  type: 1  entity: 0
+A_output: got message from layer 5: qqqqqqqqqqqqqqqqqqqq
+SR A_output: buffered message, queue size: 2
+
+EVENT time: 1664.949491866817  type: 1  entity: 0
+A_output: got message from layer 5: rrrrrrrrrrrrrrrrrrrr
+toLayer3: packet being corrupted
+stopTimer: Warning: Unable to cancel your timer
+SR A_output: sent packet 1
+
+EVENT time: 1674.8640705587936  type: 2  entity: 1
+B_input: got packet seqnum: 999999  acknum: -1  checksum: 2280  payload: rrrrrrrrrrrrrrrrrrrr  sack: [-1, -1, -1, -1, -1]
+B_input: packet corrupted
+B_input: sent duplicate ACK for 0
+
+EVENT time: 1683.1946470534376  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 0  checksum: 65535  payload:   sack: [-1, -1, -1, -1, -1]
+SR A_input: duplicate ACK, retransmitting 1
+
+EVENT time: 1690.6138798181094  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 2280  payload: rrrrrrrrrrrrrrrrrrrr  sack: [-1, -1, -1, -1, -1]
+SR B_input: delivered packet(s), new expected = 0
+SR B_input: sent cumulative ACK for 1
+
+EVENT time: 1700.2123172704241  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 1  checksum: 0  payload:   sack: [-1, -1, -1, -1, -1]
+SR A_input: cumulative ACK moved window from 1 to 0
+
+EVENT time: 1709.0060121463666  type: 1  entity: 0
+A_output: got message from layer 5: ssssssssssssssssssss
+stopTimer: Warning: Unable to cancel your timer
+SR A_output: sent packet 0
+
+EVENT time: 1712.9262672811058  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2299  payload: ssssssssssssssssssss  sack: [-1, -1, -1, -1, -1]
+SR B_input: delivered packet(s), new expected = 1
+SR B_input: sent cumulative ACK for 0
+
+EVENT time: 1715.0460829493086  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 0  checksum: 65535  payload:   sack: [-1, -1, -1, -1, -1]
+SR A_input: cumulative ACK moved window from 0 to 1
+
+EVENT time: 1754.4114505447553  type: 1  entity: 0
+A_output: got message from layer 5: tttttttttttttttttttt
+stopTimer: Warning: Unable to cancel your timer
+SR A_output: sent packet 1
+
+EVENT time: 1758.1965697195349  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 2320  payload: tttttttttttttttttttt  sack: [-1, -1, -1, -1, -1]
+SR B_input: delivered packet(s), new expected = 0
+SR B_input: sent cumulative ACK for 1
+
+EVENT time: 1763.4203924680319  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 1  checksum: 0  payload:   sack: [-1, -1, -1, -1, -1]
+SR A_input: cumulative ACK moved window from 1 to 0
+
+EVENT time: 1812.2501297036652  type: 1  entity: 0
+Simulator terminated at time 1812.2501297036652
+
+
+===============STATISTICS=======================
+Protocol: Selective Repeat
+Number of original packets transmitted by A: 18
+Number of retransmissions by A: 4
+Number of data packets delivered to layer 5 at B: 18
+Number of ACK packets sent by B: 21
+Number of corrupted packets: 4
+Ratio of lost packets: 0.000000
+Ratio of corrupted packets: 0.093023
+Average RTT: 11.8676
+Average communication time: 15.0707
+==================================================
+
+EXTRA STATISTICS:
+Total simulation time: 1812.2501
+Throughput: 0.53 bytes/time unit
+Goodput: 0.20 bytes/time unit
+Average packet delay: 15.0707
+==================================================

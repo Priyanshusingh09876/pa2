@@ -1,0 +1,2 @@
+-- * Network Simulator v1.0 * --
+Enter number of messages to simulate (> 0): [10] Enter number of messages to simulate (> 0): [10] 

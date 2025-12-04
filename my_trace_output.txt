@@ -1,0 +1,575 @@
+-- * Network Simulator v1.0 * --
+Enter number of messages to simulate (> 0): [10] Enter packet loss probability (0.0 for no loss): [0.0] Enter packet corruption probability (0.0 for no corruption): [0.0] Enter average time between messages from sender's layer 5 (> 0.0): [1000] Enter window size (> 0): [8] Enter retransmission timeout (>0.0) [15.0] Enter trace level (>= 0): [0] Enter random seed: [0] Protocol: Selective Repeat (Window Size = 8)
+A_init: Protocol mode = Selective Repeat
+A_init: Window size = 8
+B_init: Expecting first packet with seqnum = 0
+generateNextArrival(): called
+generateNextArrival(): time is 0.0
+generateNextArrival(): future time for event 1 at entity 0 will be 21.7169713431196
+
+EVENT time: 21.7169713431196  type: 1  entity: 0
+generateNextArrival(): called
+generateNextArrival(): time is 21.7169713431196
+generateNextArrival(): future time for event 1 at entity 0 will be 33.680227057710496
+A_output: got message from layer 5: aaaaaaaaaaaaaaaaaaaa
+toLayer3: seqnum: 0  acknum: -1  checksum: 1939  payload: aaaaaaaaaaaaaaaaaaaa  sack: [-1, -1, -1, -1, -1]
+toLayer3: scheduling arrival on other side
+stopTimer: stopping timer at 21.7169713431196
+stopTimer: Warning: Unable to cancel your timer
+startTimer: starting timer at 21.7169713431196
+SR A_output: sent packet 0
+
+EVENT time: 23.94363231299783  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 1939  payload: aaaaaaaaaaaaaaaaaaaa  sack: [-1, -1, -1, -1, -1]
+SR B_input: delivered packet(s), new expected = 1
+toLayer3: seqnum: -1  acknum: 0  checksum: 65535  payload:   sack: [-1, -1, -1, -1, -1]
+toLayer3: scheduling arrival on other side
+SR B_input: sent cumulative ACK for 0
+
+EVENT time: 25.852504043702503  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 0  checksum: 65535  payload:   sack: [-1, -1, -1, -1, -1]
+stopTimer: stopping timer at 25.852504043702503
+SR A_input: cumulative ACK moved window from 0 to 1
+
+EVENT time: 33.680227057710496  type: 1  entity: 0
+generateNextArrival(): called
+generateNextArrival(): time is 33.680227057710496
+generateNextArrival(): future time for event 1 at entity 0 will be 41.65776543473616
+A_output: got message from layer 5: bbbbbbbbbbbbbbbbbbbb
+toLayer3: seqnum: 1  acknum: -1  checksum: 1960  payload: bbbbbbbbbbbbbbbbbbbb  sack: [-1, -1, -1, -1, -1]
+toLayer3: packet being lost
+stopTimer: stopping timer at 33.680227057710496
+stopTimer: Warning: Unable to cancel your timer
+startTimer: starting timer at 33.680227057710496
+SR A_output: sent packet 1
+
+EVENT time: 41.65776543473616  type: 1  entity: 0
+generateNextArrival(): called
+generateNextArrival(): time is 41.65776543473616
+generateNextArrival(): future time for event 1 at entity 0 will be 119.32737205114901
+A_output: got message from layer 5: cccccccccccccccccccc
+toLayer3: seqnum: 2  acknum: -1  checksum: 1981  payload: cccccccccccccccccccc  sack: [-1, -1, -1, -1, -1]
+toLayer3: packet being corrupted
+toLayer3: scheduling arrival on other side
+SR A_output: sent packet 2
+
+EVENT time: 43.08597064119388  type: 2  entity: 1
+B_input: got packet seqnum: 2  acknum: -1  checksum: 1981  payload: ?ccccccccccccccccccc  sack: [-1, -1, -1, -1, -1]
+B_input: packet corrupted
+toLayer3: seqnum: -1  acknum: 0  checksum: 65535  payload:   sack: [-1, -1, -1, -1, -1]
+toLayer3: scheduling arrival on other side
+B_input: sent duplicate ACK for 0
+
+EVENT time: 45.05334635456404  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 0  checksum: 65535  payload:   sack: [-1, -1, -1, -1, -1]
+toLayer3: seqnum: 1  acknum: -1  checksum: 1960  payload: bbbbbbbbbbbbbbbbbbbb  sack: [-1, -1, -1, -1, -1]
+toLayer3: scheduling arrival on other side
+stopTimer: stopping timer at 45.05334635456404
+startTimer: starting timer at 45.05334635456404
+SR A_input: duplicate ACK, retransmitting 1
+
+EVENT time: 49.73470259712516  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 1960  payload: bbbbbbbbbbbbbbbbbbbb  sack: [-1, -1, -1, -1, -1]
+SR B_input: delivered packet(s), new expected = 2
+toLayer3: seqnum: -1  acknum: 1  checksum: 0  payload:   sack: [-1, -1, -1, -1, -1]
+toLayer3: packet being lost
+SR B_input: sent cumulative ACK for 1
+
+EVENT time: 75.05334635456404  type: 0  entity: 0
+A_timerinterrupt: timer expired
+toLayer3: seqnum: 1  acknum: -1  checksum: 1960  payload: bbbbbbbbbbbbbbbbbbbb  sack: [-1, -1, -1, -1, -1]
+toLayer3: scheduling arrival on other side
+startTimer: starting timer at 75.05334635456404
+SR timeout: retransmitting packet 1
+
+EVENT time: 78.72283089693899  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 1960  payload: bbbbbbbbbbbbbbbbbbbb  sack: [-1, -1, -1, -1, -1]
+toLayer3: seqnum: -1  acknum: 1  checksum: 0  payload:   sack: [-1, -1, -1, -1, -1]
+toLayer3: scheduling arrival on other side
+SR B_input: sent cumulative ACK for 1
+
+EVENT time: 81.70097964415417  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 1  checksum: 0  payload:   sack: [-1, -1, -1, -1, -1]
+stopTimer: stopping timer at 81.70097964415417
+startTimer: starting timer at 81.70097964415417
+SR A_input: cumulative ACK moved window from 1 to 2
+
+EVENT time: 111.70097964415417  type: 0  entity: 0
+A_timerinterrupt: timer expired
+toLayer3: seqnum: 2  acknum: -1  checksum: 1981  payload: cccccccccccccccccccc  sack: [-1, -1, -1, -1, -1]
+toLayer3: scheduling arrival on other side
+startTimer: starting timer at 111.70097964415417
+SR timeout: retransmitting packet 2
+
+EVENT time: 119.32737205114901  type: 1  entity: 0
+generateNextArrival(): called
+generateNextArrival(): time is 119.32737205114901
+generateNextArrival(): future time for event 1 at entity 0 will be 264.790795617542
+A_output: got message from layer 5: dddddddddddddddddddd
+toLayer3: seqnum: 3  acknum: -1  checksum: 2002  payload: dddddddddddddddddddd  sack: [-1, -1, -1, -1, -1]
+toLayer3: scheduling arrival on other side
+SR A_output: sent packet 3
+
+EVENT time: 120.03759880367443  type: 2  entity: 1
+B_input: got packet seqnum: 2  acknum: -1  checksum: 1981  payload: cccccccccccccccccccc  sack: [-1, -1, -1, -1, -1]
+SR B_input: delivered packet(s), new expected = 3
+toLayer3: seqnum: -1  acknum: 2  checksum: 1  payload:   sack: [-1, -1, -1, -1, -1]
+toLayer3: packet being corrupted
+toLayer3: scheduling arrival on other side
+SR B_input: sent cumulative ACK for 2
+
+EVENT time: 122.57188634907071  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 2  checksum: 1  payload: ?  sack: [-1, -1, -1, -1, -1]
+A_input: packet corrupted
+
+EVENT time: 126.85036774803919  type: 2  entity: 1
+B_input: got packet seqnum: 3  acknum: -1  checksum: 2002  payload: dddddddddddddddddddd  sack: [-1, -1, -1, -1, -1]
+SR B_input: delivered packet(s), new expected = 4
+toLayer3: seqnum: -1  acknum: 3  checksum: 2  payload:   sack: [-1, -1, -1, -1, -1]
+toLayer3: scheduling arrival on other side
+SR B_input: sent cumulative ACK for 3
+
+EVENT time: 133.10556352427747  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 3  checksum: 2  payload:   sack: [-1, -1, -1, -1, -1]
+stopTimer: stopping timer at 133.10556352427747
+SR A_input: cumulative ACK moved window from 2 to 4
+
+EVENT time: 264.790795617542  type: 1  entity: 0
+generateNextArrival(): called
+generateNextArrival(): time is 264.790795617542
+generateNextArrival(): future time for event 1 at entity 0 will be 462.05633716849263
+A_output: got message from layer 5: eeeeeeeeeeeeeeeeeeee
+toLayer3: seqnum: 4  acknum: -1  checksum: 2023  payload: eeeeeeeeeeeeeeeeeeee  sack: [-1, -1, -1, -1, -1]
+toLayer3: packet being lost
+stopTimer: stopping timer at 264.790795617542
+stopTimer: Warning: Unable to cancel your timer
+startTimer: starting timer at 264.790795617542
+SR A_output: sent packet 4
+
+EVENT time: 294.790795617542  type: 0  entity: 0
+A_timerinterrupt: timer expired
+toLayer3: seqnum: 4  acknum: -1  checksum: 2023  payload: eeeeeeeeeeeeeeeeeeee  sack: [-1, -1, -1, -1, -1]
+toLayer3: scheduling arrival on other side
+startTimer: starting timer at 294.790795617542
+SR timeout: retransmitting packet 4
+
+EVENT time: 295.8482009338664  type: 2  entity: 1
+B_input: got packet seqnum: 4  acknum: -1  checksum: 2023  payload: eeeeeeeeeeeeeeeeeeee  sack: [-1, -1, -1, -1, -1]
+SR B_input: delivered packet(s), new expected = 5
+toLayer3: seqnum: -1  acknum: 4  checksum: 3  payload:   sack: [-1, -1, -1, -1, -1]
+toLayer3: scheduling arrival on other side
+SR B_input: sent cumulative ACK for 4
+
+EVENT time: 299.92611468855864  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 4  checksum: 3  payload:   sack: [-1, -1, -1, -1, -1]
+stopTimer: stopping timer at 299.92611468855864
+SR A_input: cumulative ACK moved window from 4 to 5
+
+EVENT time: 462.05633716849263  type: 1  entity: 0
+generateNextArrival(): called
+generateNextArrival(): time is 462.05633716849263
+generateNextArrival(): future time for event 1 at entity 0 will be 620.9906308175908
+A_output: got message from layer 5: ffffffffffffffffffff
+toLayer3: seqnum: 5  acknum: -1  checksum: 2044  payload: ffffffffffffffffffff  sack: [-1, -1, -1, -1, -1]
+toLayer3: scheduling arrival on other side
+stopTimer: stopping timer at 462.05633716849263
+stopTimer: Warning: Unable to cancel your timer
+startTimer: starting timer at 462.05633716849263
+SR A_output: sent packet 5
+
+EVENT time: 464.2961821344645  type: 2  entity: 1
+B_input: got packet seqnum: 5  acknum: -1  checksum: 2044  payload: ffffffffffffffffffff  sack: [-1, -1, -1, -1, -1]
+SR B_input: delivered packet(s), new expected = 6
+toLayer3: seqnum: -1  acknum: 5  checksum: 4  payload:   sack: [-1, -1, -1, -1, -1]
+toLayer3: scheduling arrival on other side
+SR B_input: sent cumulative ACK for 5
+
+EVENT time: 472.20816675313574  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 5  checksum: 4  payload:   sack: [-1, -1, -1, -1, -1]
+stopTimer: stopping timer at 472.20816675313574
+SR A_input: cumulative ACK moved window from 5 to 6
+
+EVENT time: 620.9906308175908  type: 1  entity: 0
+generateNextArrival(): called
+generateNextArrival(): time is 620.9906308175908
+generateNextArrival(): future time for event 1 at entity 0 will be 734.4401379436628
+A_output: got message from layer 5: gggggggggggggggggggg
+toLayer3: seqnum: 6  acknum: -1  checksum: 2065  payload: gggggggggggggggggggg  sack: [-1, -1, -1, -1, -1]
+toLayer3: scheduling arrival on other side
+stopTimer: stopping timer at 620.9906308175908
+stopTimer: Warning: Unable to cancel your timer
+startTimer: starting timer at 620.9906308175908
+SR A_output: sent packet 6
+
+EVENT time: 626.7434614093447  type: 2  entity: 1
+B_input: got packet seqnum: 6  acknum: -1  checksum: 2065  payload: gggggggggggggggggggg  sack: [-1, -1, -1, -1, -1]
+SR B_input: delivered packet(s), new expected = 7
+toLayer3: seqnum: -1  acknum: 6  checksum: 5  payload:   sack: [-1, -1, -1, -1, -1]
+toLayer3: scheduling arrival on other side
+SR B_input: sent cumulative ACK for 6
+
+EVENT time: 631.6665242469558  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 6  checksum: 5  payload:   sack: [-1, -1, -1, -1, -1]
+stopTimer: stopping timer at 631.6665242469558
+SR A_input: cumulative ACK moved window from 6 to 7
+
+EVENT time: 734.4401379436628  type: 1  entity: 0
+generateNextArrival(): called
+generateNextArrival(): time is 734.4401379436628
+generateNextArrival(): future time for event 1 at entity 0 will be 813.6844996490371
+A_output: got message from layer 5: hhhhhhhhhhhhhhhhhhhh
+toLayer3: seqnum: 7  acknum: -1  checksum: 2086  payload: hhhhhhhhhhhhhhhhhhhh  sack: [-1, -1, -1, -1, -1]
+toLayer3: scheduling arrival on other side
+stopTimer: stopping timer at 734.4401379436628
+stopTimer: Warning: Unable to cancel your timer
+startTimer: starting timer at 734.4401379436628
+SR A_output: sent packet 7
+
+EVENT time: 738.4622943815424  type: 2  entity: 1
+B_input: got packet seqnum: 7  acknum: -1  checksum: 2086  payload: hhhhhhhhhhhhhhhhhhhh  sack: [-1, -1, -1, -1, -1]
+SR B_input: delivered packet(s), new expected = 8
+toLayer3: seqnum: -1  acknum: 7  checksum: 6  payload:   sack: [-1, -1, -1, -1, -1]
+toLayer3: scheduling arrival on other side
+SR B_input: sent cumulative ACK for 7
+
+EVENT time: 746.896969512009  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 7  checksum: 6  payload:   sack: [-1, -1, -1, -1, -1]
+stopTimer: stopping timer at 746.896969512009
+SR A_input: cumulative ACK moved window from 7 to 8
+
+EVENT time: 813.6844996490371  type: 1  entity: 0
+generateNextArrival(): called
+generateNextArrival(): time is 813.6844996490371
+generateNextArrival(): future time for event 1 at entity 0 will be 900.5645924253059
+A_output: got message from layer 5: iiiiiiiiiiiiiiiiiiii
+toLayer3: seqnum: 8  acknum: -1  checksum: 2107  payload: iiiiiiiiiiiiiiiiiiii  sack: [-1, -1, -1, -1, -1]
+toLayer3: scheduling arrival on other side
+stopTimer: stopping timer at 813.6844996490371
+stopTimer: Warning: Unable to cancel your timer
+startTimer: starting timer at 813.6844996490371
+SR A_output: sent packet 8
+
+EVENT time: 821.0702230903042  type: 2  entity: 1
+B_input: got packet seqnum: 8  acknum: -1  checksum: 2107  payload: iiiiiiiiiiiiiiiiiiii  sack: [-1, -1, -1, -1, -1]
+SR B_input: delivered packet(s), new expected = 9
+toLayer3: seqnum: -1  acknum: 8  checksum: 7  payload:   sack: [-1, -1, -1, -1, -1]
+toLayer3: scheduling arrival on other side
+SR B_input: sent cumulative ACK for 8
+
+EVENT time: 828.2274239326151  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 8  checksum: 7  payload:   sack: [-1, -1, -1, -1, -1]
+stopTimer: stopping timer at 828.2274239326151
+SR A_input: cumulative ACK moved window from 8 to 9
+
+EVENT time: 900.5645924253059  type: 1  entity: 0
+generateNextArrival(): called
+generateNextArrival(): time is 900.5645924253059
+generateNextArrival(): future time for event 1 at entity 0 will be 933.4574419385357
+A_output: got message from layer 5: jjjjjjjjjjjjjjjjjjjj
+toLayer3: seqnum: 9  acknum: -1  checksum: 2128  payload: jjjjjjjjjjjjjjjjjjjj  sack: [-1, -1, -1, -1, -1]
+toLayer3: scheduling arrival on other side
+stopTimer: stopping timer at 900.5645924253059
+stopTimer: Warning: Unable to cancel your timer
+startTimer: starting timer at 900.5645924253059
+SR A_output: sent packet 9
+
+EVENT time: 901.9991149632252  type: 2  entity: 1
+B_input: got packet seqnum: 9  acknum: -1  checksum: 2128  payload: jjjjjjjjjjjjjjjjjjjj  sack: [-1, -1, -1, -1, -1]
+SR B_input: delivered packet(s), new expected = 10
+toLayer3: seqnum: -1  acknum: 9  checksum: 8  payload:   sack: [-1, -1, -1, -1, -1]
+toLayer3: scheduling arrival on other side
+SR B_input: sent cumulative ACK for 9
+
+EVENT time: 910.0868861964782  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 9  checksum: 8  payload:   sack: [-1, -1, -1, -1, -1]
+stopTimer: stopping timer at 910.0868861964782
+SR A_input: cumulative ACK moved window from 9 to 10
+
+EVENT time: 933.4574419385357  type: 1  entity: 0
+generateNextArrival(): called
+generateNextArrival(): time is 933.4574419385357
+generateNextArrival(): future time for event 1 at entity 0 will be 1109.1158787804802
+A_output: got message from layer 5: kkkkkkkkkkkkkkkkkkkk
+toLayer3: seqnum: 10  acknum: -1  checksum: 2149  payload: kkkkkkkkkkkkkkkkkkkk  sack: [-1, -1, -1, -1, -1]
+toLayer3: scheduling arrival on other side
+stopTimer: stopping timer at 933.4574419385357
+stopTimer: Warning: Unable to cancel your timer
+startTimer: starting timer at 933.4574419385357
+SR A_output: sent packet 10
+
+EVENT time: 937.5191503646962  type: 2  entity: 1
+B_input: got packet seqnum: 10  acknum: -1  checksum: 2149  payload: kkkkkkkkkkkkkkkkkkkk  sack: [-1, -1, -1, -1, -1]
+SR B_input: delivered packet(s), new expected = 11
+toLayer3: seqnum: -1  acknum: 10  checksum: 9  payload:   sack: [-1, -1, -1, -1, -1]
+toLayer3: scheduling arrival on other side
+SR B_input: sent cumulative ACK for 10
+
+EVENT time: 939.1088595233009  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 10  checksum: 9  payload:   sack: [-1, -1, -1, -1, -1]
+stopTimer: stopping timer at 939.1088595233009
+SR A_input: cumulative ACK moved window from 10 to 11
+
+EVENT time: 1109.1158787804802  type: 1  entity: 0
+generateNextArrival(): called
+generateNextArrival(): time is 1109.1158787804802
+generateNextArrival(): future time for event 1 at entity 0 will be 1135.709707937864
+A_output: got message from layer 5: llllllllllllllllllll
+toLayer3: seqnum: 11  acknum: -1  checksum: 2170  payload: llllllllllllllllllll  sack: [-1, -1, -1, -1, -1]
+toLayer3: scheduling arrival on other side
+stopTimer: stopping timer at 1109.1158787804802
+stopTimer: Warning: Unable to cancel your timer
+startTimer: starting timer at 1109.1158787804802
+SR A_output: sent packet 11
+
+EVENT time: 1113.0224005859552  type: 2  entity: 1
+B_input: got packet seqnum: 11  acknum: -1  checksum: 2170  payload: llllllllllllllllllll  sack: [-1, -1, -1, -1, -1]
+SR B_input: delivered packet(s), new expected = 12
+toLayer3: seqnum: -1  acknum: 11  checksum: 10  payload:   sack: [-1, -1, -1, -1, -1]
+toLayer3: scheduling arrival on other side
+SR B_input: sent cumulative ACK for 11
+
+EVENT time: 1116.5713064973904  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 11  checksum: 10  payload:   sack: [-1, -1, -1, -1, -1]
+stopTimer: stopping timer at 1116.5713064973904
+SR A_input: cumulative ACK moved window from 11 to 12
+
+EVENT time: 1135.709707937864  type: 1  entity: 0
+generateNextArrival(): called
+generateNextArrival(): time is 1135.709707937864
+generateNextArrival(): future time for event 1 at entity 0 will be 1335.1664784691914
+A_output: got message from layer 5: mmmmmmmmmmmmmmmmmmmm
+toLayer3: seqnum: 12  acknum: -1  checksum: 2191  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+toLayer3: packet being lost
+stopTimer: stopping timer at 1135.709707937864
+stopTimer: Warning: Unable to cancel your timer
+startTimer: starting timer at 1135.709707937864
+SR A_output: sent packet 12
+
+EVENT time: 1165.709707937864  type: 0  entity: 0
+A_timerinterrupt: timer expired
+toLayer3: seqnum: 12  acknum: -1  checksum: 2191  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+toLayer3: scheduling arrival on other side
+startTimer: starting timer at 1165.709707937864
+SR timeout: retransmitting packet 12
+
+EVENT time: 1175.2658467360452  type: 2  entity: 1
+B_input: got packet seqnum: 12  acknum: -1  checksum: 2191  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+SR B_input: delivered packet(s), new expected = 13
+toLayer3: seqnum: -1  acknum: 12  checksum: 11  payload:   sack: [-1, -1, -1, -1, -1]
+toLayer3: packet being corrupted
+toLayer3: scheduling arrival on other side
+SR B_input: sent cumulative ACK for 12
+
+EVENT time: 1177.9171422467725  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 12  checksum: 11  payload: ?  sack: [-1, -1, -1, -1, -1]
+A_input: packet corrupted
+
+EVENT time: 1195.709707937864  type: 0  entity: 0
+A_timerinterrupt: timer expired
+toLayer3: seqnum: 12  acknum: -1  checksum: 2191  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+toLayer3: scheduling arrival on other side
+startTimer: starting timer at 1195.709707937864
+SR timeout: retransmitting packet 12
+
+EVENT time: 1200.0936002685626  type: 2  entity: 1
+B_input: got packet seqnum: 12  acknum: -1  checksum: 2191  payload: mmmmmmmmmmmmmmmmmmmm  sack: [-1, -1, -1, -1, -1]
+toLayer3: seqnum: -1  acknum: 12  checksum: 11  payload:   sack: [-1, -1, -1, -1, -1]
+toLayer3: scheduling arrival on other side
+SR B_input: sent cumulative ACK for 12
+
+EVENT time: 1209.7887203588973  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 12  checksum: 11  payload:   sack: [-1, -1, -1, -1, -1]
+stopTimer: stopping timer at 1209.7887203588973
+SR A_input: cumulative ACK moved window from 12 to 13
+
+EVENT time: 1335.1664784691914  type: 1  entity: 0
+generateNextArrival(): called
+generateNextArrival(): time is 1335.1664784691914
+generateNextArrival(): future time for event 1 at entity 0 will be 1352.8000732444225
+A_output: got message from layer 5: nnnnnnnnnnnnnnnnnnnn
+toLayer3: seqnum: 13  acknum: -1  checksum: 2212  payload: nnnnnnnnnnnnnnnnnnnn  sack: [-1, -1, -1, -1, -1]
+toLayer3: scheduling arrival on other side
+stopTimer: stopping timer at 1335.1664784691914
+stopTimer: Warning: Unable to cancel your timer
+startTimer: starting timer at 1335.1664784691914
+SR A_output: sent packet 13
+
+EVENT time: 1342.8216498306222  type: 2  entity: 1
+B_input: got packet seqnum: 13  acknum: -1  checksum: 2212  payload: nnnnnnnnnnnnnnnnnnnn  sack: [-1, -1, -1, -1, -1]
+SR B_input: delivered packet(s), new expected = 14
+toLayer3: seqnum: -1  acknum: 13  checksum: 12  payload:   sack: [-1, -1, -1, -1, -1]
+toLayer3: scheduling arrival on other side
+SR B_input: sent cumulative ACK for 13
+
+EVENT time: 1345.0348521378214  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 13  checksum: 12  payload:   sack: [-1, -1, -1, -1, -1]
+stopTimer: stopping timer at 1345.0348521378214
+SR A_input: cumulative ACK moved window from 13 to 14
+
+EVENT time: 1352.8000732444225  type: 1  entity: 0
+generateNextArrival(): called
+generateNextArrival(): time is 1352.8000732444225
+generateNextArrival(): future time for event 1 at entity 0 will be 1360.1184118167666
+A_output: got message from layer 5: oooooooooooooooooooo
+toLayer3: seqnum: 14  acknum: -1  checksum: 2233  payload: oooooooooooooooooooo  sack: [-1, -1, -1, -1, -1]
+toLayer3: scheduling arrival on other side
+stopTimer: stopping timer at 1352.8000732444225
+stopTimer: Warning: Unable to cancel your timer
+startTimer: starting timer at 1352.8000732444225
+SR A_output: sent packet 14
+
+EVENT time: 1360.1184118167666  type: 1  entity: 0
+generateNextArrival(): called
+generateNextArrival(): time is 1360.1184118167666
+generateNextArrival(): future time for event 1 at entity 0 will be 1536.1491744743184
+A_output: got message from layer 5: pppppppppppppppppppp
+toLayer3: seqnum: 15  acknum: -1  checksum: 2254  payload: pppppppppppppppppppp  sack: [-1, -1, -1, -1, -1]
+toLayer3: scheduling arrival on other side
+SR A_output: sent packet 15
+
+EVENT time: 1361.7011322367014  type: 2  entity: 1
+B_input: got packet seqnum: 14  acknum: -1  checksum: 2233  payload: oooooooooooooooooooo  sack: [-1, -1, -1, -1, -1]
+SR B_input: delivered packet(s), new expected = 15
+toLayer3: seqnum: -1  acknum: 14  checksum: 13  payload:   sack: [-1, -1, -1, -1, -1]
+toLayer3: packet being corrupted
+toLayer3: scheduling arrival on other side
+SR B_input: sent cumulative ACK for 14
+
+EVENT time: 1371.2135990478223  type: 2  entity: 1
+B_input: got packet seqnum: 15  acknum: -1  checksum: 2254  payload: pppppppppppppppppppp  sack: [-1, -1, -1, -1, -1]
+SR B_input: delivered packet(s), new expected = 0
+toLayer3: seqnum: -1  acknum: 15  checksum: 14  payload:   sack: [-1, -1, -1, -1, -1]
+toLayer3: scheduling arrival on other side
+SR B_input: sent cumulative ACK for 15
+
+EVENT time: 1371.615710928678  type: 2  entity: 0
+A_input: got packet seqnum: 999999  acknum: 14  checksum: 13  payload:   sack: [-1, -1, -1, -1, -1]
+A_input: packet corrupted
+
+EVENT time: 1379.946287423322  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 15  checksum: 14  payload:   sack: [-1, -1, -1, -1, -1]
+stopTimer: stopping timer at 1379.946287423322
+SR A_input: cumulative ACK moved window from 14 to 0
+
+EVENT time: 1536.1491744743184  type: 1  entity: 0
+generateNextArrival(): called
+generateNextArrival(): time is 1536.1491744743184
+generateNextArrival(): future time for event 1 at entity 0 will be 1664.949491866817
+A_output: got message from layer 5: qqqqqqqqqqqqqqqqqqqq
+toLayer3: seqnum: 0  acknum: -1  checksum: 2259  payload: qqqqqqqqqqqqqqqqqqqq  sack: [-1, -1, -1, -1, -1]
+toLayer3: scheduling arrival on other side
+stopTimer: stopping timer at 1536.1491744743184
+stopTimer: Warning: Unable to cancel your timer
+startTimer: starting timer at 1536.1491744743184
+SR A_output: sent packet 0
+
+EVENT time: 1543.5684072389902  type: 2  entity: 1
+B_input: got packet seqnum: 0  acknum: -1  checksum: 2259  payload: qqqqqqqqqqqqqqqqqqqq  sack: [-1, -1, -1, -1, -1]
+SR B_input: delivered packet(s), new expected = 1
+toLayer3: seqnum: -1  acknum: 0  checksum: 65535  payload:   sack: [-1, -1, -1, -1, -1]
+toLayer3: scheduling arrival on other side
+SR B_input: sent cumulative ACK for 0
+
+EVENT time: 1553.166844691305  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 0  checksum: 65535  payload:   sack: [-1, -1, -1, -1, -1]
+stopTimer: stopping timer at 1553.166844691305
+SR A_input: cumulative ACK moved window from 0 to 1
+
+EVENT time: 1664.949491866817  type: 1  entity: 0
+generateNextArrival(): called
+generateNextArrival(): time is 1664.949491866817
+generateNextArrival(): future time for event 1 at entity 0 will be 1709.0060121463666
+A_output: got message from layer 5: rrrrrrrrrrrrrrrrrrrr
+toLayer3: seqnum: 1  acknum: -1  checksum: 2280  payload: rrrrrrrrrrrrrrrrrrrr  sack: [-1, -1, -1, -1, -1]
+toLayer3: scheduling arrival on other side
+stopTimer: stopping timer at 1664.949491866817
+stopTimer: Warning: Unable to cancel your timer
+startTimer: starting timer at 1664.949491866817
+SR A_output: sent packet 1
+
+EVENT time: 1668.869747001556  type: 2  entity: 1
+B_input: got packet seqnum: 1  acknum: -1  checksum: 2280  payload: rrrrrrrrrrrrrrrrrrrr  sack: [-1, -1, -1, -1, -1]
+SR B_input: delivered packet(s), new expected = 2
+toLayer3: seqnum: -1  acknum: 1  checksum: 0  payload:   sack: [-1, -1, -1, -1, -1]
+toLayer3: scheduling arrival on other side
+SR B_input: sent cumulative ACK for 1
+
+EVENT time: 1670.989562669759  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 1  checksum: 0  payload:   sack: [-1, -1, -1, -1, -1]
+stopTimer: stopping timer at 1670.989562669759
+SR A_input: cumulative ACK moved window from 1 to 2
+
+EVENT time: 1709.0060121463666  type: 1  entity: 0
+generateNextArrival(): called
+generateNextArrival(): time is 1709.0060121463666
+generateNextArrival(): future time for event 1 at entity 0 will be 1754.4114505447553
+A_output: got message from layer 5: ssssssssssssssssssss
+toLayer3: seqnum: 2  acknum: -1  checksum: 2301  payload: ssssssssssssssssssss  sack: [-1, -1, -1, -1, -1]
+toLayer3: scheduling arrival on other side
+stopTimer: stopping timer at 1709.0060121463666
+stopTimer: Warning: Unable to cancel your timer
+startTimer: starting timer at 1709.0060121463666
+SR A_output: sent packet 2
+
+EVENT time: 1712.7911313211462  type: 2  entity: 1
+B_input: got packet seqnum: 2  acknum: -1  checksum: 2301  payload: ssssssssssssssssssss  sack: [-1, -1, -1, -1, -1]
+SR B_input: delivered packet(s), new expected = 3
+toLayer3: seqnum: -1  acknum: 2  checksum: 1  payload:   sack: [-1, -1, -1, -1, -1]
+toLayer3: scheduling arrival on other side
+SR B_input: sent cumulative ACK for 2
+
+EVENT time: 1718.0149540696432  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 2  checksum: 1  payload:   sack: [-1, -1, -1, -1, -1]
+stopTimer: stopping timer at 1718.0149540696432
+SR A_input: cumulative ACK moved window from 2 to 3
+
+EVENT time: 1754.4114505447553  type: 1  entity: 0
+generateNextArrival(): called
+generateNextArrival(): time is 1754.4114505447553
+generateNextArrival(): future time for event 1 at entity 0 will be 1812.2501297036652
+A_output: got message from layer 5: tttttttttttttttttttt
+toLayer3: seqnum: 3  acknum: -1  checksum: 2322  payload: tttttttttttttttttttt  sack: [-1, -1, -1, -1, -1]
+toLayer3: scheduling arrival on other side
+stopTimer: stopping timer at 1754.4114505447553
+stopTimer: Warning: Unable to cancel your timer
+startTimer: starting timer at 1754.4114505447553
+SR A_output: sent packet 3
+
+EVENT time: 1761.0629902035585  type: 2  entity: 1
+B_input: got packet seqnum: 3  acknum: -1  checksum: 2322  payload: tttttttttttttttttttt  sack: [-1, -1, -1, -1, -1]
+SR B_input: delivered packet(s), new expected = 4
+toLayer3: seqnum: -1  acknum: 3  checksum: 2  payload:   sack: [-1, -1, -1, -1, -1]
+toLayer3: scheduling arrival on other side
+SR B_input: sent cumulative ACK for 3
+
+EVENT time: 1762.5612353892636  type: 2  entity: 0
+A_input: got packet seqnum: -1  acknum: 3  checksum: 2  payload:   sack: [-1, -1, -1, -1, -1]
+stopTimer: stopping timer at 1762.5612353892636
+SR A_input: cumulative ACK moved window from 3 to 4
+
+EVENT time: 1812.2501297036652  type: 1  entity: 0
+generateNextArrival(): called
+generateNextArrival(): time is 1812.2501297036652
+generateNextArrival(): future time for event 1 at entity 0 will be 1861.1285744804222
+Simulator terminated at time 1812.2501297036652
+
+
+===============STATISTICS=======================
+Protocol: Selective Repeat
+Number of original packets transmitted by A: 20
+Number of retransmissions by A: 6
+Number of data packets delivered to layer 5 at B: 20
+Number of ACK packets sent by B: 23
+Number of corrupted packets: 4
+Ratio of lost packets: 0.040816
+Ratio of corrupted packets: 0.085106
+Average RTT: 11.5893
+Average communication time: 21.7056
+==================================================
+
+EXTRA STATISTICS:
+Total simulation time: 1812.2501
+Throughput: 0.61 bytes/time unit
+Goodput: 0.22 bytes/time unit
+Average packet delay: 21.7056
+==================================================
